@@ -1,0 +1,85 @@
+<p id="notice"><%= notice %></p>
+<h1>Computer Details</h1>
+
+<table cellpadding="5" cellspacing="0" border="1">
+  <tr>
+   <td>id:</td>
+   <td><%= @computer.id %></td>
+</tr>  
+<tr>
+   <td>Name (English):</td>
+   <td><%= @computer.computer_name_en %></td>
+</tr>
+ <tr>
+    <td>Name (Japanese):</td>
+    <td><%= @computer.computer_name_jp %></td>
+</tr>
+ <tr>
+    <td>JLIP ID:</td>
+    <td><%= @computer.computer_jbbp_id %></td>
+ </tr>
+ <tr>
+    <td>Model:</td>
+    <td><%= @computer.computer_model %></td>
+ </tr>
+<tr>
+    <td>OS Version:</td>
+    <td><%= @computer.computer_os_version %></td>
+ </tr>
+ <tr>
+    <td>Serial Number:</td>
+    <td><%= @computer.computer_serial_number %></td>
+ </tr>
+  <tr>
+    <td>Memory:</td>
+    <td><%= @computer.computer_memory %></td>
+ </tr>
+  <tr>
+    <td>Purchase Date:</td>
+    <td><%= @computer.computer_year_acquired %></td>
+  </tr>
+  <tr>
+    <td>Warrenty Expires:</td>
+    <td><%= @computer.computer_warrenty_expires %></td>
+  </tr>
+  <tr>
+    <td>Status:</td>
+    <td><%= @computer.computer_status %></td>
+  </tr>
+</table>
+
+<h2>Battery Info</h2>
+<%= render @computer.batteries %>
+
+<%  unless !@computer.batteries.empty? %>
+
+<h2>No Battery Present - Add a new Battery:</h2>
+<%= form_for([@computer, @computer.batteries.build]) do |f| %>
+<div class="field">
+  <%= f.label :battery_jbbp_id %><br />
+  <%= f.text_field :battery_jbbp_id %>
+</div>
+<div class="field">
+  <%= f.label :battery_model %><br />
+  <%= f.text_field :battery_model %>
+</div>
+<div class="field">
+  <%= f.label :battery_serial_number %><br />
+  <%= f.text_field :battery_serial_number %>
+</div>
+ <div class="field">
+   <%= f.label :battery_status %><br />
+   <%= f.select :battery_status, [['Good','Good'],['Weak','Weak'],['Not Working','Not Working'],['Retired','Retired']] %>
+ </div>
+<div class="field">
+ <%= f.label :computer_id %><br />
+ <%= f.text_field :computer_id %>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>
+<% end %>
+
+<%= link_to 'Edit Computer', edit_computer_path(@computer) %> |
+<%= link_to 'Back to Computers', computers_path %>

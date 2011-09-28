@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %> <%= controller.action_name %></title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body id="computers">
+  <div id="banner">
+    <%= image_tag("jbbp.png", :size => "64x64") %>
+    <%= @page_title || "Rosa Parks JBBP Macintosh Database" %>
+  </div>
+  <div id="columns">
+    <div id= "side">
+      <h1> Navigate <h1>
+      <p><%= link_to 'Computers', computers_path %></p>
+      <p><%= link_to 'Batteries', batteries_path %></p>
+      <p><%= link_to 'About', about_path %></p>
+      <p><%= link_to 'Contact', contact_path %></p>
+  </div>
+    <div id="main">
+      <%= yield %>
+    </div>
+  </div> 
+</body>
+<footer>
+<h1>(c) 2011 Alex Deacon</h1>
+<%= debug(params) if Rails.env.development? %>
+</footer>
+</html>

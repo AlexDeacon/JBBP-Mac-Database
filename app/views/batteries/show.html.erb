@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1> Battery: <%= @battery.battery_jbbp_id %> </h1>
+<table cellpadding="5" cellspacing="0">
+<tr>
+  <td><b>id:</b></td>
+  <td><%= @battery.id %></td>
+</tr>
+<tr>
+  <td><b>JLIP ID:</b></td>
+  <td><%= @battery.battery_jbbp_id %></td>
+</tr>
+<tr>
+  <td><b>Model:</b></td>
+  <td><%= @battery.battery_model %></td>
+</tr>
+<tr>
+  <td><b>Serial Number:</b></td>
+  <td><%= @battery.battery_serial_number %></td>
+</tr>
+<tr>
+ <td><b>Battery status:</b></td>
+ <td><%= @battery.battery_status %></td>
+</tr>
+<tr>
+ <td><b>Belongs to Computer (JBBP ID):</b></td>
+ <td>
+  <%= Computer.find_by_id(@battery.computer_id).computer_name_en rescue nil %>
+ (<%= Computer.find_by_id(@battery.computer_id).computer_jbbp_id rescue nil %>)
+</td>
+ 
+</tr>
+</table>
+
+<%= link_to 'Edit', edit_battery_path(@battery) %> |
+<%= link_to 'Back', batteries_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  battery_serial_number: MyString
+  battery_jbbp_id: MyString
+  battery_model: MyString
+  battery_status: MyText
+
+two:
+  battery_serial_number: MyString
+  battery_jbbp_id: MyString
+  battery_model: MyString
+  battery_status: MyText

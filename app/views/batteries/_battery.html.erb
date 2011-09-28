@@ -1,0 +1,37 @@
+<h1> Battery: <%= battery.battery_jbbp_id %> </h1>
+<table cellpadding="5" cellspacing="0">
+<tr>
+  <td><b>id</b></td>
+  <td><%= battery.id %></td>
+</tr>
+<tr>
+  <td><b>JLIP ID:</b></td>
+  <td><%= battery.battery_jbbp_id %></td>
+</tr>
+<tr>
+  <td><b>Model:</b></td>
+  <td><%= battery.battery_model %></td>
+</tr>
+<tr>
+  <td><b>Serial Number:</b></td>
+  <td><%= battery.battery_serial_number %></td>
+</tr>
+<tr>
+ <td><b>Battery status:</b></td>
+ <td><%= battery.battery_status %></td>
+</tr>
+<tr>
+ <td><b>Belongs to Computer:</b></td>
+ <td><%= battery.computer_id %></td>
+</tr>
+</table>
+
+<p>
+<%= link_to 'Remove this battery from computer', 
+          battery_path(battery.id, 
+                    :battery => { :computer_id => 'nil'}),
+          :confirm => 'Are you sure you want to remove this battery from this computer?',
+          :method => :put 
+%>
+</p>
+

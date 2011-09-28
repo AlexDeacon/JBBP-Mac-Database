@@ -1,0 +1,35 @@
+<div id="computer-list">
+<h1>Listing Batteries</h1>
+
+<table cellpadding="5" cellspacing="0" border="1">
+  <tr>
+    <th>id</th>
+    <th>JLIP ID</th>
+    <th>Model</th>
+    <th>Serial Number</th>
+    <th>Status</th>
+    <th>Belongs to Computer</th>
+    <th></th>
+ </tr>
+
+<% @batteries.each do |battery| %>
+  <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even')  %>">
+    <td><%= battery.id %></td>
+    <td><%= battery.battery_jbbp_id %></td>
+    <td><%= battery.battery_model %></td>
+    <td><%= battery.battery_serial_number %></td>
+    <td><%= battery.battery_status %></td>
+    <td><!-- <%= battery.computer %> -->
+       <%= Computer.find_by_id(battery.computer_id).computer_name_en rescue nil%>
+    </td>
+    <td class="list-actions"><%= link_to 'Show', battery %>
+    <%= link_to 'Edit', edit_battery_path(battery) %>
+    <%= link_to 'Delete', battery, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New Battery', new_battery_path %>
+

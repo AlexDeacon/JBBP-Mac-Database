@@ -1,0 +1,40 @@
+<%= form_for(@battery) do |f| %>
+  <% if @battery.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@battery.errors.count, "error") %> prohibited this battery from being saved:</h2>
+
+      <ul>
+      <% @battery.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :battery_jbbp_id %><br />
+    <%= f.text_field :battery_jbbp_id %>
+  </div>
+  <div class="field">
+    <%= f.label :battery_model %><br />
+    <%= f.text_field :battery_model %>
+  </div>
+  <div class="field">
+    <%= f.label :battery_serial_number %><br />
+    <%= f.text_field :battery_serial_number %>
+  </div>
+ <div class="field">
+   <%= f.label :battery_status %><br />
+    <%= f.select :battery_status, [['Good','Good'],['Weak','Weak'],['Not Working','Not Working'],['Retired','Retired']] %>
+ </div>
+ <div class="field">
+   <%= f.label :computer_id %><br />
+   <%= @computer_list = Computer.find(:all, :order => "computer_jbbp_id") 
+           collection_select(:battery, :computer_id, Computer.all, :id, :computer_name_en, {:prompt => true, :include_blank => '<Remove>'})
+   %>
+ <!-- <%= f.text_field :computer_id %> -->
+ </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  computer_name_en: MyString
+  computer_name_jp: MyString
+  computer_model: MyString
+  computer_serial_number: MyString
+  computer_jbbp_id: MyString
+  computer_os_version: MyString
+  computer_memory: 1
+  computer_year_acquired: 2011-09-23
+  computer_warrenty_expires: 2011-09-23
+  computer_status: MyString
+
+two:
+  computer_name_en: MyString
+  computer_name_jp: MyString
+  computer_model: MyString
+  computer_serial_number: MyString
+  computer_jbbp_id: MyString
+  computer_os_version: MyString
+  computer_memory: 1
+  computer_year_acquired: 2011-09-23
+  computer_warrenty_expires: 2011-09-23
+  computer_status: MyString
