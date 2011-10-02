@@ -1,8 +1,10 @@
 class ComputersController < ApplicationController
+  helper_method :sort_column, :sort_direction
+
   # GET /computers
   # GET /computers.json
   def index
-    @computers = Computer.all
+    @computers = Computer.order(params[:sort])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -79,5 +81,15 @@ class ComputersController < ApplicationController
       format.html { redirect_to computers_url }
       format.json { head :ok }
     end
+  end
+
+  private
+
+  def sort_column
+    Computer.column_names.include?(params[:sort]) ? params[:sort] : "computer_jbbp_id"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

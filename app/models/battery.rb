@@ -5,4 +5,5 @@ class Battery < ActiveRecord::Base
 
   validates :battery_serial_number, :presence => true, :uniqueness => :true
   validates :battery_jbbp_id, :presence => true, :uniqueness => :true
+  validates :computer_id, :uniqueness => :true
 end

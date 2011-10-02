@@ -2,7 +2,7 @@ class BatteriesController < ApplicationController
   # GET /batteries
   # GET /batteries.json
   def index
-    @batteries = Battery.all
+    @batteries = Battery.order(params[:sort])
 
     respond_to do |format|
       format.html # index.html.erb

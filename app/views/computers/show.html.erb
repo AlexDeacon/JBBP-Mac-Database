@@ -2,10 +2,10 @@
 <h1>Computer Details</h1>
 
 <table cellpadding="5" cellspacing="0" border="1">
-  <tr>
-   <td>id:</td>
-   <td><%= @computer.id %></td>
-</tr>  
+<!--  <tr> -->
+<!--   <td>id:</td>-->
+<!--  <td><%= @computer.id %></td>-->
+<!-- </tr>  -->
 <tr>
    <td>Name (English):</td>
    <td><%= @computer.computer_name_en %></td>
@@ -82,4 +82,5 @@
 <% end %>
 
 <%= link_to 'Edit Computer', edit_computer_path(@computer) %> |
+<%= link_to 'New Computer', new_computer_path %> |
 <%= link_to 'Back to Computers', computers_path %>

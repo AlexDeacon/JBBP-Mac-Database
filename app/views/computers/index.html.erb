@@ -1,44 +1,37 @@
 <div id="computer-list">
-<h1>Listing Computers</h1>
+  <h1>Listing Computers</h1>
 
-<table cellpadding="5" cellspacing="0" border="1">
-  <tr>
-    <th>id</th>
-    <th>Name (English)</th>
-<!--    <th>Name (Japanese)</th> -->
-    <th>JLIP ID</th>
-    <th>Model</th>
-<!--    <th>OS Version</th> -->
-<!--    <th>Serial Number</th> -->
-<!--   <th>Memory</th> -->
-<!--   <th>Purchase Date</th> -->
-<!--   <th>Warrenty Expires</th> -->
-    <th>Computer Status</th>
-    <th></th>
-    <th>Battery Info</th>
-  </tr>
+  <table cellpadding="5" cellspacing="0" border="1">
+    <tr>
+      <th><%= link_to "Name (English)", :sort => "computer_name_en" %></th>
+      <th><%= link_to "Name (Japanese)", :sort => "computer_name_jp" %></th>
+      <th><%= link_to "JBBP ID", :sort => "computer_jbbp_id" %></th>
+      <th><%= link_to "Model", :sort => "computer_model" %></th>
+      <th><%= link_to "Computer Status", :sort => "computer_status" %></th>
+      <th>Battery Info</th>
+      <th></th>
+    </tr>
+    <% for computer in @computers %>
+    <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>">
+      <td><%= computer.computer_name_en %></td>
+      <td><%= computer.computer_name_jp %></td>
+      <td><%= computer.computer_jbbp_id %></td>
+      <td><%= computer.computer_model %></td>
+      <td><%= computer.computer_status %></td>
+      <td>
+	<%= Battery.find_by_computer_id(computer.id).battery_jbbp_id rescue nil %>
+      </td>
+      <td class="list-actions">
+	<%= link_to 'Show', computer %>|
+	<%= link_to 'Edit', edit_computer_path(computer) %>|
+	<%= link_to 'Delete', computer, :confirm => 'Are you sure?',
+	:method => :delete %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+  <br />
+  <%= link_to 'New Computer', new_computer_path %>
 
-  <% @computers.each do |computer| %>
-  <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>">
-    <td><%= computer.id %></td>
-    <td><%= computer.computer_name_en %></td>
-<!--    <td><%= computer.computer_name_jp %></td> -->
-    <td><%= computer.computer_jbbp_id %></td>
-    <td><%= computer.computer_model %></td>
-<!--    <td><%= computer.computer_os_version %></td> -->
-<!--    <td><%= computer.computer_serial_number %></td> -->
-<!--    <td><%= computer.computer_memory %></td> -->
-<!--    <td><%= computer.computer_year_acquired %></td> -->
-<!--    <td><%= computer.computer_warrenty_expires %></td> -->
-    <td><%= computer.computer_status %></td>
-    <td class="list-actions"><%= link_to 'Show', computer %>|<%= link_to 'Edit', edit_computer_path(computer) %>|<%= link_to 'Delete', computer, :confirm => 'Are you sure?', :method => :delete %></td>
-    <td><!-- <%= computer.batteries %> -->
-       <%= Battery.find_by_computer_id(computer.id).battery_jbbp_id rescue nil%></td>
- </tr>
-  <% end %>
-</table>
 </div>
-<br />
-
-<%= link_to 'New Computer', new_computer_path %>
 

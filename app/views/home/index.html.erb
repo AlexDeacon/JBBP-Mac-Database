@@ -8,23 +8,97 @@
 <p>Todo
 
 <ol>
-  <li> <strike>Update Remove Battery from Computer so it doesn't delete the
-  battery but simply makes the foreign key null</strike></li>
-  <li> Deal with index and show views for batteries and computers when
-  battery info is nil</li>
-  <li> Add ability to add an existing battery to computer via a drop
-  down list on computer show view</li>
-  <li>When adding battery via pull down list, only add batteries that
-  are not associated with a computer to the list</li>
-  <li>Add filters to computer and battery lists based on status.
-  Default to "active" computers.</li>
-  <li>Add a reports page and a bunch of reports</li>
-  <li>Add Issues MVC</li>
-  <li>Add Users MVC</li>
-  <li>Add "login" functionality</li>
+  <li><b>batteries/show.html.erb:</b></li>
+  <ol>
+    <li><strike> Add "add another battery" to battery.show
+    page</strike></li>
+    <li>change status font/color for different statuses (green,
+   yellow, red)</li>
+  </ol>
+
+  <li><b>batteries/_form.html.erb</b></li>
+ <ol>
+    <li> sort the computer dropdown list on the "edit battery" page</li>
+    <li>When adding battery via pull down list, only add batteries that
+      are not associated with a computer to the list</li>
+  </ol> 
+
+  <li><b>batteries/index.html.erb</b></li>
+  <ol>
+    <li>Add "filters" to index based on status (single or
+      multiple)</li>
+    <li>change status font/color for different statuses (green,
+   yellow, red)</li>
+  </ol>
+
+  <li><b>computers/index.html.erb: </b></li>
+  <ol>
+    <li> Add "full list" for index.html.erb view for computers</li>
+    <li>on computer index page make battery info linkable to battery
+      show page</li>
+    <li>Add "filters" to index based on status (single or
+    multiple)</li>
+    <li>change status font/color for different statuses (green,
+   yellow, red)</li>
+  </ol>
+  
+  <li><b>computers/show.html.erb</b></li>
+  <ol>
+    <li> Add ability to add an existing battery to computer via a drop
+ down list on computer show view</li>
+    <li>change status font/color for different statuses (green,
+   yellow, red)</li>
+  </ol>
+
+
+  <li><b>CSS Updates</b></li>
+  <ol>
+    <li>Make dark blue/shiro/aka</li>
+    <li>Steal round buttons for links from the rails tutorial
+    book</li>
+  </ol>
+  
+  <li><b>JLIP Asset Tag View</b></li>
+  <ol>
+    <li>Create Asset Tag View to view all assets, batteries and
+    computers.</li>
+    <li>create "sort" links on index.html.erb</li>
+  </ol>
+
+  <li><b>Create Dashboard Pages</b></li>
+  <ol> 
+    <li># of computers working, number that
+      need to be plugged in and the number that have been retired.  List
+      names for all of them also.  </li>
+    <li>others?</li>
+  </ol>
+
+  <li><b>Create Search Pages</b></li>
+  <ol> 
+    <li> Search pages: battery by serial number and jlip, computer by
+      serial number and jlip. </li>
+  </ol>
+
+  <li><b>Add Notes/issues MVC</b></li>
+  <ol>
+      <li>Add "login" functionality</li>
+  </ol>
+  
+  <li><b>Add Users MVC</b></li>
   <li>Add logging functionality</li>  
   <li>Add tests</li>
-  <li>Add github support and run on hosted rails server</li>
+  <li>Add git and github support</li>
+  <li>Run on hosted rails server</li>
+</ol>
+
+
+  <li> Completed Tasks:</li>
+  <ol>
+    <li> <strike>Update Remove Battery from Computer so it doesn't delete the
+	battery but simply makes the foreign key null</strike></li>
+    <li><strike>Deal with index and show views for batteries and computers when
+	battery info is nil</strike></li>
+  </ol>
 </ol>
 
 <br \><br \><br \><br \><br \<br \>
