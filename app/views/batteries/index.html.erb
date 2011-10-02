@@ -4,10 +4,10 @@
 <table cellpadding="5" cellspacing="0" border="1">
   <tr>
 <!--    <th>id</th> -->
-    <th><%= link_to "JLIP ID", :sort => "battery_jbbp_id" %></th>
-    <th><%= link_to "Model", :sort => "battery_model" %></th>
-    <th><%= link_to "Serial Number", :sort => "battery_serial_number" %></th>
-    <th><%= link_to "Status", :sort => "battery_status" %></th>
+    <th><%= sortable  "battery_jbbp_id", "JLIP ID" %></th>
+    <th><%= sortable "battery_model", "Model" %></th>
+    <th><%= sortable "battery_serial_number", "Serial Number "%></th>
+    <th><%= sortable "battery_status", "Status" %></th>
     <th>Belongs to Computer</th>
     <th></th>
  </tr>

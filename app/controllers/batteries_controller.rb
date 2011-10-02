@@ -1,8 +1,10 @@
 class BatteriesController < ApplicationController
+  helper_method :sort_column, :sort_direction
   # GET /batteries
   # GET /batteries.json
   def index
-    @batteries = Battery.order(params[:sort])
+
+    @batteries = Battery.order(sort_column + ' ' + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,4 +82,18 @@ class BatteriesController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  private
+
+  def sort_column  
+    Battery.column_names.include?(params[:sort]) ? params[:sort] : "battery_jbbp_id"  
+  end  
+    
+  def sort_direction  
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"   
+
+  end 
+
+
 end
+

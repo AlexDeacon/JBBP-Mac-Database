@@ -3,11 +3,11 @@
 
   <table cellpadding="5" cellspacing="0" border="1">
     <tr>
-      <th><%= link_to "Name (English)", :sort => "computer_name_en" %></th>
-      <th><%= link_to "Name (Japanese)", :sort => "computer_name_jp" %></th>
-      <th><%= link_to "JBBP ID", :sort => "computer_jbbp_id" %></th>
-      <th><%= link_to "Model", :sort => "computer_model" %></th>
-      <th><%= link_to "Computer Status", :sort => "computer_status" %></th>
+      <th><%= sortable "computer_name_en", "Name (English)" %></th>
+      <th><%= sortable "computer_name_jp", "Name (Japanese)" %></th>
+      <th><%= sortable "computer_jbbp_id", "JBBP ID" %></th>
+      <th><%= sortable "computer_model", "Model" %></th>
+      <th><%= sortable "computer_status", "Computer Status" %></th>
       <th>Battery Info</th>
       <th></th>
     </tr>

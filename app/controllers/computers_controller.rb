@@ -4,7 +4,7 @@ class ComputersController < ApplicationController
   # GET /computers
   # GET /computers.json
   def index
-    @computers = Computer.order(params[:sort])
+    @computers = Computer.order(sort_column + ' ' + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -77,19 +77,19 @@ class ComputersController < ApplicationController
     @computer = Computer.find(params[:id])
     @computer.destroy
 
-    respond_to do |format|
-      format.html { redirect_to computers_url }
+    respond_to do |format|      format.html { redirect_to computers_url }
       format.json { head :ok }
     end
   end
 
   private
 
-  def sort_column
-    Computer.column_names.include?(params[:sort]) ? params[:sort] : "computer_jbbp_id"
-  end
-  
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-  end
+  def sort_column  
+    Computer.column_names.include?(params[:sort]) ? params[:sort] : "computer_jbbp_id"  
+  end  
+    
+  def sort_direction  
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"  
+  end 
+
 end
