@@ -16,6 +16,7 @@ background-color: #f0f0f0;
 font: bold smaller sans-serif;
 }
 /* END:notice */
+
 /* Styles for main page */
 #banner {
 background: #0099cc;
@@ -27,18 +28,22 @@ font: small-caps 50px/50px serif;
 color: #000080;
 text-align: center;
 }
+
 #banner img {
 float: left;
 }
+
 #columns {
 background: #9999ff;
 }
+
 #main {
 margin-left: 12em;
 padding-top: 4ex;
 padding-left: 2em;
 background: white;
 }
+
 #side {
 float: left;
 padding-top: 1em;
@@ -47,32 +52,39 @@ padding-bottom: 1em;
 width: 10em;
 background: #9999ff;
 }
+
 #side a {
 color: #00ffff;
 font-size: small;
 }
+
 h1 {
 font: 150% sans-serif;
 color: #226;
 border-bottom: 3px dotted #77d;
 }
+
 #computer-list .list-title {
 color: #244;
 font-weight: bold;
 font-size: larger;
 }
+
 #computer-list .list-one-sheet {
 width: 60px;
 height: 70px;
 }
+
 #computer-list .list-actions {
 font-size: x-small;
 text-align: right;
 padding-left: 1em;
 }
+
 #computer-list .list-line-even {
 background: #ffccff;
 }
+
 #computer-list .list-line-odd {
 background: #d0d0d0;
 }
@@ -84,9 +96,9 @@ background: #d0d0d0;
 }
 
 .pretty th .asc {
-  background-image: url(/images/up_arrow.gif);
+  background-image: url(/assets/small_up_arrow_icon.gif);
 }
 
 .pretty th .desc {
-  background-image: url(/images/down_arrow.gif);
+  background-image: url(/assets/small_down_arrow_icon.gif);
 }

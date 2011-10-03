@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
+ <div class="field">
     <%= f.label :battery_jbbp_id %><br />
     <%= f.text_field :battery_jbbp_id %>
   </div>
@@ -29,10 +29,12 @@
  </div>
  <div class="field">
    <%= f.label :computer_id %><br />
-   <%= @computer_list = Computer.find(:all, :order => "computer_jbbp_id") 
-           collection_select(:battery, :computer_id, Computer.all, :id, :computer_name_en, {:prompt => true, :include_blank => '<Remove>'})
+   <%= @computer_list = Computer.find(:all, :order => "computer_jbbp_id")
+          collection_select(:battery, :computer_id, Computer.all, :id, :computer_name_en, {:prompt => true, :include_blank => '<Remove>'})
    %>
  <!-- <%= f.text_field :computer_id %> -->
+
+
  </div>
   <div class="actions">
     <%= f.submit %>

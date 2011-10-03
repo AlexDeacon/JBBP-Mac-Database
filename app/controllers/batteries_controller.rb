@@ -3,8 +3,11 @@ class BatteriesController < ApplicationController
   # GET /batteries
   # GET /batteries.json
   def index
-
+#    @filtered_batteries = Battery.where("battery_status = ?", params[:filter])
+#    @batteries = @filtered_batteries.order(sort_column + ' ' + sort_direction)
     @batteries = Battery.order(sort_column + ' ' + sort_direction)
+
+
 
     respond_to do |format|
       format.html # index.html.erb

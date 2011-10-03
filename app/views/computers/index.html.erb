@@ -1,7 +1,11 @@
 <div id="computer-list">
-  <h1>Listing Computers</h1>
 
-  <table cellpadding="5" cellspacing="0" border="1">
+  <%= link_to "Toggle View", :view => "detailed" %>
+
+
+  <h1>Listing Computers - <%= params[:view] ?  "(Detailed View)" : "(Summary View)"  %></h1>
+
+  <table cellpadding="5" cellspacing="0" border="1" class="pretty">
     <tr>
       <th><%= sortable "computer_name_en", "Name (English)" %></th>
       <th><%= sortable "computer_name_jp", "Name (Japanese)" %></th>
@@ -32,6 +36,7 @@
   </table>
   <br />
   <%= link_to 'New Computer', new_computer_path %>
-
+  <br \>
+ 
 </div>
 

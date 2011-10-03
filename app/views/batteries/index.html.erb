@@ -1,7 +1,10 @@
 <div id="computer-list">
 <h1>Listing Batteries</h1>
 
-<table cellpadding="5" cellspacing="0" border="1">
+<%= link_to "Good", :filter => "Good" %> | 
+<%= link_to "Detailed View", :view => "detailed" %>
+
+<table cellpadding="5" cellspacing="0" border="1" class="pretty">
   <tr>
 <!--    <th>id</th> -->
     <th><%= sortable  "battery_jbbp_id", "JLIP ID" %></th>
