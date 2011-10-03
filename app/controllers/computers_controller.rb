@@ -4,7 +4,12 @@ class ComputersController < ApplicationController
   # GET /computers
   # GET /computers.json
   def index
-    @computers = Computer.order(sort_column + ' ' + sort_direction)
+    if  !params[:filter].nil? && params[:filter] != "All"
+      @filtered_computers = Computer.where("computer_status = ?", params[:filter])
+      @computers = @filtered_computers.order(sort_column + ' ' + sort_direction)
+    else
+      @computers = Computer.order(sort_column + ' ' + sort_direction)
+    end
 
     respond_to do |format|
       format.html # index.html.erb

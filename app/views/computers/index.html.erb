@@ -1,7 +1,16 @@
 <div id="computer-list">
 
-  <%= link_to "Toggle View", :view => "detailed" %>
 
+<p class="filter-actions"><strong> Filter: </strong>
+  <%= link_to "All", :filter => "All" %> | 
+  <%= link_to "Good", :filter => "Good" %> | 
+  <%= link_to "Minor Issues", :filter => "Minor Issues" %> | 
+  <%= link_to "Not Working", :filter => "Not Working" %> | 
+  <%= link_to "Retired", :filter => "Retired" %>
+</p>
+<p class="filter-actions">
+ <%= link_to "Toggle View<tbd>", :view => "detailed" %>
+</p>
 
   <h1>Listing Computers - <%= params[:view] ?  "(Detailed View)" : "(Summary View)"  %></h1>
 

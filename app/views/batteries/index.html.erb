@@ -1,8 +1,13 @@
 <div id="computer-list">
 <h1>Listing Batteries</h1>
 
-<%= link_to "Good", :filter => "Good" %> | 
-<%= link_to "Detailed View", :view => "detailed" %>
+<p class="filter-actions"><strong> Filter: </strong>
+  <%= link_to "All", :filter => "All" %> | 
+  <%= link_to "Good", :filter => "Good" %> | 
+  <%= link_to "Weak", :filter => "Weak" %> | 
+  <%= link_to "Not Working", :filter => "Not Working" %> | 
+  <%= link_to "Retired", :filter => "Retired" %>
+</p>
 
 <table cellpadding="5" cellspacing="0" border="1" class="pretty">
   <tr>

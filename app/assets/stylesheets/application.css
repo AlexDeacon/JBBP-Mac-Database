@@ -81,6 +81,12 @@ text-align: right;
 padding-left: 1em;
 }
 
+#computer-list .filter-actions {
+font-size: x-small;
+text-align: left;
+padding-left: 1em;
+}
+
 #computer-list .list-line-even {
 background: #ffccff;
 }
