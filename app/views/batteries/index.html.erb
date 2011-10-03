@@ -26,7 +26,7 @@
     <td><%= battery.battery_jbbp_id %></td>
     <td><%= battery.battery_model %></td>
     <td><%= battery.battery_serial_number %></td>
-    <td><%= battery.battery_status %></td>
+    <td><b><%= format_status battery.battery_status %></b></td>
     <td><!-- <%= battery.computer %> -->
        <%= Computer.find_by_id(battery.computer_id).computer_name_en rescue nil%>
     </td>

@@ -23,4 +23,26 @@ module ApplicationHelper
     link_to title, {:sort => column, :direction => direction}, {:class => css_class}  
   end  
 
+
+  def format_status(status)
+    case status
+      when 'Good'
+      content_tag :font, status, :color => 'limegreen'
+    when 'Minor Issues'
+      content_tag :font, status, :color => 'orange'
+    when 'Weak'
+      content_tag :font, status, :color => 'orange'
+    when 'Not Working'
+      content_tag :font, status, :color => 'red'
+    when 'Retired'
+      content_tag :font, status, :color => 'black'
+    else
+      status
+    end
+  end
+
+
 end
+
+
+

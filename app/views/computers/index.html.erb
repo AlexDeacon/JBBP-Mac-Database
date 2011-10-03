@@ -30,7 +30,7 @@
       <td><%= computer.computer_name_jp %></td>
       <td><%= computer.computer_jbbp_id %></td>
       <td><%= computer.computer_model %></td>
-      <td><%= computer.computer_status %></td>
+      <td><strong><%= format_status computer.computer_status %></strong></td>
       <td>
 	<%= Battery.find_by_computer_id(computer.id).battery_jbbp_id rescue nil %>
       </td>
