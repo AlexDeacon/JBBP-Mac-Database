@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
+ <div class="field">
     <%= f.label 'Name (English)' %><br />
     <%= f.text_field :computer_name_en %>
   </div>
@@ -60,7 +60,7 @@
     <%= f.label 'Status' %><br />
     <%= f.select :computer_status, [['Good','Good'],['Minor Issues','Minor Issues'],['Not Working','Not Working'],['Retired','Retired']] %>
  </div>
- <div class="actions">
+<div class="actions">
     <%= f.submit %>
   </div>
 <% end %>

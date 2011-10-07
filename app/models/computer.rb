@@ -11,8 +11,8 @@ class Computer < ActiveRecord::Base
 
 
 # Scope Settings
-#  scope :good, where(:computer_status => 'Good')
-#  scope :minor_issues, where(:computer_status => 'Minor Issues')
-#  scope :not_working, where(:computer_status => 'Not Working')
-#  scope :retired, where(:computer_status => 'Retired')
+  scope :good, where(:computer_status => 'Good')
+  scope :minor_issues, where(:computer_status => 'Minor Issues')
+  scope :not_working, where(:computer_status => 'Not Working')
+  scope :retired, where(:computer_status => 'Retired')
 end

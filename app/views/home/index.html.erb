@@ -7,13 +7,22 @@
   batteries click the "Batteries" link.<p>
 <p>Todo
 
-<ol>
+  <li><b>batteries/index.html.erb</b></li>
+  <ol>
+    <li><strike>Enable column heading link to sort by asc/desc</strike></li>
+    <li><strike>Add "filters" to index based on status (single or
+      multiple)</strike></li>
+    <li><strike>change status font/color for different statuses (green,
+   yellow, red)</strike></li>
+    <li>get sort and filtering to work together</li>
+  </ol>
+
   <li><b>batteries/show.html.erb:</b></li>
   <ol>
     <li><strike> Add "add another battery" to battery.show
     page</strike></li>
-    <li>change status font/color for different statuses (green,
-   yellow, red)</li>
+    <li><strike>change status font/color for different statuses (green,
+   yellow, red)</strike></li>
   </ol>
 
   <li><b>batteries/_form.html.erb</b></li>
@@ -23,33 +32,34 @@
       are not associated with a computer to the list</li>
   </ol> 
 
-  <li><b>batteries/index.html.erb</b></li>
-  <ol>
-    <li><strike>Enable column heading link to sort by asc/desc</strike></li>
-    <li>Add "filters" to index based on status (single or
-      multiple)</li>
-    <li>change status font/color for different statuses (green,
-   yellow, red)</li>
-  </ol>
 
-  <li><b>computers/index.html.erb: </b></li>
+ <li><b>computers/index.html.erb: </b></li>
   <ol>
     <li><strike>Enable column heading link to sort by asc/desc</strike></li>
     <li> Add "full list" for index.html.erb view for computers</li>
-    <li>on computer index page make battery info linkable to battery
-      show page</li>
-    <li>Add "filters" to index based on status (single or
-    multiple)</li>
-    <li>change status font/color for different statuses (green,
-   yellow, red)</li>
+    <li><strike>on computer index page make battery info linkable to battery
+      show page</strike></li>
+    <li><strike>Add "filters" to index based on status (single or
+    multiple)</strike></li>
+    <li><strike>change status font/color for different statuses (green,
+   yellow, red)</strike></li>
+    <li>Use "scope" in computers.rb model to filter computers</li>
+    <li>Get sort and filtering to work together</li>
   </ol>
   
   <li><b>computers/show.html.erb</b></li>
   <ol>
-    <li> Add ability to add an existing battery to computer via a drop
- down list on computer show view</li>
-    <li>change status font/color for different statuses (green,
-   yellow, red)</li>
+   <li><strike>change status font/color for different statuses (green,
+   yellow, red)</strike></li>
+ </ol>
+
+  <li><b>computers/edit.html.erb (_form.html.erb</b></li>
+  <ol>
+    <li>When no battery is present add ability to add an existing battery to computer via a drop
+      down list on computer show view</li>
+    <li> When battery is present add ability to change it via a drop
+      down list</li>
+    <li>Fix "home/index" link....its not working on this page</li>
   </ol>
 
 
@@ -57,7 +67,7 @@
   <ol>
     <li>Make dark blue/shiro/aka</li>
     <li>Steal round buttons for links from the rails tutorial
-    book</li>
+      book</li>
   </ol>
   
   <li><b>JLIP Asset Tag View</b></li>
@@ -81,17 +91,25 @@
       serial number and jlip. </li>
   </ol>
 
-  <li><b>Add Notes/issues MVC</b></li>
+  <li><b>Add Notes and Support Ticket MVC</b></li>
   <ol>
-      <li>Add "login" functionality</li>
+      <li>todo</li>
   </ol>
   
   <li><b>Add Users MVC</b></li>
-  <li>Add logging functionality</li>  
-  <li>Add tests</li>
-  <li>Add git and github support</li>
-  <li>Run on hosted rails server</li>
-</ol>
+  <ol>
+    <li>Add Login functionality
+    <li>Add logging functionality</li>  
+    <li>Add sign up functionality</li>
+    <li>Add change pw and pw reset</li>
+  </ol>
+
+  <li><b>Misc</b></li>
+  <ol>
+    <li>Add tests</li>
+    <li>Add git and github support</li>
+    <li>Run on hosted rails server</li>
+  </ol>
 
 
   <li> Completed Tasks:</li>

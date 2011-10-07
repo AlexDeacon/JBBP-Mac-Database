@@ -10,12 +10,9 @@ module ApplicationHelper
     end
   end
 
-#  def sortable(column, title = nil)  
-#    title ||= column.titleize  
-#    direction = (column == sort_column && sort_direction == "asc") ? "desc" : "asc"  
-#    link_to title, :sort => column, :direction => direction  
-#  end 
-
+  #
+  # sortable implements the column sorting for index views.  
+  #
   def sortable(column, title = nil)  
     title ||= column.titleize  
     css_class = (column == sort_column) ? "current #{sort_direction}" : nil  
@@ -23,7 +20,9 @@ module ApplicationHelper
     link_to title, {:sort => column, :direction => direction}, {:class => css_class}  
   end  
 
-
+  #  
+  # format_status implements the conditional formatting on the status field
+  #
   def format_status(status)
     case status
       when 'Good'
@@ -41,8 +40,43 @@ module ApplicationHelper
     end
   end
 
+  #
+  # Create a link to a battery baed on the battery.xscomputer_id field
+  #
+  def create_battery_link(id)
+    @battery=Battery.find_by_computer_id(id)
+    if @battery.nil?
+      'No battery installed'
+    else
+      @jbbp_id=@battery.battery_jbbp_id
+      link_to @jbbp_id, battery_path(@battery.id)
+    end
+  end
+    
+  #
+  # Get and display battery status for computer.index view
+  #
+  def get_battery_status(id)
+    @battery=Battery.find_by_computer_id(id)
+    if @battery.nil?
+      ''
+    else
+      @battery.battery_status
+    end
+  end
+    
+
+  #
+  # toggle_view display's index columns or not...depending on the view seleted
+  #
+  def toggle_view(field, view)
+    if view
+      field
+    else
+      nil
+    end
+  end
 
 end
-
 
 

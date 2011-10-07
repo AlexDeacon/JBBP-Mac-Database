@@ -53,7 +53,17 @@
 
 <%  unless !@computer.batteries.empty? %>
 
-<h2>No Battery Present - Add a new Battery:</h2>
+<h2>No Battery Present </h2>
+
+<h3>Add an existing battery - </h3>
+  <form>
+    <%= select("battery", "battery_jbbp_id", 
+	Battery.where(:computer_id => nil).map {|battery| [battery.battery_jbbp_id, battery.id] }) %>
+    <input type="submit" value="Filter" />
+  </form>
+
+<h3> or add a new battery </h3>
+
 <%= form_for([@computer, @computer.batteries.build]) do |f| %>
 <div class="field">
   <%= f.label :battery_jbbp_id %><br />
