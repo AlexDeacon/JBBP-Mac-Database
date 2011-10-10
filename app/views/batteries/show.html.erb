@@ -28,9 +28,48 @@
   <%= Computer.find_by_id(@battery.computer_id).computer_name_en rescue nil %>
  (<%= Computer.find_by_id(@battery.computer_id).computer_jbbp_id rescue nil %>)
 </td>
- 
 </tr>
 </table>
+
+<h2>Notes: </h2>
+<hr>
+<% @battery.notes.each do |note| %>
+<p>
+  <b>By:</b>
+  <%= note.user_name %>
+</p>
+<p>
+  <b>Note:</b>
+  <%= note.note_text %>
+</p>
+<p>
+  <b>Date:</b>
+  <%= note.updated_at %>
+</p>
+<p>
+<!-- <p>  <%= link_to 'Delete Note', [note.battery, note], :confirm => 'Are you sure?', :method => :delete %></p> -->
+<hr>
+<% end %>
+
+
+<h2>Add a note:</h2>
+<%= form_for([@battery, @battery.notes.build]) do |f| %>
+  <div class="field">
+    <%= f.label :user_name %><br />
+    <%= f.text_field :user_name %>
+  </div>
+  <div class="field">
+    <%= f.label :note_text %><br />
+    <%= f.text_area :note_text %>
+  </div>
+  <div class="field">
+    <%= f.label :battery_id %><br />
+    <%= f.text_field :battery_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 
 <%= link_to 'Edit Battery', edit_battery_path(@battery) %> |
 <%= link_to 'New Battery', new_battery_path %> |

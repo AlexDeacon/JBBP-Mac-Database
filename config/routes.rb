@@ -1,13 +1,17 @@
 V1::Application.routes.draw do
-  get "pages/contact"
-  get "pages/about"
+  resources :notes
 
-  resources :batteries
+  resources :batteries do
+    resources :notes
+  end
+  
   resources :computers do
     resources :batteries
+    resources :notes
   end
 
-
+  get "pages/contact"
+  get "pages/about"
   get "home/index"
   
 

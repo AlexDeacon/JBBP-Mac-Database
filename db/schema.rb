@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110923204220) do
+ActiveRecord::Schema.define(:version => 20111010205827) do
 
   create_table "batteries", :force => true do |t|
     t.string   "battery_serial_number"
@@ -38,5 +38,18 @@ ActiveRecord::Schema.define(:version => 20110923204220) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "notes", :force => true do |t|
+    t.string   "user_name"
+    t.integer  "user_id"
+    t.text     "note_text"
+    t.integer  "computer_id"
+    t.integer  "battery_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notes", ["battery_id"], :name => "index_notes_on_battery_id"
+  add_index "notes", ["computer_id"], :name => "index_notes_on_computer_id"
 
 end

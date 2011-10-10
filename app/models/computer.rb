@@ -1,6 +1,7 @@
 class Computer < ActiveRecord::Base
 # Relationship
   has_many :batteries, :dependent => :nullify 
+  has_many :notes, :dependent => :delete_all
 
 # Validation Rules
   validates :computer_name_en, :presence => true, :uniqueness => :true
