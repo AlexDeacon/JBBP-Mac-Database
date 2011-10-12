@@ -28,8 +28,9 @@
  </div>
  <div class="field">
    <%= f.label :computer_id %><br />
-   <%= @computer_list = Computer.find(:all, :order => "computer_jbbp_id")
-          collection_select(:battery, :computer_id, Computer.all, :id, :computer_name_en, {:prompt => true, :include_blank => '<Remove>'})
+   <%= @battery_list = Battery.where("computer_id = nil") %>
+   <%= @computer_list = Computer.find(:all, :order => "computer_name_en")
+          collection_select(:battery, :computer_id, @computer_list, :id, :computer_name_en, {:prompt => true, :include_blank => '<Remove>'})
    %>
  </div>
 
