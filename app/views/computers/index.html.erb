@@ -1,6 +1,6 @@
 <div id="computer-list">
 
-<!-- <%= link_to_function('View/hide details', "Element.toggle('full')") %> -->
+<h1>Computers -  <%= params[:view] ?  "(Detailed View)" : "(Summary View)"  %></h1>
 
 <p class="filter-actions"><strong> Filter: </strong>
   <%= link_to "All", :filter => "All" %> | 
@@ -14,7 +14,7 @@
  <%= link_to "Toggle View<tbd>", :view => "detailed" %>
 </p>
 
-<h1>Listing Computers - <%= params[:view] ?  "(Detailed View)" : "(Summary View)"  %></h1>
+<h5><%= @computers.count %> Computers in this view.</h5>
 
   <table cellpadding="5" cellspacing="0" border="1" class="pretty">
     <tr>
@@ -32,8 +32,8 @@
       <th>Battery Status</th>
    </tr>
     <% for computer in @computers %>
-    <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>">
-      <td><%= computer.computer_jbbp_id %></td>
+   <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>">
+     <td><%= computer.computer_jbbp_id %></td>
       <td><%= computer.computer_name_en %></td>
       <td><%= computer.computer_name_jp %></td>
       <td><%= computer.computer_model %></td>
