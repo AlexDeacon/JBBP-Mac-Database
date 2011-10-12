@@ -1,5 +1,5 @@
 <div id="computer-list">
-<h1>Listing Batteries</h1>
+<h1>Batteries</h1>
 
 <p class="filter-actions"><strong> Filter: </strong>
   <%= link_to "All", :filter => "All" %> | 
@@ -27,8 +27,9 @@
     <td><%= battery.battery_model %></td>
     <td><%= battery.battery_serial_number %></td>
     <td><b><%= format_status battery.battery_status %></b></td>
-    <td><!-- <%= battery.computer %> -->
-       <%= Computer.find_by_id(battery.computer_id).computer_name_en rescue nil%>
+    <td>
+      <!--       <%= Computer.find_by_id(battery.computer_id).computer_name_en  rescue nil%> -->
+      <%= create_computer_link(battery.computer_id) %>
     </td>
     <td class="list-actions"><%= link_to 'Show', battery %>
     <%= link_to 'Edit', edit_battery_path(battery) %>
