@@ -90,7 +90,7 @@ class ComputersController < ApplicationController
   private
 
   def sort_column  
-    Computer.column_names.include?(params[:sort]) ? params[:sort] : "computer_jbbp_id"  
+    Computer.column_names.include?(params[:sort]) ? params[:sort] : "computer_name_en"  
   end  
     
   def sort_direction  
