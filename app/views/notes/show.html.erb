@@ -17,12 +17,12 @@
 
 <p>
   <b>Computer:</b>
-  <%= @note.computer %>
+  <%= @note.computer.computer_jbbp_id rescue nil %>
 </p>
 
 <p>
   <b>Battery:</b>
-  <%= @note.battery.battery_jbbp_id %>
+  <%= @note.battery.battery_jbbp_id rescue nil%>
 </p>
 
 
