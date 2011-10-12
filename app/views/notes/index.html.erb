@@ -1,31 +1,33 @@
-<h1>Listing notes</h1>
+<div id="computer-list">
+<h1>Notes</h1>
 
-<table>
+ <table cellpadding="5" cellspacing="0" border="1" class="pretty">
   <tr>
+    <th>Date</th>
     <th>User name</th>
     <th>User</th>
     <th>Note text</th>
     <th>Computer</th>
     <th>Battery</th>
     <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+ </tr>
 
 <% @notes.each do |note| %>
-  <tr>
+  <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>">
+    <td><%= note.created_at %></td>
     <td><%= note.user_name %></td>
     <td><%= note.user_id %></td>
     <td><%= note.note_text %></td>
-    <td><%= note.computer %></td>
-    <td><%= note.battery.battery_jbbp_id %></td>
-    <td><%= link_to 'Show', note %></td>
-    <td><%= link_to 'Edit', edit_note_path(note) %></td>
-    <td><%= link_to 'Destroy', note, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= note.computer.computer_jbbp_id rescue nil %></td>
+    <td><%= note.battery.battery_jbbp_id rescue nil %></td>
+    <td class="list-actions">
+      <%= link_to 'Show', note %> | 
+      <%= link_to 'Edit', edit_note_path(note) %> | 
+      <%= link_to 'Destroy', note, :confirm => 'Are you sure?', :method => :delete %>
+    </td>
   </tr>
-<% end %>
+<% end %> <!-- @notes.each -->
 </table>
 
-<br />
+</div>
 
-<%= link_to 'New Note', new_note_path %>
