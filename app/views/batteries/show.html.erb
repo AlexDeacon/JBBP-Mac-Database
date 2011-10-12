@@ -31,6 +31,11 @@
 </tr>
 </table>
 
+<div id="note-area" style="border:1px solid green">
+<% note_count = @battery.notes.count %>
+<p><%= link_to_function("View Notes (#{note_count})", "Element.toggle('notes')") %></p>
+
+<div id="notes">
 <h2>Notes: </h2>
 <hr>
 <% @battery.notes.each do |note| %>
@@ -50,8 +55,11 @@
 <!-- <p>  <%= link_to 'Delete Note', [note.battery, note], :confirm => 'Are you sure?', :method => :delete %></p> -->
 <hr>
 <% end %>
+</div>
 
+<p><%= link_to_function('Click to Add New Note', "Element.toggle('add-note')") %></p>
 
+<div id="add-note" style="display:none;">
 <h2>Add a note:</h2>
 <%= form_for([@battery, @battery.notes.build]) do |f| %>
   <div class="field">
@@ -70,6 +78,9 @@
     <%= f.submit %>
   </div>
 <% end %>
+</div>
+
+</div> <!-- id="note-area" -->
 
 <%= link_to 'Edit Battery', edit_battery_path(@battery) %> |
 <%= link_to 'New Battery', new_battery_path %> |
