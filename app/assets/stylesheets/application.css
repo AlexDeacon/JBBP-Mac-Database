@@ -61,11 +61,11 @@ font-size: small;
 h1 {
 font: 150% sans-serif;
 color: #226;
-border-bottom: 3px dotted #77d;
+border-bottom: 1px dotted #77d;
 }
 
 #computer-list .list-title {
-color: #244;
+color: lightgrey;
 font-weight: bold;
 font-size: larger;
 }
@@ -88,11 +88,11 @@ padding-left: 1em;
 }
 
 #computer-list .list-line-even {
-background: #ffccff;
+background: 	#E0F0FF;
 }
 
 #computer-list .list-line-odd {
-background: #d0d0d0;
+background: white;
 }
 
 .pretty th .current {
