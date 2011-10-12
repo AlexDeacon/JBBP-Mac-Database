@@ -41,7 +41,7 @@ module ApplicationHelper
   end
 
   #
-  # Create a link to a battery baed on the battery.xscomputer_id field
+  # Create a link to a battery based on the battery.computer_id field
   #
   def create_battery_link(id)
     @battery=Battery.find_by_computer_id(id)
@@ -50,6 +50,18 @@ module ApplicationHelper
     else
       @jbbp_id=@battery.battery_jbbp_id
       link_to @jbbp_id, battery_path(@battery.id)
+    end
+  end
+
+  #
+  # Create a link to a computer based on the computer_id field
+  #
+  def create_computer_link(id)
+    @computer=Computer.find_by_id(id)
+    if @computer.nil?
+      ''
+    else
+      link_to @computer.computer_name_en, computer_path(id)
     end
   end
     
