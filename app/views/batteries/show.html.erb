@@ -1,87 +1,69 @@
-<p id="notice"><%= notice %></p>
+<div class="subcolumns">
+  <div class="c40l">
+    <div class="subcl">
+      <!-- Insert your subtemplate content here -->
+      <p id="notice"><%= notice %></p>
 
-<h1> Battery: <%= @battery.battery_jbbp_id %> </h1>
-<table cellpadding="5" cellspacing="0">
-<tr>
-  <td><b>id:</b></td>
-  <td><%= @battery.id %></td>
-</tr>
-<tr>
-  <td><b>JLIP ID:</b></td>
-  <td><%= @battery.battery_jbbp_id %></td>
-</tr>
-<tr>
-  <td><b>Model:</b></td>
-  <td><%= @battery.battery_model %></td>
-</tr>
-<tr>
-  <td><b>Serial Number:</b></td>
-  <td><%= @battery.battery_serial_number %></td>
-</tr>
-<tr>
- <td><b>Battery status:</b></td>
- <td><%= @battery.battery_status %></td>
-</tr>
-<tr>
- <td><b>Belongs to Computer (JBBP ID):</b></td>
- <td>
-  <%= Computer.find_by_id(@battery.computer_id).computer_name_en rescue nil %>
- (<%= Computer.find_by_id(@battery.computer_id).computer_jbbp_id rescue nil %>)
-</td>
-</tr>
-</table>
+      <table class="full" class="pretty">
+	<caption style="text-align:left">Battery Details</caption>
+	<tbody>	  
+	  <tr>
+	    <th scope="col" colspan="2"  style="text-align:center">
+	      <%= @battery.battery_jbbp_id %>
+	    </th>
+	  </tr>
+	  <tr>
+	    <td><b>id:</b></td>
+	    <td><%= @battery.id %></td>
+	  </tr>
+	  <tr>
+	    <td><b>JLIP ID:</b></td>
+	    <td><%= @battery.battery_jbbp_id %></td>
+	  </tr>
+	  <tr>
+	    <td><b>Model:</b></td>
+	    <td><%= @battery.battery_model %></td>
+	  </tr>
+	  <tr>
+	    <td><b>Serial Number:</b></td>
+	    <td><%= @battery.battery_serial_number %></td>
+	  </tr>
+	  <tr>
+	    <td><b>Battery status:</b></td>
+	    <td><%= @battery.battery_status %></td>
+	  </tr>
+	  <tr>
+	    <td><b>Belongs to Computer (JBBP ID):</b></td>
+	    <td>
+	      <%= Computer.find_by_id(@battery.computer_id).computer_name_en rescue nil %>
+	      (<%= Computer.find_by_id(@battery.computer_id).computer_jbbp_id rescue nil %>)
+	    </td>
+	  </tr>
+	</tbody>
+      </table>
+    </div> <!-- class="subcl" -->
+  </div> <!-- class="c..l" -->
+  <div class="c60r">
+    <div class="subcr">
+      <!-- Insert your subtemplate content here -->
+      <p></p>
+      <table class="full">
+	<caption style="text-align:left">Notes (<%= @battery.notes.count %>)</caption>
+	<tbody>
+	  <tr>
+	    <th>Date</th>
+	    <th>Name</th>
+	    <th>Note</th>
+	  </tr>
+	  <%= render @battery.notes %>
+	</tbody>
+      </table>
+      <%= render "add_battery_note" %>
+    </div> <!-- class="subcr" -->
+  </div> <!-- class="c50r" -->
+</div> <!-- class="subcolumns" -->
 
-<div id="note-area" style="border:1px solid green">
-<% note_count = @battery.notes.count %>
-<p><%= link_to_function("View Notes (#{note_count})", "Element.toggle('notes')") %></p>
 
-<div id="notes">
-<h2>Notes: </h2>
-<hr>
-<% @battery.notes.each do |note| %>
-<p>
-  <b>By:</b>
-  <%= note.user_name %>
-</p>
-<p>
-  <b>Note:</b>
-  <%= note.note_text %>
-</p>
-<p>
-  <b>Date:</b>
-  <%= note.updated_at %>
-</p>
-<p>
-<!-- <p>  <%= link_to 'Delete Note', [note.battery, note], :confirm => 'Are you sure?', :method => :delete %></p> -->
-<hr>
-<% end %>
-</div>
-
-<p><%= link_to_function('Click to Add New Note', "Element.toggle('add-note')") %></p>
-
-<div id="add-note" style="display:none;">
-<h2>Add a note:</h2>
-<%= form_for([@battery, @battery.notes.build]) do |f| %>
-  <div class="field">
-    <%= f.label :user_name %><br />
-    <%= f.text_field :user_name %>
-  </div>
-  <div class="field">
-    <%= f.label :note_text %><br />
-    <%= f.text_area :note_text %>
-  </div>
-  <div class="field">
-    <%= f.label :battery_id %><br />
-    <%= f.text_field :battery_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-</div>
-
-</div> <!-- id="note-area" -->
-
-<%= link_to 'Edit Battery', edit_battery_path(@battery) %> |
-<%= link_to 'New Battery', new_battery_path %> |
-<%= link_to 'Battery List', batteries_path %>
+ <%= link_to 'Edit Battery', edit_battery_path(@battery) %> |
+ <%= link_to 'New Battery', new_battery_path %> |
+ <%= link_to 'Battery List', batteries_path %>

@@ -1,35 +1,71 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title><%= title %> <%= controller %> <%= controller.action_name %></title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "prototype" %>
-  <%= csrf_meta_tags %>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>
+  <%= title %> <%= controller %> <%= controller.action_name %>
+</title>
+
+<!-- add your meta tags here -->
+<%= stylesheet_link_tag "css/my_layout.css" %>
+<%= stylesheet_link_tag "css/layout_building_forms.css" %>
+<!--[if lte IE 7]>
+<%= stylesheet_link_tag "css/patches/patch_my_layout.css" %>
+<![endif]-->
+
+<%= javascript_include_tag "application" %>
+<%= javascript_include_tag "prototype" %>
+<%= csrf_meta_tags %>
 </head>
-<body id="computers">
-  <div id="banner">
-    <%= image_tag("jbbp.png", :size => "64x64") %>
-    <%= @page_title || "Rosa Parks JBBP Macintosh Database" %>
-  </div>
-  <div id="columns">
-    <div id= "side">
-      <h1> Navigate <h1>
-      <p><%= link_to 'Computers', computers_path %></p>
-      <p><%= link_to 'Batteries', batteries_path %></p>
-      <p><%= link_to 'Notes', notes_path %></p>      
-     <p><%= link_to 'About', about_path %></p>
-      <p><%= link_to 'Contact', contact_path %></p>
-      <br \>
-      <p><%= link_to 'Home', 'home/index' %></p>
-  </div>
-    <div id="main">
-      <%= yield %>
+<body>
+  <div class="page_margins">
+    <!-- start: skip link navigation -->
+    <!-- end: skip link navigation -->
+    <div id="border-top">
+      <div id="edge-tl"></div>
+      <div id="edge-tr"></div>
     </div>
-  </div> 
+    <div class="page">
+      <div id="header">
+        <div id="topnav">
+          <!-- start: skip link navigation -->
+          <a class="skip" title="skip link" href="#navigation">Skip to the navigation</a><span class="hideme">.</span>
+          <a class="skip" title="skip link" href="#content">Skip to the content</a><span class="hideme">.</span>
+          <!-- end: skip link navigation -->
+	  
+	  <a href="#">Login</a> |
+	  <%= link_to 'Contact', contact_path %> |
+	  <%= link_to 'About', about_path %>
+        </div>
+	<h1>Rosa Parks JBBP Macintosh Database</h1></p>
+      </div>
+      <div id="nav">
+        <!-- skiplink anchor: navigation -->
+        <a id="navigation" name="navigation"></a>
+        <div class="hlist">
+          <!-- main navigation: horizontal list -->
+          <ul>
+            <li><%= link_to 'Home', 'home/index' %></li>
+	    <li><%= link_to 'Computers', computers_path %></li>
+            <li><%= link_to 'Batteries', batteries_path %></li>
+	    <li><%= link_to 'Notes', notes_path %></li>
+	    <li><%= link_to 'Software', '#' %></li>
+	    <li><%= link_to 'WiFi', "#" %></li>
+	    <li><%= link_to 'Passwords', "#" %></li>
+        </ul>
+        </div>
+      </div>
+      <div id="main">
+	<%= yield %>
+      </div> <!-- "main" -->
+      <!-- begin: #footer -->
+      <div id="footer">(c)2011 Rosa Parks ES - JBBP</a>
+      </div> <!-- "footer" -->
+    </div>
+    <div id="border-bottom">
+      <div id="edge-bl"></div>
+      <div id="edge-br"></div>
+    </div>
+  </div>
 </body>
-<footer>
-<h1>(c) 2011 Alex Deacon</h1>
-<%= debug(params) if Rails.env.development? %>
-</footer>
 </html>

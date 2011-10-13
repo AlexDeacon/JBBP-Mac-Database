@@ -1,22 +1,25 @@
-<div id="computer-list">
+<!-- <h1>Computers -  <%= params[:view] ?  "(Detailed View)" : "(Summary View)"  %></h1> -->
+<h1>Computers</h1>
 
-<h1>Computers -  <%= params[:view] ?  "(Detailed View)" : "(Summary View)"  %></h1>
+<!-- <p> <%= link_to "Toggle View<tbd>", :view => "detailed" %></p> -->
 
-<p class="filter-actions"><strong> Filter: </strong>
-  <%= link_to "All", :filter => "All" %> | 
-  <%= link_to "Good", :filter => "Good" %> | 
-  <%= link_to "Minor Issues", :filter => "Minor Issues" %> | 
-  <%= link_to "Not Working", :filter => "Not Working" %> | 
-  <%= link_to "Retired", :filter => "Retired" %>
-</p>
+<table class="full" class="pretty">
+ <caption style="text-align:left"><%= @computers.count %> Computers in this view.</caption>
+  <thead>
+    <tr>
+      <th scope="col" colspan="9">
+	<p><strong> Filter: </strong>
+	  <%= link_to "All", :filter => "All" %> | 
+	  <%= link_to "Good", :filter => "Good" %> | 
+	  <%= link_to "Minor Issues", :filter => "Minor Issues" %> | 
+	  <%= link_to "Not Working", :filter => "Not Working" %> | 
+	  <%= link_to "Retired", :filter => "Retired" %>
+	</p>
+      </th>
+    </tr>
+  </thead>
 
-<p class="filter-actions">
- <%= link_to "Toggle View<tbd>", :view => "detailed" %>
-</p>
-
-<h5><%= @computers.count %> Computers in this view.</h5>
-
-  <table cellpadding="5" cellspacing="0" border="1" class="pretty">
+  <tbody>
     <tr>
       <th colspan="5">Computer Information</th>
       <th colspan="2">Battery Information</th>
@@ -32,7 +35,7 @@
       <th>Battery Status</th>
    </tr>
     <% for computer in @computers %>
-   <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>">
+    <tr>
      <td><%= computer.computer_jbbp_id %></td>
       <td><%= computer.computer_name_en %></td>
       <td><%= computer.computer_name_jp %></td>
@@ -48,9 +51,7 @@
       </td>
     </tr>
     <% end %>
+      </tbody>
   </table>
   <br />
   <%= link_to 'New Computer', new_computer_path %>
-  <br \>
-</div>
-

@@ -1,154 +1,126 @@
-<p id="notice"><%= notice %></p>
-<h1>Computer Details</h1>
+<div class="subcolumns">
+  <div class="c38l">
+    <div class="subcl">
+      <!-- Insert your subtemplate content here -->
+      <p id="notice"><%= notice %></p>
 
-<table cellpadding="5" cellspacing="0" border="1">
-<!--  <tr> -->
-<!--   <td>id:</td>-->
-<!--  <td><%= @computer.id %></td>-->
-<!-- </tr>  -->
-<tr>
-   <td>Name (English):</td>
-   <td><%= @computer.computer_name_en %></td>
-</tr>
- <tr>
-    <td>Name (Japanese):</td>
-    <td><%= @computer.computer_name_jp %></td>
-</tr>
- <tr>
-    <td>JLIP ID:</td>
-    <td><%= @computer.computer_jbbp_id %></td>
- </tr>
- <tr>
-    <td>Model:</td>
-    <td><%= @computer.computer_model %></td>
- </tr>
-<tr>
-    <td>OS Version:</td>
-    <td><%= @computer.computer_os_version %></td>
- </tr>
- <tr>
-    <td>Serial Number:</td>
-    <td><%= @computer.computer_serial_number %></td>
- </tr>
-  <tr>
-    <td>Memory:</td>
-    <td><%= @computer.computer_memory %></td>
- </tr>
-  <tr>
-    <td>Purchase Date:</td>
-    <td><%= @computer.computer_year_acquired %></td>
-  </tr>
-  <tr>
-    <td>Warrenty Expires:</td>
-    <td><%= @computer.computer_warrenty_expires %></td>
-  </tr>
-  <tr>
-    <td>Status:</td>
-    <td><%= @computer.computer_status %></td>
-  </tr>
-</table>
+      <table class="full" class="pretty">
+	<caption style="text-align:left">Computer Details</caption>
+	<tbody>	  
+	  <tr>
+	    <th scope="col" colspan="2">
+	      <%= @computer.computer_name_en %>
+	    </th>
+	  </tr>
+	  <tr>
+	    <td>Name (Japanese):</td>
+	    <td><%= @computer.computer_name_jp %></td>
+	  </tr>
+	  <tr>
+	    <td>JLIP ID:</td>
+	    <td><%= @computer.computer_jbbp_id %></td>
+	  </tr>
+	  <tr>
+	    <td>Model:</td>
+	    <td><%= @computer.computer_model %></td>
+	  </tr>
+	  <tr>
+	    <td>OS Version:</td>
+	    <td><%= @computer.computer_os_version %></td>
+	  </tr>
+	  <tr>
+	    <td>Serial Number:</td>
+	    <td><%= @computer.computer_serial_number %></td>
+	  </tr>
+	  <tr>
+	    <td>Memory:</td>
+	    <td><%= @computer.computer_memory %></td>
+	  </tr>
+	  <tr>
+	    <td>Purchase Date:</td>
+	    <td><%= @computer.computer_year_acquired %></td>
+	  </tr>
+	  <tr>
+	    <td>Warrenty Expires:</td>
+	    <td><%= @computer.computer_warrenty_expires %></td>
+	  </tr>
+	  <tr>
+	    <td>Status:</td>
+	    <td><%= @computer.computer_status %></td>
+	  </tr>
+	</tbody>
+      </table>
+      
+      <%= render @computer.batteries %>
+      
+      <%  unless !@computer.batteries.empty? %>
+      
+      <h2>No Battery Present </h2>
+      
+      <p><%= link_to_function('Click to add a battery', "Element.toggle('add-battery')") %></p>
+      
+      <div id="add-battery" style="display:none;">
+	<h3>Add an existing battery - </h3>
+	
+	<form>
+	  <%= select("battery", "computer_id", 
+	      Battery.where(:computer_id => nil).map {|battery| [battery.battery_jbbp_id, battery.id] }) %>,
+	  <input type="submit" value="Add Battery" />
+	</form>
 
-<div id="note-area">
-<% note_count = @computer.notes.count %>
-<p><%= link_to_function("View Notes (#{note_count})", "Element.toggle('notes')") %></p>
+	<h3> or add a new battery </h3>
+	
+	<%= form_for([@computer, @computer.batteries.build]) do |f| %>
+	<div class="field">
+	  <%= f.label :battery_jbbp_id %><br />
+	  <%= f.text_field :battery_jbbp_id %>
+	</div>
+	<div class="field">
+	  <%= f.label :battery_model %><br />
+	  <%= f.text_field :battery_model %>
+	</div>
+	<div class="field">
+	  <%= f.label :battery_serial_number %><br />
+	  <%= f.text_field :battery_serial_number %>
+	</div>
+	<div class="field">
+	  <%= f.label :battery_status %><br />
+	  <%= f.select :battery_status, [['Good','Good'],['Weak','Weak'],['Not Working','Not Working'],['Retired','Retired']] %>
+	</div>
+	<div class="field">
+	  <%= f.label :computer_id %><br />
+	  <%= f.text_field :computer_id %>
+	</div>
+	<div class="actions">
+	  <%= f.submit %>
+	</div>
+	<% end %> <!-- form_for -->
+      </div> <!-- id="add-battery" -->
+      <% end %> <!-- unless battery is empty -->
 
-<div id="notes" style="display:none;">
-<h2>Notes: </h2>
-<hr>
-<% @computer.notes.each do |note| %>
-<p>
-  <b>By:</b>
-  <%= note.user_name %>
-</p>
-<p>
-  <b>Note:</b>
-  <%= note.note_text %>
-</p>
-<p>
-  <b>Date:</b>
-  <%= note.updated_at %>
-</p>
-<p>
-<!-- <p>  <%= link_to 'Delete Note', [note.computer, note], :confirm => 'Are you sure?', :method => :delete %></p> -->
-<hr>
-<% end %>
-</div> 
+      <%= link_to 'Edit Computer', edit_computer_path(@computer) %> |
+      <%= link_to 'New Computer', new_computer_path %> |
+      <%= link_to 'Back to Computers', computers_path %>
 
-<p><%= link_to_function("Click to Add New Note", "Element.toggle('add-note')") %></p>
+    </div> <!-- class="subcolumns" -->
+  </div> <!-- class="c50l" -->
 
-<div id="add-note" style="display:none;">
-<h2>Add a note:</h2>
-<%= form_for([@computer, @computer.notes.build]) do |f| %>
-  <div class="field">
-    <%= f.label :user_name %><br />
-    <%= f.text_field :user_name %>
-  </div>
-  <div class="field">
-    <%= f.label :note_text %><br />
-    <%= f.text_area :note_text %>
-  </div>
-  <div class="field">
-    <%= f.label :computer_id %><br />
-    <%= f.text_field :computer_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-</div> <!-- id="add-note" -->
+  <div class="c62r">
+    <div class="subcr">
+      <p></p>
+      <table class="full">
+	<caption style="text-align:left">Notes (<%= @computer.notes.count %>)</caption>
+	<tbody>
+	  <tr>
+	    <th>Date</th>
+	    <th>Name</th>
+	    <th>Note</th>
+	  </tr>
+	    <%= render @computer.notes %>
+	</tbody>
+      </table>
+      <%= render "add_computer_note" %>
+   </div> <!-- class="subcr" -->
+  </div> <!-- class="c50r" -->
+</div> <!-- class="subcolumns" -->
 
-</div> <!-- id="note-area" -->
-
-
-<h2>Battery Info</h2>
-<%= render @computer.batteries %>
-
-<%  unless !@computer.batteries.empty? %>
-
-<h2>No Battery Present </h2>
-
-<p><%= link_to_function('Click to add a battery', "Element.toggle('add-battery')") %></p>
-
-<div id="add-battery" style="display:none;">
-  <h3>Add an existing battery - </h3>
-
-  <form>
-  <%= select("battery", "computer_id", 
-	Battery.where(:computer_id => nil).map {|battery| [battery.battery_jbbp_id, battery.id] }) %>,
-    <input type="submit" value="Add Battery" />
-  </form>
-
-  <h3> or add a new battery </h3>
-
-  <%= form_for([@computer, @computer.batteries.build]) do |f| %>
-  <div class="field">
-    <%= f.label :battery_jbbp_id %><br />
-    <%= f.text_field :battery_jbbp_id %>
-  </div>
-  <div class="field">
-    <%= f.label :battery_model %><br />
-    <%= f.text_field :battery_model %>
-  </div>
-  <div class="field">
-    <%= f.label :battery_serial_number %><br />
-    <%= f.text_field :battery_serial_number %>
-  </div>
-  <div class="field">
-    <%= f.label :battery_status %><br />
-    <%= f.select :battery_status, [['Good','Good'],['Weak','Weak'],['Not Working','Not Working'],['Retired','Retired']] %>
-  </div>
-  <div class="field">
-    <%= f.label :computer_id %><br />
-    <%= f.text_field :computer_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-  <% end %> <!-- form_for -->
-</div> <!-- id="add-battery" -->
-<% end %> <!-- unless battery is empty -->
-
-
-<%= link_to 'Edit Computer', edit_computer_path(@computer) %> |
-<%= link_to 'New Computer', new_computer_path %> |
-<%= link_to 'Back to Computers', computers_path %>

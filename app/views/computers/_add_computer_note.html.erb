@@ -1,0 +1,23 @@
+<p><%= link_to_function("Click to Add New Note", "Element.toggle('add-note')") %></p>
+<div id="add-note" style="display:none;">
+  <h2>Add a note:</h2>
+  <%= form_for([@computer, @computer.notes.build]) do |f| %>
+  <div class="field">
+    <%= f.label :user_name %><br />
+    <%= f.text_field :user_name %>
+  </div>
+  <div class="field">
+    <%= f.label :note_text %><br />
+    <%= f.text_area :note_text %>
+  </div>
+  <div class="field">
+    <%= f.label :computer_id %><br />
+    <%= f.text_field :computer_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <% end %>
+</div> <!-- id="add-note" -->
+  
+

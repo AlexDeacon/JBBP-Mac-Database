@@ -1,0 +1,27 @@
+<div id="note-area">
+  <p></p>
+  <% note_count = @computer.notes.count  %>
+  <!--  <p><%= link_to_function("View Notes (#{note_count})", "Element.toggle('notes')") %></p> -->
+  <!--   <div id="notes" style="display:none;"> --> 
+  <div id="notes">
+    <h1><%= "Notes (#{note_count})" %></h1>
+    <hr>
+    <% @computer.notes.each do |note| %>
+    <p>
+      <b>By:</b>
+      <%= note.user_name %>
+    </p>
+    <p>
+      <b>Note:</b>
+      <%= note.note_text %>
+    </p>
+    <p>
+      <b>Date:</b>
+      <%= note.updated_at %>
+    </p>
+    <p>
+      <!-- <p>  <%= link_to 'Delete Note', [note.computer, note], :confirm => 'Are you sure?', :method => :delete %></p> -->
+      <hr>
+      <% end %>
+  </div> <!-- id="note" -->
+</div> <!-- id="note-area" -->

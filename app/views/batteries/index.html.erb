@@ -1,43 +1,47 @@
-<div id="computer-list">
 <h1>Batteries</h1>
 
-<p class="filter-actions"><strong> Filter: </strong>
-  <%= link_to "All", :filter => "All" %> | 
-  <%= link_to "Good", :filter => "Good" %> | 
-  <%= link_to "Weak", :filter => "Weak" %> | 
-  <%= link_to "Not Working", :filter => "Not Working" %> | 
-  <%= link_to "Retired", :filter => "Retired" %>
-</p>
+<table class="full" class="pretty">
+  <caption style="text-align:left"><%= @batteries.count %> Batteries in this view.</caption>
+  <thead>
+    <tr>
+      <th scope="col" colspan="6">
+	<p><strong> Filter: </strong>
+	  <%= link_to "All", :filter => "All" %> | 
+	  <%= link_to "Good", :filter => "Good" %> | 
+	  <%= link_to "Weak", :filter => "Weak" %> | 
+	  <%= link_to "Not Working", :filter => "Not Working" %> | 
+	  <%= link_to "Retired", :filter => "Retired" %>
+	</p>
+      </th>
+    </tr>
+  </thead>
+ <tbody>
+    <tr>
+      <th><%= sortable  "battery_jbbp_id", "JLIP ID" %></th>
+      <th><%= sortable "battery_model", "Model" %></th>
+      <th><%= sortable "battery_serial_number", "Serial Number "%></th>
+      <th><%= sortable "battery_status", "Status" %></th>
+      <th>Belongs to Computer</th>
+      <th>Actions</th>
+    </tr>
 
-<table cellpadding="5" cellspacing="0" border="1" class="pretty">
-  <tr>
-<!--    <th>id</th> -->
-    <th><%= sortable  "battery_jbbp_id", "JLIP ID" %></th>
-    <th><%= sortable "battery_model", "Model" %></th>
-    <th><%= sortable "battery_serial_number", "Serial Number "%></th>
-    <th><%= sortable "battery_status", "Status" %></th>
-    <th>Belongs to Computer</th>
-    <th></th>
- </tr>
-
-<% @batteries.each do |battery| %>
-  <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even')  %>">
-<!--    <td><%= battery.id %></td> -->
-    <td><%= battery.battery_jbbp_id %></td>
-    <td><%= battery.battery_model %></td>
-    <td><%= battery.battery_serial_number %></td>
-    <td><b><%= format_status battery.battery_status %></b></td>
-    <td>
-      <!--       <%= Computer.find_by_id(battery.computer_id).computer_name_en  rescue nil%> -->
-      <%= create_computer_link(battery.computer_id) %>
-    </td>
-    <td class="list-actions"><%= link_to 'Show', battery %>
-    <%= link_to 'Edit', edit_battery_path(battery) %>
-    <%= link_to 'Delete', battery, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+    <% @batteries.each do |battery| %>
+    <tr>
+      <td><%= battery.battery_jbbp_id %></td>
+      <td><%= battery.battery_model %></td>
+      <td><%= battery.battery_serial_number %></td>
+      <td><b><%= format_status battery.battery_status %></b></td>
+      <td>
+	<%= create_computer_link(battery.computer_id) %>
+      </td>
+      <td class="list-actions"><%= link_to 'Show', battery %> | 
+	<%= link_to 'Edit', edit_battery_path(battery) %> | 
+	<%= link_to 'Delete', battery, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+    <% end %>
+    </tbody>
 </table>
-</div>
+
 <br />
 
 <%= link_to 'New Battery', new_battery_path %>

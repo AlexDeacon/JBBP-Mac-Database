@@ -1,33 +1,46 @@
-<div id="computer-list">
 <h1>Notes</h1>
 
- <table cellpadding="5" cellspacing="0" border="1" class="pretty">
-  <tr>
-    <th>Date</th>
-    <th>User name</th>
-    <th>User</th>
-    <th>Note text</th>
-    <th>Computer</th>
-    <th>Battery</th>
-    <th></th>
- </tr>
 
-<% @notes.each do |note| %>
-  <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>">
-    <td><%= note.created_at %></td>
-    <td><%= note.user_name %></td>
-    <td><%= note.user_id %></td>
-    <td><%= note.note_text %></td>
-    <td><%= note.computer.computer_jbbp_id rescue nil %></td>
-    <td><%= note.battery.battery_jbbp_id rescue nil %></td>
-    <td class="list-actions">
-      <%= link_to 'Show', note %> | 
-      <%= link_to 'Edit', edit_note_path(note) %> | 
-      <%= link_to 'Destroy', note, :confirm => 'Are you sure?', :method => :delete %>
-    </td>
-  </tr>
-<% end %> <!-- @notes.each -->
+<!-- <table cellpadding="5" cellspacing="0" border="1" class="pretty"> -->
+<table class="full" class="pretty">
+  <caption style="text-align:left"><%= @notes.count %> Batteries in this view.</caption>
+  <thead>
+    <tr>
+      <th scope="col" colspan="7">
+	<p><strong> Filter: </strong>
+	  <%= link_to "All", :filter => "All" %> | 
+	  <%= link_to "Battery Notes Only", :filter => "battery" %> | 
+	  <%= link_to "Computer Notes Only", :filter => "computer" %> | 
+	</p>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Date</th>
+      <th>User name</th>
+      <th>User</th>
+      <th>Note text</th>
+      <th>Computer</th>
+      <th>Battery</th>
+      <th>Actions</th>
+    </tr>
+
+    <% @notes.each do |note| %>
+    <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>">
+      <td><%= note.created_at.to_formatted_s(:long) %></td>
+      <td><%= note.user_name %></td>
+      <td><%= note.user_id %></td>
+      <td><%= note.note_text %></td>
+      <td><%= note.computer.computer_jbbp_id rescue nil %></td>
+      <td><%= note.battery.battery_jbbp_id rescue nil %></td>
+      <td class="list-actions">
+	<%= link_to 'Show', note %> | 
+	<%= link_to 'Edit', edit_note_path(note) %> | 
+	<%= link_to 'Destroy', note, :confirm => 'Are you sure?', :method => :delete %>
+      </td>
+    </tr>
+    <% end %> <!-- @notes.each -->
+    </tbody>
 </table>
-
-</div>
 

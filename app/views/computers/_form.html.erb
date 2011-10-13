@@ -2,16 +2,15 @@
   <% if @computer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@computer.errors.count, "error") %> prohibited this computer from being saved:</h2>
-
       <ul>
-      <% @computer.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+	<% @computer.errors.full_messages.each do |msg| %>
+	<li><%= msg %></li>
+	<% end %>
       </ul>
     </div>
   <% end %>
 
- <div class="field">
+  <div class="field">
     <%= f.label 'Name (English)' %><br />
     <%= f.text_field :computer_name_en %>
   </div>
@@ -27,20 +26,20 @@
     <%= f.label 'Model' %><br />
     <%= f.select :computer_model, [['iBook G3 - 12in','iBook G3 - 12in'],['iBook G4 - 12in','iBook G4 - 12in'],['MacBook - 4.2','MacBook - 4.2'],['MacBook - 4.3','MacBook - 4.3'],['Other','Other']] %>
   </div>
- <div class="field">
+  <div class="field">
     <%= f.label 'OS Version' %><br />
-        <%= f.select :computer_os_version, [
-	    ['Mac OS X - 10.2.8','Mac OS X - 10.2.8'],
-	    ['Mac OS X - 10.2.8','Mac OS X - 10.2.8'],
-	    ['Mac OS X - 10.3','Mac OS X - 10.3'],
-	    ['Mac OS X - 10.3.9','Mac OS X - 10.3.9'],
-	    ['Mac OS X - 10.4','Mac OS X - 10.4'],
-	    ['Mac OS X - 10.5','Mac OS X - 10.5'], 
-	    ['Mac OS X - 10.6','Mac OS X - 10.6'], 
-	    ['Mac OS X - 10.7','Mac OS X - 10.7'],
-	    ['Other','Other']] %>
+    <%= f.select :computer_os_version, [
+	['Mac OS X - 10.2.8','Mac OS X - 10.2.8'],
+	['Mac OS X - 10.2.8','Mac OS X - 10.2.8'],
+	['Mac OS X - 10.3','Mac OS X - 10.3'],
+	['Mac OS X - 10.3.9','Mac OS X - 10.3.9'],
+	['Mac OS X - 10.4','Mac OS X - 10.4'],
+	['Mac OS X - 10.5','Mac OS X - 10.5'], 
+	['Mac OS X - 10.6','Mac OS X - 10.6'], 
+	['Mac OS X - 10.7','Mac OS X - 10.7'],
+	['Other','Other']] %>
   </div>
- <div class="field">
+  <div class="field">
     <%= f.label 'Memory' %><br />
     <%= f.number_field :computer_memory %>
   </div>
@@ -48,7 +47,7 @@
     <%= f.label 'Serial Number' %><br />
     <%= f.text_field :computer_serial_number %>
   </div>
- <div class="field">
+  <div class="field">
     <%= f.label 'Purchase Date' %><br />
     <%= f.date_select :computer_year_acquired %>
   </div>
@@ -59,8 +58,9 @@
   <div class="field">
     <%= f.label 'Status' %><br />
     <%= f.select :computer_status, [['Good','Good'],['Minor Issues','Minor Issues'],['Not Working','Not Working'],['Retired','Retired']] %>
- </div>
-<div class="actions">
+  </div>
+  <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+  

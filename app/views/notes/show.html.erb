@@ -1,30 +1,47 @@
-<p id="notice"><%= notice %></p>
+<div class="subcolumns">
+  <div class="c80l">
+    <div class="subcl">
+     <p id="notice"><%= notice %></p>
 
-<p>
-  <b>User name:</b>
-  <%= @note.user_name %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @note.user_id %>
-</p>
-
-<p>
-  <b>Note text:</b>
-  <%= @note.note_text %>
-</p>
-
-<p>
-  <b>Computer:</b>
-  <%= @note.computer.computer_jbbp_id rescue nil %>
-</p>
-
-<p>
-  <b>Battery:</b>
-  <%= @note.battery.battery_jbbp_id rescue nil%>
-</p>
-
-
+      <table class="full" class="pretty">
+	<caption>Note</caption>
+	<tbody>	  
+	  <tr>
+	    <th scope="col" colspan="2"  style="text-align:center">
+	      Created By:   <%= @note.user_name %>
+	    </th>
+	  </tr>
+	  <tr>
+	    <td><b>Created At:</b></td>
+	    <td><%= @note.created_at.to_formatted_s(:long) %></td>
+	  </tr>
+	  <tr>
+	    <td><b>Last Updated:</b></td>
+	    <td><%= @note.updated_at.to_formatted_s(:long) %></td>
+	  </tr>
+	  <tr>
+	    <td><b>Note text:</b></td>
+	    <td><%= @note.note_text %></td>
+	  </tr>
+	  <tr>
+	    <% if !@note.computer_id.nil?  %>
+	    <td><b>Computer:</b></td>
+	    <td><%= @note.computer.computer_jbbp_id rescue nil %></td>
+	    <% else %>
+	    <td><b>Battery:</b></td>
+	    <td><%= @note.battery.battery_jbbp_id rescue nil%></td>
+	    <% end %>
+	    </tr>
+	  </tbody>
+	</table>
 <%= link_to 'Edit', edit_note_path(@note) %> |
 <%= link_to 'Back', notes_path %>
+    </div> <!-- class="subcolumns" -->
+  </div> <!-- class="c50l" -->
+
+  <div class="c20r">
+    <div class="subcr">
+    </div> <!-- class="subcr" -->
+  </div> <!-- class="c50r" -->
+</div> <!-- class="subcolumns" -->
+

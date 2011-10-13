@@ -89,6 +89,12 @@ module ApplicationHelper
     end
   end
 
+def date_pretty_print(the_date)
+   return the_date.strftime('%d-%m-%Y')
+end
+
+
+
 end
 
 
