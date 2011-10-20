@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_filter :authenticate_user!, :except => [:contact, :about]
   def contact
     @title = "Home"
   end

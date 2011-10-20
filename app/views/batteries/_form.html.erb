@@ -1,6 +1,6 @@
 <%= form_for(@battery) do |f| %>
   <% if @battery.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="warning">
       <h2><%= pluralize(@battery.errors.count, "error") %> prohibited this battery from being saved:</h2>
       <ul>
       <% @battery.errors.full_messages.each do |msg| %>

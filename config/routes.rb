@@ -1,4 +1,6 @@
 V1::Application.routes.draw do
+  devise_for :users
+
   resources :notes
 
   resources :batteries do
@@ -17,7 +19,6 @@ V1::Application.routes.draw do
   get "pages/passwords"
   get "pages/todo"
   get "home/index"
-  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
