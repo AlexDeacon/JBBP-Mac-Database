@@ -24,7 +24,15 @@
   </div>
   <div class="field">
     <%= f.label 'Model' %><br />
-    <%= f.select :computer_model, [['iBook G3 - 12in','iBook G3 - 12in'],['iBook G4 - 12in','iBook G4 - 12in'],['MacBook - 4.2','MacBook - 4.2'],['MacBook - 4.3','MacBook - 4.3'],['Other','Other']] %>
+    <%= f.select :computer_model, [
+	['iBook G3 - 12in','iBook G3 - 12in'],
+	['iBook G4 - 12in','iBook G4 - 12in'],
+	['PowerBook G4','iPowerBook G4'],
+	['MacBook - 4.2','MacBook - 4.2'],
+	['MacBook - 4.3','MacBook - 4.3'],
+	['MacBook - 5.2','MacBook - 5.2'],
+	['MacBook - 6.1','MacBook - 6.1'],
+	['Other','Other']] %>
   </div>
   <div class="field">
     <%= f.label 'OS Version' %><br />
@@ -35,7 +43,9 @@
 	['Mac OS X - 10.3.9','Mac OS X - 10.3.9'],
 	['Mac OS X - 10.4','Mac OS X - 10.4'],
 	['Mac OS X - 10.5','Mac OS X - 10.5'], 
+	['Mac OS X - 10.5.6','Mac OS X - 10.5.6'], 
 	['Mac OS X - 10.6','Mac OS X - 10.6'], 
+	['Mac OS X - 10.6.4','Mac OS X - 10.6.4'], 
 	['Mac OS X - 10.7','Mac OS X - 10.7'],
 	['Other','Other']] %>
   </div>

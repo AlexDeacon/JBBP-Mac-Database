@@ -1,14 +1,26 @@
+<div id="col1">
+  <div id="col1_content" class="clearfix">
+    <br \>    <br \>
+    <div class="info">
+    <!-- add your content here -->
+    <p><%= link_to 'Edit Note', edit_note_path(@note) %></p>
+    <p><%= link_to 'Note List', notes_path %></p>
+</div>
+</div>
+</div>
+<div id="col3">
+  <div id="col3_content" class="clearfix">
 <div class="subcolumns">
   <div class="c80l">
     <div class="subcl">
-     <p id="notice"><%= notice %></p>
+    <p id="notice"><%= notice %></p>
 
       <table class="full" class="pretty">
-	<caption>Note</caption>
+	<caption style="text-align:left">Note</caption>
 	<tbody>	  
 	  <tr>
-	    <th scope="col" colspan="2"  style="text-align:center">
-	      Created By:   <%= @note.user_name %>
+	    <th scope="col" colspan="2"x>
+	      Created By: <%= @note.user_name %>
 	    </th>
 	  </tr>
 	  <tr>
@@ -23,19 +35,18 @@
 	    <td><b>Note text:</b></td>
 	    <td><%= @note.note_text %></td>
 	  </tr>
-	  <tr>
-	    <% if !@note.computer_id.nil?  %>
+	  <% if !@note.computer_id.nil?  %>
+	  <tr onclick="location.href='<%= computer_path(@note.computer.id) %>'">
 	    <td><b>Computer:</b></td>
 	    <td><%= @note.computer.computer_jbbp_id rescue nil %></td>
 	    <% else %>
+	  <tr onclick="location.href='<%= battery_path(@note.battery.id) %>'">
 	    <td><b>Battery:</b></td>
 	    <td><%= @note.battery.battery_jbbp_id rescue nil%></td>
 	    <% end %>
-	    </tr>
-	  </tbody>
-	</table>
-<%= link_to 'Edit', edit_note_path(@note) %> |
-<%= link_to 'Back', notes_path %>
+	  </tr>
+	</tbody>
+      </table>
     </div> <!-- class="subcolumns" -->
   </div> <!-- class="c50l" -->
 
@@ -45,3 +56,5 @@
   </div> <!-- class="c50r" -->
 </div> <!-- class="subcolumns" -->
 
+</div>
+</div>

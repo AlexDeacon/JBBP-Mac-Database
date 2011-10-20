@@ -8,7 +8,7 @@ class Battery < ActiveRecord::Base
 # Validation Rules
   validates :battery_serial_number, :presence => true, :uniqueness => :true
   validates :battery_jbbp_id, :presence => true, :uniqueness => :true
-  validates :computer_id, :uniqueness => :true
+  validates :computer_id, :uniqueness => :true, :unless => "computer_id==0 || computer_id==nil"
 
 # Scope Settings
   scope :good, where(:battery_status => 'Good')

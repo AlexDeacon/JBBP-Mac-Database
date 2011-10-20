@@ -87,6 +87,16 @@ class BatteriesController < ApplicationController
     end
   end
 
+  # SEARCH /batteries/search
+  def search
+    if params[:q]
+      @query='%'+params[:q]+'%'
+      @batteries = Battery.where("battery_jbbp_id LIKE ? OR battery_serial_number LIKE ? OR battery_model LIKE ?", @query, @query, @query)
+    else
+      @computers = []
+    end
+  end
+
   private
 
   def sort_column  

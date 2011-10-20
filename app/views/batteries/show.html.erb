@@ -1,3 +1,18 @@
+<div id="col1">
+  <div id="col1_content" class="clearfix">
+    <br \><br \>
+    <div class="info">
+    <!-- add your content here -->
+    <p><%= link_to 'Edit Battery', edit_battery_path(@battery) %></p>
+    <p><%= link_to 'New Battery', new_battery_path %></p>
+    <p><%= link_to 'Battery List', batteries_path %></p>
+    </div>
+ </div>
+</div>
+<div id="col3">
+  <div id="col3_content" class="clearfix">
+
+
 <div class="subcolumns">
   <div class="c40l">
     <div class="subcl">
@@ -32,13 +47,19 @@
 	    <td><b>Battery status:</b></td>
 	    <td><%= @battery.battery_status %></td>
 	  </tr>
-	  <tr>
+	  <% if !@battery.computer.nil? %>
+	  <tr onclick="location.href='<%= computer_path(@battery.computer.id)  %>'" >
 	    <td><b>Belongs to Computer (JBBP ID):</b></td>
 	    <td>
-	      <%= Computer.find_by_id(@battery.computer_id).computer_name_en rescue nil %>
-	      (<%= Computer.find_by_id(@battery.computer_id).computer_jbbp_id rescue nil %>)
+	      <%= @battery.computer.computer_name_en %> (<%= @battery.computer.computer_jbbp_id %>)
 	    </td>
 	  </tr>
+	  <% else %>
+	  <tr>
+	    <td><b>Belongs to Computer (JBBP ID):</b></td>
+	    <td>none</td>
+	  </tr>
+	  <% end %>
 	</tbody>
       </table>
     </div> <!-- class="subcl" -->
@@ -63,7 +84,5 @@
   </div> <!-- class="c50r" -->
 </div> <!-- class="subcolumns" -->
 
-
- <%= link_to 'Edit Battery', edit_battery_path(@battery) %> |
- <%= link_to 'New Battery', new_battery_path %> |
- <%= link_to 'Battery List', batteries_path %>
+</div>
+</div>

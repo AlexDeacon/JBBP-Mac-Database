@@ -1,4 +1,4 @@
-<tr>
+<tr onclick="location.href='<%= note_path(note.id) %>'">
   <td><%= note.updated_at.to_formatted_s(:long) %></td>
   <td><%= note.user_name %></td>
   <td><%= note.note_text %></td>

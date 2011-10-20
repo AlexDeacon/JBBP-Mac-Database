@@ -1,3 +1,17 @@
+<div id="col1">
+  <div id="col1_content" class="clearfix">
+    <br \>    <br \>
+    <div class="info">
+    <!-- add your content here -->
+    <p><%= link_to 'Edit Computer', edit_computer_path(@computer) %></p>
+     <p><%= link_to 'New Computer', new_computer_path %></p>
+     <p><%= link_to 'Back to Computers', computers_path %></p>
+  </div>
+  </div>
+</div>
+<div id="col3">
+  <div id="col3_content" class="clearfix">
+
 <div class="subcolumns">
   <div class="c38l">
     <div class="subcl">
@@ -8,8 +22,11 @@
 	<caption style="text-align:left">Computer Details</caption>
 	<tbody>	  
 	  <tr>
-	    <th scope="col" colspan="2">
+	    <th>
 	      <%= @computer.computer_name_en %>
+	    </th>
+	    <th>
+	      <%= @computer.computer_jbbp_id %>
 	    </th>
 	  </tr>
 	  <tr>
@@ -60,15 +77,7 @@
       <p><%= link_to_function('Click to add a battery', "Element.toggle('add-battery')") %></p>
       
       <div id="add-battery" style="display:none;">
-	<h3>Add an existing battery - </h3>
-	
-	<form>
-	  <%= select("battery", "computer_id", 
-	      Battery.where(:computer_id => nil).map {|battery| [battery.battery_jbbp_id, battery.id] }) %>,
-	  <input type="submit" value="Add Battery" />
-	</form>
-
-	<h3> or add a new battery </h3>
+	<h3> Add a new battery </h3>
 	
 	<%= form_for([@computer, @computer.batteries.build]) do |f| %>
 	<div class="field">
@@ -95,12 +104,19 @@
 	  <%= f.submit %>
 	</div>
 	<% end %> <!-- form_for -->
+
+	<h3>Add an existing battery - NOT WORKING - DO NOT USE </h3>
+	
+	<form>
+	  <%= select("battery", "computer_id", 
+	      Battery.where(:computer_id => nil).map {|battery| [battery.battery_jbbp_id, battery.id] }) %>,
+	  <input type="submit" value="Add Battery" />
+	</form>
+
+
       </div> <!-- id="add-battery" -->
       <% end %> <!-- unless battery is empty -->
 
-      <%= link_to 'Edit Computer', edit_computer_path(@computer) %> |
-      <%= link_to 'New Computer', new_computer_path %> |
-      <%= link_to 'Back to Computers', computers_path %>
 
     </div> <!-- class="subcolumns" -->
   </div> <!-- class="c50l" -->
@@ -124,3 +140,5 @@
   </div> <!-- class="c50r" -->
 </div> <!-- class="subcolumns" -->
 
+</div>
+</div>

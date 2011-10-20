@@ -12,6 +12,10 @@ V1::Application.routes.draw do
 
   get "pages/contact"
   get "pages/about"
+  get "pages/software"
+  get "pages/wifi"
+  get "pages/passwords"
+  get "pages/todo"
   get "home/index"
   
 
@@ -24,6 +28,13 @@ V1::Application.routes.draw do
 
   match '/contact', :to => 'pages#contact'
   match '/about', :to => 'pages#about'
+  match '/software', :to => 'pages#software'
+  match '/wifi', :to => 'pages#wifi'
+  match '/passwords', :to => 'pages#passwords'
+  match '/todo', :to => 'pages#todo'
+
+  match '/computers/search', :controller => 'computers', :action => 'search'
+  match '/batteries/search', :controller => 'batteries', :action => 'search'
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

@@ -81,9 +81,19 @@ class ComputersController < ApplicationController
   def destroy
     @computer = Computer.find(params[:id])
     @computer.destroy
-
+    
     respond_to do |format|      format.html { redirect_to computers_url }
       format.json { head :ok }
+    end
+  end
+
+  # SEARCH /computers/search
+  def search
+    if params[:q]
+      @query='%'+params[:q]+'%'
+      @computers = Computer.where("computer_name_en LIKE ? OR computer_name_jp LIKE ? OR computer_jbbp_id LIKE ? OR computer_serial_number LIKE ?", @query, @query, @query ,@query)
+    else
+      @computers = []
     end
   end
 

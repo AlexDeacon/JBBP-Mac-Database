@@ -26,14 +26,14 @@
 
   /* (en) Marginal areas & page background */
   /* (de) Randbereiche & Seitenhintergrund */
-  body { background: #3b69ad none; padding: 10px 0; }
+  body { background: #4d87c7 url("images/bg_blue.gif") repeat-x top left fixed; padding: 10px 0; }
 
   /* Layout Alignment | Layout-Ausrichtung */
   .page_margins { margin: 0 auto; }
 
   /* Layout Properties | Layout-Eigenschaften */
   .page_margins { width: auto;  min-width: 740px; max-width: 90em; background: #fff; }
-  .page { padding: 10px 15px 10px 10px; }
+  .page { padding: 10px; }
   #header { position:relative; padding: 45px 2em 1em 20px; color: #000; background: #fff; }
   #topnav { position:absolute; top:10px; right:10px; text-align:right; color: #aaa; background: transparent; }
   #nav { overflow:hidden; }
@@ -51,9 +51,9 @@
    *
    */  
 
-  #col1 { float: left; width: 25%}
+  #col1 { float: left; width: 10%}
   #col2 { display:none}
-  #col3 { width: auto; margin: 0 0 0 25%}
+  #col3 { width: auto; margin: 0 0 0 10%}
   #col1_content { padding: 0 10px 0 20px }
   #col3_content { padding: 0 20px 0 10px }
 
@@ -63,8 +63,7 @@
   #col3 { border-left: 1px #ddd solid }
 
 
-  #main { padding: 0px 20px } 
-
+  /* #main { padding: 0px 20px } */
   /*-------------------------------------------------------------------------*/
 
   .page_margins {

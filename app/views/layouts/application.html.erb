@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+a<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -32,12 +32,14 @@
           <a class="skip" title="skip link" href="#navigation">Skip to the navigation</a><span class="hideme">.</span>
           <a class="skip" title="skip link" href="#content">Skip to the content</a><span class="hideme">.</span>
           <!-- end: skip link navigation -->
-	  
 	  <a href="#">Login</a> |
 	  <%= link_to 'Contact', contact_path %> |
 	  <%= link_to 'About', about_path %>
-        </div>
-	<h1>Rosa Parks JBBP Macintosh Database</h1></p>
+	</div>
+	<div class="floatbox">
+	  <%= image_tag "jbbp-masterhead.jpg", {:class => "center", :alt => "", :role => "presentation"} %>
+	  <h1 class="center" role="presentation">Macintosh Database</h1>
+	</div>
       </div>
       <div id="nav">
         <!-- skiplink anchor: navigation -->
@@ -49,9 +51,10 @@
 	    <li><%= link_to 'Computers', computers_path %></li>
             <li><%= link_to 'Batteries', batteries_path %></li>
 	    <li><%= link_to 'Notes', notes_path %></li>
-	    <li><%= link_to 'Software', '#' %></li>
-	    <li><%= link_to 'WiFi', "#" %></li>
-	    <li><%= link_to 'Passwords', "#" %></li>
+	    <li><%= link_to 'Software', software_path %></li>
+	    <li><%= link_to 'WiFi', wifi_path %></li>
+	    <li><%= link_to 'Passwords', passwords_path %></li>
+	    <li><%= link_to 'Todo', todo_path %></li>
         </ul>
         </div>
       </div>

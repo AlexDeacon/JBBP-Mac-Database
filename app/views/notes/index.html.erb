@@ -1,25 +1,37 @@
+<div id="col1">
+  <div id="col1_content" class="clearfix">
+    <%= image_tag "note.jpg", :size => "80x80" %>
+    <br \> 
+    <div class="info">
+      <!-- add your content here -->
+      <p><strong>Filter</strong></p>
+      <p><%= link_to "All", :filter => "All" %></p> 
+      <p><%= link_to "Battery", :filter => "battery" %></p>
+      <p><%= link_to "Computer", :filter => "computer" %></p>
+    </div>
+  </div>
+</div>
+<div id="col3">
+  <div id="col3_content" class="clearfix">
+
 <h1>Notes</h1>
 
 
 <!-- <table cellpadding="5" cellspacing="0" border="1" class="pretty"> -->
 <table class="full" class="pretty">
-  <caption style="text-align:left"><%= @notes.count %> Batteries in this view.</caption>
+  <caption style="text-align:left"><%= @notes.count %> Notes in this view.</caption>
   <thead>
     <tr>
       <th scope="col" colspan="7">
-	<p><strong> Filter: </strong>
-	  <%= link_to "All", :filter => "All" %> | 
-	  <%= link_to "Battery Notes Only", :filter => "battery" %> | 
-	  <%= link_to "Computer Notes Only", :filter => "computer" %> | 
-	</p>
-      </th>
+	<br />
+     </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>Date</th>
-      <th>User name</th>
       <th>User</th>
+<!--      <th>User</th> -->
       <th>Note text</th>
       <th>Computer</th>
       <th>Battery</th>
@@ -27,10 +39,10 @@
     </tr>
 
     <% @notes.each do |note| %>
-    <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>">
+    <tr valign="top" onclick="location.href='<%= note_path(note.id) %>'">
       <td><%= note.created_at.to_formatted_s(:long) %></td>
       <td><%= note.user_name %></td>
-      <td><%= note.user_id %></td>
+<!--      <td><%= note.user_id %></td> -->
       <td><%= note.note_text %></td>
       <td><%= note.computer.computer_jbbp_id rescue nil %></td>
       <td><%= note.battery.battery_jbbp_id rescue nil %></td>
@@ -44,3 +56,5 @@
     </tbody>
 </table>
 
+</div>
+</div>

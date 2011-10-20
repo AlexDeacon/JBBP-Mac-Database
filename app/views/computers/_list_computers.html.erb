@@ -1,0 +1,76 @@
+<div id="col1">
+  <div id="col1_content" class="clearfix">
+    <%= image_tag "ibook.jpg", :size => "80x80" %>
+   <br \> 
+   <div class="info">
+      <!-- add your content here -->
+      <p><strong>Filter: </strong></p>
+      <p><%= link_to "All", :filter => "All" %></p>
+      <p><%= link_to "Good", :filter => "Good" %></p> 
+      <p><%= link_to "Minor Issues", :filter => "Minor Issues" %></p> 
+      <p><%= link_to "Not Working", :filter => "Not Working" %></p> 
+      <p><%= link_to "Retired", :filter => "Retired" %></p>
+      <hr \>      
+      <p><strong>Actions:</strong></p>
+      <%= link_to 'New Computer', new_computer_path %>
+    </div>
+  </div>
+</div>
+<div id="col3">
+  <div id="col3_content" class="clearfix">
+
+
+<h1>Computers</h1>
+
+<!-- <p> <%= link_to "Toggle View<tbd>", :view => "detailed" %></p> -->
+
+<table class="full" class="pretty">
+ <caption style="text-align:left"><%= @computers.count %> Computers in this view.</caption>
+  <thead>
+    <tr>
+      <th scope="col" colspan="9">
+	<%= form_tag(:controller => "computers", :action => "search", :method => "get") do %>
+	<%= label_tag(:q, "Search for:") %>
+	<%= text_field_tag(:q) %>
+	<%= submit_tag("Search") %>
+	<% end %>
+    </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <th colspan="5">Computer Information</th>
+      <th colspan="2">Battery Information</th>
+      <th rowspan="2">Actions</th>
+    </tr>
+    <tr>
+      <th><%= sortable "computer_jbbp_id", "JBBP ID" %></th>
+      <th><%= sortable "computer_name_en", "Name (English)" %></th>
+      <th><%= sortable "computer_name_jp", "Name (Japanese)" %></th>
+      <th><%= sortable "computer_model", "Model" %></th>
+      <th><%= sortable "computer_status", "Computer Status" %></th>
+      <th>JBBP ID</th>
+      <th>Battery Status</th>
+   </tr>
+    <% for computer in @computers %>
+    <tr onclick="location.href='<%= computer_path(computer.id) %>'">
+     <td><%= computer.computer_jbbp_id %></td>
+      <td><%= computer.computer_name_en %></td>
+      <td><%= computer.computer_name_jp %></td>
+      <td><%= computer.computer_model %></td>
+      <td><strong><%= format_status computer.computer_status %></strong></td>
+      <td><%= create_battery_link computer.id %></td>
+      <td><strong><%= format_status get_battery_status computer.id %></strong></td>
+      <td class="list-actions">
+	<%= link_to 'Show', computer %> |
+	<%= link_to 'Edit', edit_computer_path(computer) %> |
+	<%= link_to 'Delete', computer, :confirm => 'Are you sure?',
+	:method => :delete %>
+      </td>
+    </tr>
+    <% end %>
+      </tbody>
+  </table>
+</div>
+</div>

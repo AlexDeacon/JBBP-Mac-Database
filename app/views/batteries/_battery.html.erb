@@ -1,11 +1,10 @@
 <table class="full" class="pretty">
   <caption style="text-align:left">Battery Details</caption>
   <tbody>
-    <tr>
-      <th scope="col" colspan="2">
-	<%= battery.battery_jbbp_id %>
-      </th>
-    </tr>
+    <tr onclick="location.href='<%= battery_path(battery.id) %>'">
+      <td><b>JBBP ID:</b></td>
+      <td><%= link_to battery.battery_jbbp_id, battery %></td>
+   </tr>
     <tr>
       <td><b>Model:</b></td>
       <td><%= battery.battery_model %></td>
@@ -20,7 +19,7 @@
     </tr>
     <tr>
       <td><b>Belongs to Computer:</b></td>
-      <td><%= battery.computer_id %></td>
+      <td><%= battery.computer.computer_name_en %></td>
     </tr>
   </tbody>
 </table>

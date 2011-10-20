@@ -1,0 +1,65 @@
+<div id="col1">
+  <div id="col1_content" class="clearfix">
+    <%= image_tag "battery.jpg", :size => "85x85" %>
+    <br \> 
+    <div class="info">
+      <!-- add your content here -->
+      <p><strong>Filter: </strong></p>
+      <p><%= link_to "All", :filter => "All" %></p>
+      <p><%= link_to "Good", :filter => "Good" %></p> 
+      <p><%= link_to "Weak", :filter => "Weak" %></p> 
+      <p><%= link_to "Not Working", :filter => "Not Working" %></p> 
+      <p><%= link_to "Retired", :filter => "Retired" %></p> 
+      <hr \>
+      <p><strong>Actions:</strong></p>
+      <%= link_to 'New Battery', new_battery_path %>
+    </div>
+  </div>
+</div>
+<div id="col3">
+  <div id="col3_content" class="clearfix">
+
+<h1>Batteries</h1>
+
+<table class="full" class="pretty">
+  <caption style="text-align:left"><%= @batteries.count %> Batteries in this view.</caption>
+  <thead>
+    <tr>
+      <th scope="col" colspan="6">
+	<%= form_tag(:controller => "batteries", :action => "search", :method => "get") do %>
+	<%= label_tag(:q, "Search for:") %>
+	<%= text_field_tag(:q) %>
+	<%= submit_tag("Search") %>
+	<% end %>
+    </th>
+    </tr>
+  </thead>
+ <tbody>
+    <tr>
+      <th><%= sortable  "battery_jbbp_id", "JLIP ID" %></th>
+      <th><%= sortable "battery_model", "Model" %></th>
+      <th><%= sortable "battery_serial_number", "Serial Number "%></th>
+      <th><%= sortable "battery_status", "Status" %></th>
+      <th>Belongs to Computer</th>
+      <th>Actions</th>
+    </tr>
+
+    <% @batteries.each do |battery| %>
+    <tr onclick="location.href='<%= battery_path(battery.id) %>'">
+      <td><%= battery.battery_jbbp_id %></td>
+      <td><%= battery.battery_model %></td>
+      <td><%= battery.battery_serial_number %></td>
+      <td><b><%= format_status battery.battery_status %></b></td>
+      <td>
+	<%= create_computer_link(battery.computer_id) %>
+      </td>
+      <td class="list-actions"><%= link_to 'Show', battery %> | 
+	<%= link_to 'Edit', edit_battery_path(battery) %> | 
+	<%= link_to 'Delete', battery, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+    <% end %>
+    </tbody>
+</table>
+
+</div>
+</div>
