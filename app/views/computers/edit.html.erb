@@ -1,6 +1,17 @@
-<h1>Edit Computer Details</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @computer %> |
-<%= link_to 'Back', computers_path %>
+<div id="col1">
+  <div id="col1_content" class="clearfix">
+    <%= image_tag "ibook.jpg", :size => "80x80" %>
+    <br \> 
+    <div class="info">
+      <!-- add your content here -->
+      <p><%= link_to 'Show Computer', @computer %></p>
+      <p><%= link_to 'Computer List', computers_path %></p>
+    </div>
+  </div>
+</div>
+<div id="col3">
+  <div id="col3_content" class="clearfix">
+    <h3>Edit Computer</h3>
+    <%= render 'form' %>
+  </div>
+</div>

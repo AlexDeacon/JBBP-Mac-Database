@@ -1,29 +1,31 @@
-<%= form_for(@computer) do |f| %>
-  <% if @computer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@computer.errors.count, "error") %> prohibited this computer from being saved:</h2>
-      <ul>
-	<% @computer.errors.full_messages.each do |msg| %>
-	<li><%= msg %></li>
-	<% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label 'Name (English)' %><br />
+<%= form_for(@computer,:html => { :class=>"yform"}) do |f| %>
+<% if @computer.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@computer.errors.count, "error") %> prohibited this computer from being saved:</h2>
+  <ul>
+    <% @computer.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<fieldset class="columnar">
+  <legend>Computer Information</legend>
+  
+  <div class="type-text">
+  <%= f.label 'Name (English)' %> 
     <%= f.text_field :computer_name_en %>
   </div>
-  <div class="field">
-    <%= f.label 'Name (Japanese)' %><br />
+  <div class="type-text">
+    <%= f.label 'Name (Japanese)' %>
     <%= f.text_field :computer_name_jp %>
   </div>
-  <div class="field">
-    <%= f.label "JLIP #" %><br />
+  <div class="type-text">
+    <%= f.label "JLIP #" %>
     <%= f.text_field :computer_jbbp_id %>
   </div>
-  <div class="field">
-    <%= f.label 'Model' %><br />
+  <div class="type-select">
+    <%= f.label 'Model' %>
     <%= f.select :computer_model, [
 	['iBook G3 - 12in','iBook G3 - 12in'],
 	['iBook G4 - 12in','iBook G4 - 12in'],
@@ -34,8 +36,8 @@
 	['MacBook - 6.1','MacBook - 6.1'],
 	['Other','Other']] %>
   </div>
-  <div class="field">
-    <%= f.label 'OS Version' %><br />
+  <div class="type-select">
+    <%= f.label 'OS Version' %>
     <%= f.select :computer_os_version, [
 	['Mac OS X - 10.2.8','Mac OS X - 10.2.8'],
 	['Mac OS X - 10.2.8','Mac OS X - 10.2.8'],
@@ -49,28 +51,29 @@
 	['Mac OS X - 10.7','Mac OS X - 10.7'],
 	['Other','Other']] %>
   </div>
-  <div class="field">
-    <%= f.label 'Memory' %><br />
+  <div class="type-text"x>
+    <%= f.label 'Memory' %>
     <%= f.number_field :computer_memory %>
   </div>
-  <div class="field">
-    <%= f.label 'Serial Number' %><br />
+  <div class="type-text">
+    <%= f.label 'Serial Number' %>
     <%= f.text_field :computer_serial_number %>
   </div>
-  <div class="field">
-    <%= f.label 'Purchase Date' %><br />
+  <div class="type-text">
+    <%= f.label 'Purchase Date' %>
     <%= f.date_select :computer_year_acquired %>
   </div>
-  <div class="field">
-    <%= f.label 'Warranty Expires' %><br />
+  <div class="type-text">
+    <%= f.label 'Warranty Expires' %>
     <%= f.date_select :computer_warrenty_expires %>
   </div>
-  <div class="field">
-    <%= f.label 'Status' %><br />
+  <div class="type-select">
+    <%= f.label 'Status' %>x
     <%= f.select :computer_status, [['Good','Good'],['Minor Issues','Minor Issues'],['Not Working','Not Working'],['Retired','Retired']] %>
   </div>
-  <div class="actions">
+  <div class="type-button">
     <%= f.submit %>
   </div>
+</fieldset>
 <% end %>
-  
+

@@ -1,41 +1,44 @@
-<%= form_for(@battery) do |f| %>
-  <% if @battery.errors.any? %>
-    <div id="error_explanation" class="warning">
-      <h2><%= pluralize(@battery.errors.count, "error") %> prohibited this battery from being saved:</h2>
-      <ul>
-      <% @battery.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for(@battery, :html => {:class=>"yform"}) do |f| %>
+<% if @battery.errors.any? %>
+<div id="error_explanation" class="warning">
+  <h2><%= pluralize(@battery.errors.count, "error") %> prohibited this battery from being saved:</h2>
+  <ul>
+    <% @battery.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
- <div class="field">
-    <%= f.label :battery_jbbp_id %><br />
+<fieldset class="columnar">
+  <legend>Battery Information</legend>
+ 
+<div class="type-text">
+  <%= f.label :battery_jbbp_id %>
     <%= f.text_field :battery_jbbp_id %>
   </div>
-  <div class="field">
-    <%= f.label :battery_model %><br />
+  <div class="type-text">
+    <%= f.label :battery_model %>
     <%= f.text_field :battery_model %>
   </div>
-  <div class="field">
-    <%= f.label :battery_serial_number %><br />
+  <div class="type-text">
+    <%= f.label :battery_serial_number %>
     <%= f.text_field :battery_serial_number %>
   </div>
-  <div class="field">
-    <%= f.label :battery_status %><br />
+  <div class="type-select">
+    <%= f.label :battery_status %>
     <%= f.select :battery_status, [['Good','Good'],['Weak','Weak'],['Not Working','Not Working'],['Retired','Retired']] %>
- </div>
- <div class="field">
-   <%= f.label :computer_id %><br />
-   <%= @battery_list = Battery.where("computer_id = nil") %>
-   <%= @computer_list = Computer.find(:all, :order => "computer_name_en")
-          collection_select(:battery, :computer_id, @computer_list, :id, :computer_name_en, {:prompt => true, :include_blank => '<Remove>'})
-   %>
- </div>
+  </div>
+  <div class="type-select">
+    <%= f.label :computer_id %>
+    <!--   <%= @battery_list = Battery.where("computer_id = nil") %> -->
+    <%= @computer_list = Computer.find(:all, :order => "computer_name_en")
+    collection_select(:battery, :computer_id, @computer_list, :id, :computer_name_en, {:prompt => true, :include_blank => '<Remove>'})
+      %>
+  </div>
 
- <div class="actions">
-   <%= f.submit %>
- </div>
-
+  <div class="type-button">
+    <%= f.submit %>
+  </div>
+</fieldset>
 <% end %>

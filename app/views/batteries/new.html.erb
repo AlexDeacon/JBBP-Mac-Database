@@ -1,5 +1,20 @@
-<h1>New battery</h1>
 
-<%= render 'form' %>
+<div id="col1">
+  <div id="col1_content" class="clearfix">
+    <%= image_tag "battery.jpg", :size => "80x80" %>
+    <br \> 
+    <div class="info">
+      <!-- add your content here -->
+      <p><%= link_to 'Battery List', batteries_path %></p>
+    </div>
+  </div>
+</div>
+<div id="col3">
+  <div id="col3_content" class="clearfix">
+    <h3>Create New Battery</h3>
+    <%= render 'form' %>
+  </div>
+</div>
 
-<%= link_to 'Back', batteries_path %>
+
+

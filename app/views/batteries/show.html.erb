@@ -1,85 +1,84 @@
 <div id="col1">
   <div id="col1_content" class="clearfix">
-    <br \><br \>
+    <%= image_tag "battery.jpg", :size => "80x80" %>
+    <br \> 
     <div class="info">
-    <!-- add your content here -->
-    <p><%= link_to 'Edit Battery', edit_battery_path(@battery) %></p>
-    <p><%= link_to 'New Battery', new_battery_path %></p>
-    <p><%= link_to 'Battery List', batteries_path %></p>
-    </div>
- </div>
-</div>
+      <!-- add your content here -->
+      <p><%= link_to 'Edit Battery', edit_battery_path(@battery) %></p>
+      <p><%= link_to 'New Battery', new_battery_path %></p>
+      <p><%= link_to 'Battery List', batteries_path %></p>
+    </div><!-- class = "info" -->
+  </div><!-- class="col1-content" -->
+</div><!-- class="col1" -->
 <div id="col3">
   <div id="col3_content" class="clearfix">
-
-
-<div class="subcolumns">
-  <div class="c40l">
-    <div class="subcl">
-      <!-- Insert your subtemplate content here -->
-     <table class="full" class="pretty">
-	<caption style="text-align:left">Battery Details</caption>
-	<tbody>	  
-	  <tr>
-	    <th scope="col" colspan="2"  style="text-align:center">
-	      <%= @battery.battery_jbbp_id %>
-	    </th>
-	  </tr>
-	  <tr>
-	    <td><b>id:</b></td>
-	    <td><%= @battery.id %></td>
-	  </tr>
-	  <tr>
-	    <td><b>JLIP ID:</b></td>
-	    <td><%= @battery.battery_jbbp_id %></td>
-	  </tr>
-	  <tr>
-	    <td><b>Model:</b></td>
-	    <td><%= @battery.battery_model %></td>
-	  </tr>
-	  <tr>
-	    <td><b>Serial Number:</b></td>
-	    <td><%= @battery.battery_serial_number %></td>
-	  </tr>
-	  <tr>
-	    <td><b>Battery status:</b></td>
-	    <td><%= @battery.battery_status %></td>
-	  </tr>
-	  <% if !@battery.computer.nil? %>
-	  <tr onclick="location.href='<%= computer_path(@battery.computer.id)  %>'" >
-	    <td><b>Belongs to Computer (JBBP ID):</b></td>
-	    <td>
-	      <%= @battery.computer.computer_name_en %> (<%= @battery.computer.computer_jbbp_id %>)
-	    </td>
-	  </tr>
-	  <% else %>
-	  <tr>
-	    <td><b>Belongs to Computer (JBBP ID):</b></td>
-	    <td>none</td>
-	  </tr>
-	  <% end %>
-	</tbody>
-      </table>
-    </div> <!-- class="subcl" -->
-  </div> <!-- class="c..l" -->
-  <div class="c60r">
-    <div class="subcr">
-      <!-- Insert your subtemplate content here -->
-     <table class="full">
-	<caption style="text-align:left">Notes (<%= @battery.notes.count %>)</caption>
-	<tbody>
-	  <tr>
-	    <th>Date</th>
-	    <th>Name</th>
-	    <th>Note</th>
-	  </tr>
-	  <%= render @battery.notes %>
-	</tbody>
-      </table>
-      <%= render "add_battery_note" %>
-    </div> <!-- class="subcr" -->
-  </div> <!-- class="c50r" -->
-</div> <!-- class="subcolumns" -->
-
+   <div class="subcolumns">
+      <div class="c40l">
+	<div class="subcl">
+	  <!-- Insert your subtemplate content here -->
+	  <table class="full" class="pretty">
+	    <caption style="text-align:left">Battery Details</caption>
+	    <tbody>	  
+	      <tr>
+		<th scope="col" colspan="2"  style="text-align:center">
+		  <%= @battery.battery_jbbp_id %>
+		</th>
+	      </tr>
+	      <tr>
+		<td><b>id:</b></td>
+		<td><%= @battery.id %></td>
+	      </tr>
+	      <tr>
+		<td><b>JLIP ID:</b></td>
+		<td><%= @battery.battery_jbbp_id %></td>
+	      </tr>
+	      <tr>
+		<td><b>Model:</b></td>
+		<td><%= @battery.battery_model %></td>
+	      </tr>
+	      <tr>
+		<td><b>Serial Number:</b></td>
+		<td><%= @battery.battery_serial_number %></td>
+	      </tr>
+	      <tr>
+		<td><b>Battery status:</b></td>
+		<td><%= @battery.battery_status %></td>
+	      </tr>
+	      <% if !@battery.computer.nil? %>
+	      <tr onclick="location.href='<%= computer_path(@battery.computer.id)  %>'" >
+		<td><b>Belongs to Computer (JBBP ID):</b></td>
+		<td>
+		  <%= @battery.computer.computer_name_en %> (<%= @battery.computer.computer_jbbp_id %>)
+		</td>
+	      </tr>
+	      <% else %>
+	      <tr>
+		<td><b>Belongs to Computer (JBBP ID):</b></td>
+		<td>none</td>
+	      </tr>
+	      <% end %>
+	    </tbody>
+	  </table>
+	</div> <!-- class="subcl" -->
+      </div> <!-- class="c..l" -->
+      <div class="c60r">
+	<div class="subcr">
+	  <!-- Insert your subtemplate content here -->
+	  <table class="full">
+	    <caption style="text-align:left">Notes (<%= @battery.notes.count %>)</caption>
+	    <tbody>
+	      <tr>
+		<th>Date</th>
+		<th>Name</th>
+		<th>Note</th>
+	      </tr>
+	      <%= render @battery.notes %>
+	    </tbody>
+	  </table>
+	  <%= render "add_battery_note" %>
+	</div> <!-- class="subcr" -->
+      </div> <!-- class="c50r" -->
+   </div> <!-- class="subcolumns" -->
+  </div>
 </div>
-</div>
+

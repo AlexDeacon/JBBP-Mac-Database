@@ -1,6 +1,23 @@
-<h1>Editing note</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @note %> |
-<%= link_to 'Back', notes_path %>
+<div id="col1">
+  <div id="col1_content" class="clearfix">
+    <%= image_tag "note.jpg", :size => "80x80" %>
+    <br \> 
+    <div class="info">
+      <!-- add your content here -->
+      <p><%= link_to 'Show Note', @note %></p>
+      <p><%= link_to 'Note List', notes_path %></p>
+    </div>
+  </div>
+</div>
+<div id="col3">
+  <div id="col3_content" class="clearfix">
+    <div class="subcolumns">
+      <div class="c80l">
+	<div class="subcl">
+	  <h3>Edit Note Details</h3>
+	  <%= render 'form' %>
+	</div>
+      </div>
+    </div>
+  </div>
+</div>
