@@ -3,7 +3,8 @@ class Battery < ActiveRecord::Base
   belongs_to :computer
   has_many :notes, :dependent => :delete_all
 
-# TODO: Add attr_accessible field here
+# User Accessable Fields
+attr_accessible :battery_serial_number, :battery_jbbp_id, :battery_model, :battery_status, :computer_id
 
 # Validation Rules
   validates :battery_serial_number, :presence => true, :uniqueness => :true

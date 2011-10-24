@@ -10,13 +10,13 @@
     
     <div class="type-text">
       <%= f.label :user_name %>
-      <%= f.text_field :user_name %>
+      <%= f.text_field :user_name, :value => current_user.name %>
     </div>
     <div class="type-text">
       <%= f.label :note_text %>
       <%= f.text_area :note_text %>
     </div>
-    <div class="type-text">
+   <div class="type-text">
       <%= f.label :battery_id %>
       <%= f.text_field :battery_id %>
     </div>

@@ -1,0 +1,49 @@
+<div id="col1">
+  <div id="col1_content" class="clearfix">
+    <%= image_tag "user-group.png", :size => "80x80" %>
+    <br \> 
+    <div class="info">
+      <!-- add your content here -->
+      <p>action</p>
+      <p>action</p>
+   </div>
+  </div>
+</div>
+<div id="col3">
+  <div id="col3_content" class="clearfix">
+   <h1>Users</h1>
+   <table class="full" class="pretty">
+     <caption style="text-align:left"><%= @users.count %> Users in this view.</caption>
+     <tbody>
+       <tr>
+	 <th>Email</th>
+	 <th>Name</th>
+	 <th>Approved</th>
+	 <th>Sign-in Count</th>
+	 <th>Signed In At</th>
+	 <th>SIgned in IP</th>
+	 <th>Last Signed In Time</th>
+	 <th>Last Signed In IP</th>
+	 <th>Created</th>
+	 <th>Last Updated</th>
+      </tr>
+
+	<% @users.each do |user| %>
+	<tr valign="top" onclick="location.href='<%= user_path(user.id) %>'">
+	  <td><%= user.email %></td>
+	  <td><%= user.name rescue nil %></td>
+	  <td><%= user.approved ? "Approved" : "Not Approved" %></td>
+	  <td><%= user.sign_in_count %></td>
+	  <td><%=user.current_sign_in_at ? user.current_sign_in_at.to_formatted_s(:long) : "Not signed in" %></td>
+	  <td><%= user.current_sign_in_ip %></td>
+	  <td><%= user.last_sign_in_at ? user.last_sign_in_at.to_formatted_s(:long) : "Never signed in" %></td>
+	  <td><%= user.last_sign_in_ip %></td>
+	  <td><%= user.created_at.to_formatted_s(:long) %></td>
+	  <td><%= user.updated_at.to_formatted_s(:long) %></td>
+	</tr>
+	<% end %> <!-- @users.each -->
+      </tbody>
+    </table>
+
+  </div>
+</div>

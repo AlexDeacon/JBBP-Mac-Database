@@ -1,5 +1,7 @@
 V1::Application.routes.draw do
+
   devise_for :users
+  resources :users
 
   resources :notes
 
@@ -26,6 +28,7 @@ V1::Application.routes.draw do
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
+
 
   match '/contact', :to => 'pages#contact'
   match '/about', :to => 'pages#about'

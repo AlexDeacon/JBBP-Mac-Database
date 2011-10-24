@@ -33,8 +33,9 @@
           <!-- end: skip link navigation -->
 	  <div id="user_auth">
 	    <% if user_signed_in? %>
-	      <p>Welcome <%= current_user.name %> | 
-		     <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></p>
+	      <b>Welcome <%= current_user.name %></b><br \>
+	         <%= link_to("Account Settings",edit_user_registration_path) %> |  
+	         <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 	    <% else %>
 	      <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Login", new_user_session_path %>
 	    <% end %>
@@ -68,11 +69,10 @@
 	<%= yield %>
       </div> <!-- "main" -->
       <!-- begin: #footer -->
-      <div id="footer">(c)2011 Rosa Parks ES - JBBP<br \>
+      <div id="footer">
       <%= link_to 'Contact', contact_path %> |
       <%= link_to 'About', about_path %>
-
-      </div> <!-- "footer" -->
+     </div> <!-- "footer" -->
     </div>
     <div id="border-bottom">
       <div id="edge-bl"></div>

@@ -3,6 +3,9 @@ class Computer < ActiveRecord::Base
   has_many :batteries, :dependent => :nullify 
   has_many :notes, :dependent => :delete_all
 
+  # User Accessable Fields
+  attr_accessible :computer_name_en, :computer_name_jp, :computer_model, :computer_serial_number, :computer_jbbp_id, :computer_os_version, :computer_memory, :computer_year_acquired, :computer_warrenty_expires, :computer_status
+
 # Validation Rules
   validates :computer_name_en, :presence => true, :uniqueness => :true
   validates :computer_serial_number, :presence => true, :uniqueness => :true,

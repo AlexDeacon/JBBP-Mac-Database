@@ -3,3 +3,16 @@
 
 en:
   hello: "Hello world"
+
+helpers:
+  label:
+    battery:
+      battery_jbbp_id: "JLIP ID--"
+      battery_model: "Battery Model--"
+      battery_serial_number: "Serial Number--"
+      battery_status: "Status--"
+    computer:
+      computer_jbbp_id: "JLIP ID--"
+      computer_model: "Battery Model--"
+      computer_serial_number: "Serial Number--"
+      computer_status: "Status--"

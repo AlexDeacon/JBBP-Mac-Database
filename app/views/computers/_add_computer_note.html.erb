@@ -4,11 +4,11 @@
   <%= form_for([@computer, @computer.notes.build], :html => { :class=>"yform"}) do |f| %>
 
   <fieldset class="columnar">
-    <legend>Add a Note <%= current_user.name %></legend>
+    <legend>Add a Note</legend>
     
     <div class="type-text">
       <%= f.label :user_name %>
-      <%= f.text_field :user_name %>
+      <%= f.text_field :user_name, :value => current_user.name %>
     </div>
     <div class="type-text">
       <%= f.label :note_text %>

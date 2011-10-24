@@ -13,19 +13,19 @@
   <legend>Computer Information</legend>
   
   <div class="type-text">
-  <%= f.label 'Name (English)' %> 
+  <%= f.label :computer_name_en %> 
     <%= f.text_field :computer_name_en %>
   </div>
   <div class="type-text">
-    <%= f.label 'Name (Japanese)' %>
+    <%= f.label :computer_name_jp %>
     <%= f.text_field :computer_name_jp %>
   </div>
   <div class="type-text">
-    <%= f.label "JLIP #" %>
+    <%= f.label :computer_jbbp_id %>
     <%= f.text_field :computer_jbbp_id %>
   </div>
   <div class="type-select">
-    <%= f.label 'Model' %>
+    <%= f.label :computer_model %>
     <%= f.select :computer_model, [
 	['iBook G3 - 12in','iBook G3 - 12in'],
 	['iBook G4 - 12in','iBook G4 - 12in'],

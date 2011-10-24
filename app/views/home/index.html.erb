@@ -1,2 +1,21 @@
-<p>Welcome to the Rosa Parks JBBP Macintosh Database!!</p>
-<%= image_tag "jbbp-logo.jpg" %>
+<% if user_signed_in? %>
+<p>Welcome <%= current_user.name %> </p>
+<% else %>
+<div class="subcolumns">
+  <div class="c40l">
+    <div class="subcl">
+      <!-- Insert your subtemplate content here -->
+      <%= image_tag "jbbp-logo.jpg", :class => "center" %>
+    </div> <!-- class="subcl" -->
+  </div> <!-- class="c..l" -->
+  <div class="c60r">
+    <div class="subcr">
+      <!-- Insert your subtemplate content here -->
+      <%= render :partial => "devise/sessions/login" %>
+   </div> <!-- class="subcr" -->
+  </div> <!-- class="c50r" -->
+</div> <!-- class="subcolumns" -->
+<% end %>
+
+
+

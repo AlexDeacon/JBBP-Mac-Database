@@ -89,10 +89,25 @@ module ApplicationHelper
     end
   end
 
-def date_pretty_print(the_date)
-   return the_date.strftime('%d-%m-%Y')
-end
+  def date_pretty_print(the_date)
+    return the_date.strftime('%d-%m-%Y')
+  end
 
+  #
+  # These three are to get Devise Login working on the home page
+  #
+  
+  def resource_name
+    :user
+  end
+  
+  def resource
+    @resource ||= User.new
+  end
+  
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
 
 
 end
