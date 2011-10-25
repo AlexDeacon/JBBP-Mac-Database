@@ -1,7 +1,6 @@
-<p><%= link_to_function('Click to Add New Note',
-       "Element.toggle('add-note')") %></p>
+<!--<p><%= link_to_function('Click to Add New Note', "Element.toggle('add-note')") %></p> -->
 
-<div id="add-note" style="display:none;">
+<div id="add-note"> <!-- style="display:none;"> -->
 
   <%= form_for([@battery, @battery.notes.build], :html => { :class=>"yform"}) do |f| %>
 

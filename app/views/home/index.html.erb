@@ -1,5 +1,68 @@
 <% if user_signed_in? %>
-<p>Welcome <%= current_user.name %> </p>
+<div class="subcolumns">
+  <div class="c50l">
+    <div class="subcl">
+      <!-- Insert your subtemplate content here -->
+     <p>Welcome <%= current_user.name %> !</p>
+      <p>This website contains the details of all JBBP Macintosh laptops and
+	batteries.  If you have any questions please ask Alex
+	(alex_deacon@sbcglobal.net) and he will be more than happy to
+	help.  </p>
+
+      <p>To navigate around the site use the tabs at the top of each
+      page.  
+	<ul>
+	  <li>Home - Will return you to the home page (e.g. this
+	  page)</li>
+	  <li>Computers - Will take you to the list of all computers.
+	  You can filter and sort the list of computers by the
+	  selecting the filter values on the left of the screen (All, Good,
+	  Minor Issues, Not Working, Regired).   You can search for a
+	  specific computer by entering a string in the "Search" box
+	  at the top of the table.  (i.e. entering "JLIP1005" will
+	  search for the computer with the JBBP ID "JLIP1005".</li>
+	  <li>Batteries - Will take you to the list of all batteries.
+	  The list of batteries an be filtered and searched as
+	  described above.  </li>
+	  <li>Software - This page is currently empty, but will
+	  eventually contain links to all JBBP software and website
+	  links.  </li>
+	  <li>Wifi - This page is currently empty, but will
+	  eventually describe how to access the internet from JBBP
+	  computers.  </li>
+	  <li>Passwords - This page is currently empty, but will
+	  eventually contain important usernames and passwords, such
+	  as Administrator and Sensei account passwords.   </li>
+	  <li>Todo - Is used by Alex to track updates and bugs for
+	  this web site </li>
+	</ul>
+    </div> <!-- class="subcl" -->
+  </div> <!-- class="c..l" -->
+  <div class="c50r">
+    <div class="subcr">
+      <!-- Insert your subtemplate content here -->
+      <p><em>A Note on Identifiers:</em></p>
+      <p>Each computer is associated with two different identifiers.
+	<ul>
+	  <li>"Name".  This is the number on the
+      top and the side of the computer.  Computer "Name" identifiers are
+      numbers starting at number 1.  </li>
+	  <li>"JBBP Identifier".  This is the
+	  number on the bottom of the computer and (usually) starts
+	  with the value "JLIP" followed by 4 numbers.  This number
+	  is also known as an "asset tag".</li>
+	  <li>Japanese names are no longer used...although the old
+	  names are still listed in this database.  </li>
+	</ul>
+      </p>
+      <p>Batteries have only a single identifier, the "JBBP
+      Identifier" (or asset tag) starting with "JLIP" followed by 4
+      numbers.  </p>
+      <%= image_tag "jbbp-logo.jpg", :class => "center" %>
+
+  </div> <!-- class="subcr" -->
+  </div> <!-- class="c50r" -->
+</div> <!-- class="subcolumns" -->
 <% else %>
 <div class="subcolumns">
   <div class="c40l">
