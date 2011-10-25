@@ -53,12 +53,14 @@
           <!-- main navigation: horizontal list -->
           <ul>
             <li><%= link_to 'Home', root_path %></li>
+	    <% if user_signed_in? %>
 	    <li><%= link_to 'Computers', computers_path %></li>
             <li><%= link_to 'Batteries', batteries_path %></li>
 	    <li><%= link_to 'Software', software_path %></li>
 	    <li><%= link_to 'WiFi', wifi_path %></li>
 	    <li><%= link_to 'Passwords', passwords_path %></li>
 	    <li><%= link_to 'Todo', todo_path %></li>
+	    <% end %>
         </ul>
         </div>
       </div>
