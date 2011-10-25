@@ -1,0 +1,3503 @@
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS framework
+ * (en) central stylesheet
+ * (de) zentrales Stylesheet
+ *
+ * @creator       YAML Builder V1.2.1 (http://builder.yaml.de)
+ * @file          my_layout.css
+ * @-yaml-minver  3.3
+ * 
+ */
+
+/* import core styles | Basis-Stylesheets einbinden */
+
+@import url(yaml/core/base.css);
+
+/* import screen layout | Screen-Layout einbinden */
+@import url(yaml/navigation/nav_shinybuttons.css);
+@import url(screen/basemod.css);
+@import url(screen/content.css);
+@import url(yaml/screen/forms.css);
+
+/* import print layout | Druck-Layout einbinden */
+@import url(yaml/print/print_draft.css);
+
+/*
+.pretty th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.pretty th .asc {
+  background-image: url(/assets/small_up_arrow_icon.gif);
+}
+
+.pretty th .desc {
+  background-image: url(/assets/small_down_arrow_icon.gif);
+}
+*/
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS framework
+ * (en) central stylesheet
+ * (de) zentrales Stylesheet
+ *
+ * @creator       YAML Builder V1.2.1 (http://builder.yaml.de)
+ * @file          my_layout.css
+ * @-yaml-minver  3.3
+ * 
+ */
+
+/* import core styles | Basis-Stylesheets einbinden */
+
+@import url(../yaml/core/base.css);
+
+/* import screen layout | Screen-Layout einbinden */
+@import url(../yaml/navigation/nav_shinybuttons.css);
+@import url(screen/basemod.css);
+@import url(screen/content.css);
+@import url(../yaml/screen/forms.css);
+
+/* import print layout | Druck-Layout einbinden */
+@import url(../yaml/print/print_draft.css);
+
+
+.pretty th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.pretty th .asc {
+  background-image: url(/assets/small_up_arrow_icon.gif);
+}
+
+.pretty th .desc {
+  background-image: url(/assets/small_down_arrow_icon.gif);
+}
+
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS framework
+ * (en) IE patch stylesheet 
+ * (de) IE-Anpassungs-Stylesheet
+ *
+ * @creator       YAML Builder V1.2.1 (http://builder.yaml.de)
+ * @file          patch_my_layout.css
+ * @-yaml-minver  3.3
+ */
+
+/* Layout independent adjustments | Layout-unabhängige Anpassungen  */
+
+@import url(../../yaml/core/iehacks.css);
+
+/* Layout-dependent adjustments | Layout-abhängige Anpassungen */
+@media screen, projection
+{
+ /**
+  * min-width/max-width workaround for IE
+  *
+  * @workaround
+  * @affected   IE 5.x/Win, IE6
+  * @css-for    IE 5.x/Win, IE6
+  * @valid      no
+  */
+
+  * html .page_margins {
+    /* Fallback if JavaScript is disabled */
+    width: auto;
+
+    /* JS-Expression for min-/max-width simulation */
+    width: expression((document.documentElement && document.documentElement.clientHeight) ? ((document.documentElement.clientWidth < 740) ? "740px" : ((document.documentElement.clientWidth > (90 * 16 * (parseInt(this.parentNode.currentStyle.fontSize) / 100))) ? "90em" : "auto" )) : ((document.body.clientWidth < 740) ? "740px" : ((document.body.clientWidth > (90 * 16 * (parseInt(this.parentNode.currentStyle.fontSize) / 100))) ? "90em" : "auto" )));
+  }
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS framework
+ * (en) stylesheet for screen layout
+ * (de) Stylesheet für das Bildschirm-Layout
+ *
+ * @creator       YAML Builder V1.2.1 (http://builder.yaml.de)
+ * @file          basemod.css
+ * @-yaml-minver  3.3
+ */
+
+
+@media screen, projection
+{
+  /** 
+   * (en) Forcing vertical scrollbars in IE8, Firefox, Webkit & Opera 
+   * (de) Erzwingen vertikaler Scrollbalken in IE8, Firefox, Webkit & Opera 
+   *
+   * @workaround
+   * @affected IE8, FF, Webkit, Opera
+   * @css-for all
+   * @valid CSS3
+   */
+
+  body { overflow-y: scroll; }
+
+  /*-------------------------------------------------------------------------*/
+
+  /* (en) Marginal areas & page background */
+  /* (de) Randbereiche & Seitenhintergrund */
+  body { background: #4d87c7 url("images/bg_blue.gif") repeat-x top left fixed; padding: 10px 0; }
+
+  /* Layout Alignment | Layout-Ausrichtung */
+  .page_margins { margin: 0 auto; }
+
+  /* Layout Properties | Layout-Eigenschaften */
+  .page_margins { width: auto;  min-width: 740px; max-width: 90em; background: #fff; }
+  .page { padding: 10px; }
+  #header { position:relative; padding: 45px 2em 1em 20px; color: #000; background: #fff; }
+  #topnav { position:absolute; top:10px; right:10px; text-align:right; color: #aaa; background: transparent; }
+  #nav { overflow:hidden; }
+  #main { margin: 10px 0; background: #fff; }
+  #footer { padding: 10px 20px; color:#666; background: #f9f9f9; border-top: 5px #efefef solid; }
+
+  /* (en) navigation: horizontal adjustment | (de) horizontale Ausrichtung  */
+  #nav ul { margin-left: 20px; }
+
+  /*-------------------------------------------------------------------------*/
+
+  /**
+   * (en) Formatting content container
+   * (de) Formatierung der Inhalts-Container
+   *
+   */  
+
+  #col1 { float: left; width: 10%}
+  #col2 { display:none}
+  #col3 { width: auto; margin: 0 0 0 10%}
+  #col1_content { padding: 0 10px 0 20px }
+  #col3_content { padding: 0 20px 0 10px }
+
+
+  /* set column dividers 
+   */
+  #col3 { border-left: 1px #ddd solid }
+
+
+  /* #main { padding: 0px 20px } */
+  /*-------------------------------------------------------------------------*/
+
+  .page_margins {
+    border: 0 none;
+    background-image:  url(../../images/gfxborder/border_left.gif);
+    background-repeat:repeat-y;
+    background-position:left;
+  }
+
+  .page {
+    border: 0 none;
+    margin: 0 0 0 5px; padding: 10px 15px 10px 10px;
+    background-image:  url(../../images/gfxborder/border_right.gif);
+    background-repeat:repeat-y;
+    background-position:right;
+  }
+
+
+  #border-top {
+    overflow:hidden;
+    width: auto;
+    height: 20px;
+    font-size:0;
+    margin-bottom: -15px;
+    background-image:  url(../../images/gfxborder/border_top.gif);
+    background-repeat:repeat-x;
+    background-position:top left;
+  }
+
+  #border-bottom {
+    overflow:hidden;
+    width: auto;
+    height: 20px;
+    margin-top: -15px;
+    font-size:0;
+    background-image:  url(../../images/gfxborder/border_bottom.gif);
+    background-repeat:repeat-x;
+    background-position:bottom left;
+  }
+
+  #edge-tl {
+    float:left;
+    width: 20px;
+    height: 20px;
+    font-size:0;
+    background-image:  url(../../images/gfxborder/corner_tl.gif);
+    background-position: top left;
+  }
+
+  #edge-tr {
+    position:relative; /* IE Fix | z-index */
+    float:right;
+    width: 20px;
+    height: 20px;
+    font-size:0;
+    background-image:  url(../../images/gfxborder/corner_tr.gif);
+    background-position: top right;
+  }
+
+  #edge-bl {
+    float:left;
+    width: 20px;
+    height: 20px;
+    background-image:  url(../../images/gfxborder/corner_bl.gif);
+    background-position: bottom left;
+  }
+
+  #edge-br {
+    position:relative; /* IE Fix | z-index */
+    float:right;
+    width: 20px;
+    height: 20px;
+    background-image:  url(../../images/gfxborder/corner_br.gif);
+    background-position: bottom right;
+  }
+
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) Uniform design of standard content elements
+ * (de) Einheitliche Standardformatierungen für die wichtigten Inhalts-Elemente
+ *
+ * @copyright       Copyright 2005-2010, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.2.1
+ * @revision        $Revision:392 $
+ * @lastmodified    $Date:2009-07-05 12:18:40 +0200 (So, 05. Jul 2009) $
+ * @appdef yaml
+ */
+
+
+@media all
+{
+ /**
+  * Fonts
+  *
+  * (en) global settings of font-families and font-sizes
+  * (de) Globale Einstellungen für Zeichensatz und Schriftgrößen
+  *
+  * @section content-global-settings
+  */
+
+  /* (en) reset font size for all elements to standard (16 Pixel) */
+  /* (de) Alle Schriftgrößen auf Standardgröße (16 Pixel) zurücksetzen */
+  html * { font-size:100.01%; }
+
+ /**
+  * (en) reset monospaced elements to font size 16px in all browsers
+  * (de) Schriftgröße von monospaced Elemente in allen Browsern auf 16 Pixel setzen
+  *
+  * @see: http://webkit.org/blog/67/strange-medium/
+  */
+
+  textarea, pre, code, kbd, samp, var, tt {
+    font-family:Consolas, "Lucida Console", "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier;
+  }
+
+  /* (en) base layout gets standard font size 12px */
+  /* (de) Basis-Layout erhält Standardschriftgröße von 12 Pixeln */
+  body {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:75.00%;
+    color:#444;
+  }
+
+  /*--- Headings | Überschriften ------------------------------------------------------------------------*/
+
+  h1,h2,h3,h4,h5,h6 {
+    font-family:"Times New Roman", Times, serif;
+    font-weight:normal;
+    color:#222;
+    margin:0 0 0.25em 0;
+  }
+
+  h1 { font-size:250%; }                       /* 30px */
+  h2 { font-size:200%; }                       /* 24px */
+  h3 { font-size:150%; }                       /* 18px */
+  h4 { font-size:133.33%; }                    /* 16px */
+  h5 { font-size:116.67%; }                    /* 14px */
+  h6 { font-size:116.67%; }                    /* 14px */
+
+  /* --- Lists | Listen  -------------------------------------------------------------------------------- */
+
+  ul, ol, dl { line-height:1.5em; margin:0 0 1em 1em; }
+  ul { list-style-type:disc; }
+  ul ul { list-style-type:circle; margin-bottom:0; }
+
+  ol { list-style-type:decimal; }
+  ol ol { list-style-type:lower-latin; margin-bottom:0; }
+
+  li { margin-left:0.8em; line-height:1.5em; }
+
+  dt { font-weight:bold; }
+  dd { margin:0 0 1em 0.8em; }
+
+  /* --- general text formatting | Allgemeine Textauszeichnung ------------------------------------------ */
+
+  p { line-height:1.5em; margin:0 0 1em 0; }
+
+  blockquote, cite, q {
+    font-family:Georgia, "Times New Roman", Times, serif;
+    font-style:italic;
+  }
+  blockquote { margin:0 0 1em 1.6em; color:#666; }
+
+  strong,b { font-weight:bold; }
+  em,i { font-style:italic; }
+
+  big { font-size:116.667%; }
+  small { font-size:91.667%; }
+ 
+  pre { line-height:1.5em; margin:0 0 1em 0; }
+  pre, code, kbd, tt, samp, var { font-size:100%; }
+  pre, code { color:#800; }
+  kbd, samp, var, tt { color:#666; font-weight:bold; }
+  var, dfn { font-style:italic; }
+
+  acronym, abbr {
+    border-bottom:1px #aaa dotted;
+    font-variant:small-caps;
+    letter-spacing:.07em;
+    cursor:help;
+  }
+
+  sub, sup { font-size:91.6667%; line-height:0; }
+
+  hr {
+    color:#fff;
+    background:transparent;
+    margin:0 0 0.5em 0;
+    padding:0 0 0.5em 0;
+    border:0;
+    border-bottom:1px #eee solid;
+  }
+
+  /*--- Links ----------------------------------------------------------------------------------------- */
+
+  a { color:#4D87C7; background:transparent; text-decoration:none; }
+  a:visited  { color:#036; }
+
+  /* (en) maximum constrast for tab focus - change with great care */
+  /* (en) Maximaler Kontrast für Tab Focus - Ändern Sie diese Regel mit Bedacht */
+  a:focus { text-decoration:underline; color:#000; background: #fff; outline: 3px #f93 solid; }
+  a:hover,
+  a:active { color:#182E7A; text-decoration:underline; outline: 0 none; }
+
+  /* --- images (with optional captions) | Bilder (mit optionaler Bildunterschrift) ------------------ */
+
+  p.icaption_left { float:left; display:inline; margin:0 1em 0.15em 0; }
+  p.icaption_right { float:right; display:inline; margin:0 0 0.15em 1em; }
+
+  p.icaption_left img,
+  p.icaption_right img { padding:0; border:1px #888 solid; }
+
+  p.icaption_left strong,
+  p.icaption_right strong { display:block; overflow:hidden; margin-top:2px; padding:0.3em 0.5em; background:#eee; font-weight:normal; font-size:91.667%; }
+
+ /**
+  * ------------------------------------------------------------------------------------------------- #
+  *
+  * Generic Content Classes
+  *
+  * (en) standard classes for positioning and highlighting
+  * (de) Standardklassen zur Positionierung und Hervorhebung
+  *
+  * @section content-generic-classes
+  */
+
+  .highlight { color:#c30; }
+  .dimmed { color:#888; }
+
+  .info { background:#f8f8f8; color:#666; padding:10px; margin-bottom:0.5em; font-size:91.7%; }
+
+  .note { background:#efe; color:#040; border:2px #484 solid; padding:10px; margin-bottom:1em; }
+  .important { background:#ffe; color:#440; border:2px #884 solid; padding:10px; margin-bottom:1em; }
+  .warning { background:#fee; color:#400; border:2px #844 solid; padding:10px; margin-bottom:1em; }
+
+  .float_left { float:left; display:inline; margin-right:1em; margin-bottom:0.15em; }
+  .float_right { float:right; display:inline; margin-left:1em; margin-bottom:0.15em; }
+  .center { display:block; text-align:center; margin:0.5em auto; }
+
+ /**
+  * ------------------------------------------------------------------------------------------------- #
+  *
+  * Tables | Tabellen
+  *
+  * (en) Generic classes for table-width and design definition
+  * (de) Generische Klassen für die Tabellenbreite und Gestaltungsvorschriften für Tabellen
+  *
+  * @section content-tables
+  */
+
+  table { width:auto; border-collapse:collapse; margin-bottom:0.5em; border-top:2px #888 solid; border-bottom:2px #888 solid; }
+  table caption { font-variant:small-caps; }
+  table.full { width:100%; }
+  table.fixed { table-layout:fixed; }
+
+  th,td { padding:0.5em; }
+  thead th { color:#000; border-bottom:2px #800 solid; }
+  tbody th { background:#e0e0e0; color:#333; }
+  tbody th[scope="row"], tbody th.sub { background:#f0f0f0; }
+
+  tbody th { border-bottom:1px solid #fff; text-align:left; }
+  tbody td { border-bottom:1px solid #eee; }
+
+  tbody tr:hover th[scope="row"],
+  tbody tr:hover tbody th.sub { background:#f0e8e8; }
+  tbody tr:hover td { background:#fff8f8; }
+
+ /**
+  * ------------------------------------------------------------------------------------------------- #
+  *
+  * Miscellaneous | Sonstiges
+  *
+  * @section content-misc
+  */
+
+ /**
+  * (en) Emphasizing external Hyperlinks via CSS
+  * (de) Hervorhebung externer Hyperlinks mit CSS
+  *
+  * @section             content-external-links
+  * @app-yaml-default    disabled
+  */
+
+  /*
+  #main a[href^="http://www.my-domain.com"],
+  #main a[href^="https://www.my-domain.com"]
+  {
+    padding-left:12px;
+    background-image:url('your_image.gif');
+    background-repeat:no-repeat;
+    background-position:0 0.45em;
+  }
+  */
+}
+/*
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px; }
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px; }
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px; }
+
+a {
+  color: #000;
+  &:visited {
+    color: #666; }
+  &:hover {
+    color: #fff;
+    background-color: #000; } }
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px; } }
+
+#notice {
+  color: green; }
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table; }
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff; }
+  ul li {
+    font-size: 12px;
+    list-style: square; } }
+*/
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) Styles for accessible tabs plugin
+ * (de) Gestaltung des Plugins für barrierefreie Tabreiter
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision: 501 $
+ * @lastmodified    $Date: 2011-06-18 17:27:44 +0200 (Sa, 18 Jun 2011) $
+ */
+
+
+@media screen, projection
+{
+.jquery_tabs {
+	display:table;
+	margin:0 0 1em 0;
+	width:100%;
+}
+
+.jquery_tabs ul.tabs-list {
+	display:block;
+	font-size:1em;
+	line-height:1em;
+	list-style-type:none;
+	margin:0;
+	position:relative;
+	z-index:1; 
+}
+
+.jquery_tabs ul.tabs-list li a {
+	font-size:1em;
+	line-height:1em;
+	padding:5px 10px; 
+}
+
+.jquery_tabs .content {
+	border:1px #888 solid;
+	clear:both;
+	padding:0.5em;
+	position:relative;
+	top:-1px;
+	margin-bottom:-1px;
+}
+
+.jquery_tabs ul.tabs-list li {
+	border:0 none;
+	display:inline;
+	float:left;
+	margin:0 0.3em 0 0;
+	padding:0;
+}
+
+.jquery_tabs ul.tabs-list li a {
+	background:#ccc;
+	border:1px solid #888;
+	color:#333;
+	display:block;
+	float:left;
+	font-weight:bold;
+	margin:0;
+}
+
+.jquery_tabs ul.tabs-list li a:focus,
+.jquery_tabs ul.tabs-list li a:hover,
+.jquery_tabs ul.tabs-list li a:active { 
+	background:#f0f0f0;
+	color:#333;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+.jquery_tabs ul.tabs-list li.current a,
+.jquery_tabs ul.tabs-list li.current a:focus,
+.jquery_tabs ul.tabs-list li.current a:hover,
+.jquery_tabs ul.tabs-list li.current a:active {
+	background:#fff;
+	border-bottom:0 none;
+	color:#000;
+	font-weight:bold;
+	padding-bottom:6px;
+	text-decoration:none;
+}
+
+.js .jquery_tabs .current-info,
+.js .jquery_tabs .accessibletabsanchor,
+.js .jquery_tabs .tabhead /*position each individual tab's heading (default class .tabhead) off-screen*/ {
+    position:absolute;
+    left:-999em;
+}
+
+ /**
+  * Avoid margin collapsing to enable correct sync of all tabs
+  *
+  * @workaround
+  * @affected all browsers
+  * @css-for all browsers
+  * @valid yes
+  */
+
+.jquery_tabs .tab-content {
+	border-bottom: 1px transparent solid;
+	border-top: 1px transparent solid;
+}
+
+/* IE < 7 don't support transparent borders */
+* html .jquery_tabs .tab-content {
+	border-bottom: 1px #fff solid;
+	border-top: 1px #fff solid;
+}
+
+ /**
+  * Containing floats adjustment and stability fixes for Internet Explorer
+  *
+  * @workaround
+  * @affected IE 5.x/Win, IE6, IE7
+  * @css-for IE 5.x/Win, IE6, IE7
+  * @valid no
+  */
+
+* html .jquery_tabs .content { z-index:-1; }
+
+* html .jquery_tabs { zoom:1; width:auto; position:relative; } 
+*+html .jquery_tabs { zoom:1; width:auto; } 
+
+.jquery_tabs * { zoom:1; }
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) YAML-Addon:Microformats Support
+ * (de) YAML-Addon:Unterstützung für Microformate
+ *
+ * @note            Many thanks to Michael Jendryschik (http://jendryschik.de/) for contribution
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision:392 $
+ * @lastmodified    $Date:2009-07-05 12:18:40 +0200 (So, 05. Jul 2009) $
+ */
+
+/* hCards + hCalendars */
+
+
+.vcard,
+.vevent {
+  border:2px solid #e0e7b8 !important;
+  padding:30px 5px 5px 5px !important;
+  border-radius:8px;
+  -moz-border-radius:8px;
+  -webkit-border-radius:8px;
+  margin:5px 0 !important;
+    /* small IE-Fix for background images */
+  zoom:1;
+}
+
+span.vcard,
+span.vevent {
+  padding:2px 1px 2px 70px !important;
+  margin:0 2px 0 !important;
+}
+
+
+.vcard { 
+	background:#f8f8ec url(images/hcard.png) 5px 5px no-repeat  !important;
+}
+
+.vcard a { 
+	padding-left:11px; 
+	background:url(images/external_link.png) top left no-repeat; 
+	color:#679A06;
+}
+
+.vcard .adr { 
+	display:block;
+	margin:0.5em 0;
+}
+
+.vcard .email { 
+	font-family:Consolas, "Lucida Console", "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier;
+}
+
+.vevent { 
+	background:#f8f8ec url(images/hcalendar.png) 5px 5px no-repeat  !important;
+}
+
+.vevent a { 
+	padding-left:11px; 
+	background:url(images/external_link.png) top left no-repeat; 
+	color:#679A06;
+}
+
+.vevent p {
+	margin-bottom:0.5em;
+}
+
+.vevent .description {
+	display:block;
+	margin-top:1em;
+}
+
+.vevent .location {
+	display:block;
+	color:#679A06;
+}
+
+.vevent .summary {
+	display:block;
+	color:#679A06;
+	font-weight:bold;
+}
+
+/* XFN relationship */
+
+a.xfnRelationship {
+  padding-right:26px; background:url(images/xfn/xfn-small.png) no-repeat right;
+}
+
+a.xfnRelationship[rel~="colleague"],
+a.xfnRelationship[rel~="co-worker"] {
+  padding-right:21px;
+  background:url(images/xfn/xfn-colleague.png) no-repeat right;
+}
+
+a.xfnRelationship[rel~="met"] {
+  padding-right:32px;
+  background:url(images/icon-xfn.png) no-repeat right;
+}
+
+
+a.xfnRelationship[rel~="colleague"][rel~="met"],
+a.xfnRelationship[rel~="co-worker"][rel~="met"] {
+  padding-right:26px;
+  background:url(images/xfn/xfn-colleague-met.png) no-repeat right;
+}
+
+a.xfnRelationship[rel~="friend"] {
+  padding-right:21px;
+  background:url(images/xfn/xfn-friend.png) no-repeat right;
+}
+
+a.xfnRelationship[rel~="friend"][rel~="met"] {
+  padding-right:26px;
+  background:url(images/xfn/xfn-friend-met.png) no-repeat right;
+}
+
+a.xfnRelationship[rel~="sweetheart"] {
+  padding-right:21px;
+  background:url(images/xfn/xfn-sweetheart.png) no-repeat right;
+}
+
+a.xfnRelationship[rel~="sweetheart"][rel~="met"] {
+  padding-right:26px;
+  background:url(images/xfn/xfn-sweetheart-met.png) no-repeat right;
+}
+
+a.xfnRelationship[rel~="child"] {
+  padding-right:21px;
+  background:url(images/xfn/xfn-child.png) no-repeat right;
+}
+
+a.xfnRelationship[rel~="parent"] {
+  padding-right:21px;
+  background:url(images/xfn/xfn-parent.png) no-repeat right;
+}
+
+a.xfnRelationship[rel~="spouse"] {
+  padding-right:21px;
+  background:url(images/xfn/xfn-spouse.png) no-repeat right;
+}
+
+a.xfnRelationship[rel~="me"] {
+  padding-right:21px;
+  background:url(images/xfn/xfn-me.png) no-repeat right;
+}
+
+/* rel-tag */
+
+a[rel~="tag"] {
+  padding-right:32px;
+  background:url(images/icon-rel-tag.png) no-repeat right;
+}
+
+
+/* geo */
+
+abbr[class~="geo"] {
+  padding-right:32px;
+  background:url(images/icon-geo.png) no-repeat right;
+  border:none;
+  cursor:default;
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) YAML core RTL stylesheet
+ * (de) YAML Basis-RTL-Stylesheet
+ *
+ * Don't make any changes in this file!
+ * Your changes should be placed in any css-file in your own stylesheet folder.
+ *
+ * @note:           Many thanks to Alexander Hass (http://www.yaml-fuer-drupal.de/) for contribution
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision: 501 $
+ * @lastmodified    $Date: 2011-06-18 17:27:44 +0200 (Sa, 18 Jun 2011) $
+ */
+
+
+@media all
+{
+ /**
+  * @section browser reset
+  * @see     http://www.yaml.de/en/documentation/css-components/base-stylesheet.html
+  *
+  * Changing direction of text flow, paddings & margins ...
+  */
+
+  option { padding: 0 0.4em 0 0; }
+
+  body {
+    text-align: right;
+    direction: rtl;
+  }
+
+  ul, ol, dl { margin: 0 1em 1em 0; }
+  li {
+    margin-left: 0;
+    margin-right: 0.8em;
+  }
+
+  dd { margin: 0 0.8em 1em 0; }
+  blockquote, cite { margin: 0 0.8em 1em 0; }
+
+ /*------------------------------------------------------------------------------------------------------*/
+
+  /**
+   * (en) skip links cause large horizontal scrollbars in RTL mode in several browsers
+   * (de) skip links erzeugen große horziontale Scrollbalken in verschiedenen Browserin im RTL-Modus
+   *
+   * @workaround
+   * @affected   Firefox, Safari, IE 5.x - IE7
+   * @css-for    all
+   * @valid      yes
+   */
+
+  #skiplinks { left: 32768px; }
+  #skiplinks .skip:focus,
+  #skiplinks .skip:active { left: -32768px; }
+  .skip, .hideme, .print { left: 32768px; }
+
+ /*------------------------------------------------------------------------------------------------------*/
+
+ /**
+  * @section miscellaneous
+  *
+  * (en) CSS-class for ltr-content (left to right) within a rtl website
+  * (de) Eine CSS-Klasse für ltr-Inhalte (left to right) innerhalb einer rtl-Seite
+  */
+
+  .text-ltr {
+    direction: ltr;
+    text-align: left;
+  }
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) YAML core RTL stylesheet - structure-independent bugfixes of IE/Win CSS-bugs
+ * (de) YAML Basis-RTL-Stylesheet - Strukturunabhängige Bugfixes von CSS-Bugs des IE/Win
+ *
+ * Don't make any changes in this file!
+ * Your changes should be added to a separate patch-file.
+ *
+ * @note:           Many thanks to Alexander Hass (http://www.yaml-fuer-drupal.de/) for contribution
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision: 501 $
+ * @lastmodified    $Date: 2011-06-18 17:27:44 +0200 (Sa, 18 Jun 2011) $
+ */
+
+
+@media all
+{
+ /**
+  * (en) Workaround for misplaced floating navigation lists
+  * (de) Workaround behebt deplatzierte floatende Navigationselemente
+  *
+  * @workaround
+  * @affected   IE 5.x/Win, IE6, IE7
+  * @css-for    IE 5.x/Win, IE6, IE7
+  * @valid      yes
+  */
+
+  #nav { direction:ltr; }
+  #nav * { direction:rtl; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /**
+   * (en) Optional: Forces right vertical scroll bars
+   * (de) Optional: Erzwingt rechte vertikale Scrollbalken
+   *
+   * @workaround
+   * @affected   IE 5.x/Win, IE6, IE7
+   * @css-for    IE 5.x/Win, IE6, IE7
+   * @valid      yes
+   */
+
+  /*
+  html { direction: ltr; }
+  body { direction: rtl; }
+  */
+}
+/* "Yet Another Multicolumn Layout" v3.3.1 (c) by Alexander Hass, Dirk Jesse (http://www.yaml.de)
+* $Revision: 495 $ $Date: 2011-06-18 12:24:44 +0200 (Sa, 18 Jun 2011) $ */
+
+@media all{option{padding:0 .4em 0 0}body{text-align:right;direction:rtl}ul,ol,dl{margin:0 1em 1em 0}li{margin-left:0;margin-right:.8em}dd{margin:0 .8em 1em 0}blockquote,cite{margin:0 .8em 1em 0}#skiplinks{left:32768px}#skiplinks .skip:focus,#skiplinks .skip:active{left:-32768px}.skip,.hideme,.print{left:32768px}.text-ltr{direction:ltr;text-align:left}}
+/* "Yet Another Multicolumn Layout" v3.3.1 (c) by Alexander Hass, Dirk Jesse (http://www.yaml.de)
+* $Revision: 495 $ $Date: 2011-06-18 12:24:44 +0200 (Sa, 18 Jun 2011) $ */
+
+@media all{#nav{direction:ltr}#nav *{direction:rtl}}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) RTL Horizontal list navigation "Shiny Buttons"
+ * (de) RTL Horizontale Navigationsliste "Shiny Buttons"
+ *
+ * @note:           Many thanks to Alexander Hass (http://www.yaml-fuer-drupal.de/) for contribution
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision: 501 $
+ * @lastmodified    $Date: 2011-06-18 17:27:44 +0200 (Sa, 18 Jun 2011) $
+ */
+
+
+@media all
+{
+ /**
+  * (en) Workaround disappearing list elements on hover
+  * (de) Workaround verhindert das Verschwinden der Listenelemente beim Hovern
+  *
+  * @workaround
+  * @affected   IE 5.x/Win, IE6, IE7
+  * @css-for    IE 5.x/Win, IE6, IE7
+  * @valid      yes
+  */
+
+  .hlist * { direction:ltr !important; }
+  .hlist a, .hlist strong { direction:rtl !important; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  .hlist ul {
+    position:relative;
+    float:right;
+    /* (en) Left margin of the first button  */
+    /* (de) Abstand des ersten Buttons vom linken Rand  */
+    margin-left: 0; /* Reset LTR */
+    margin-right: 50px;
+  }
+
+  .hlist ul li {
+    float: right;
+  }
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) RTL Horizontal list navigation based on "Sliding Door II" from von "A List Apart"
+ * (de) RTL Horizontale Navigationsliste basierend auf "Sliding Door II" von "A List Apart"
+ *
+ * @note:           Many thanks to Alexander Hass (http://www.yaml-fuer-drupal.de/) for contribution
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision: 501 $
+ * @lastmodified    $Date: 2011-06-18 17:27:44 +0200 (Sa, 18 Jun 2011) $
+ */
+
+
+@media all
+{
+ /**
+  * (en) Workaround disappearing list elements on hover
+  * (de) Workaround verhindert das Verschwinden der Listenelemente beim Hovern
+  *
+  * @workaround
+  * @affected   IE 5.x/Win, IE6, IE7
+  * @css-for    IE 5.x/Win, IE6, IE7
+  * @valid      yes
+  */
+
+  .hlist * { direction:ltr !important; }
+  .hlist a, .hlist strong { direction:rtl !important; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  .hlist ul {
+    padding: 0 50px 0 0;
+  }
+
+  .hlist li {
+    float: right;
+  }
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) Vertical RTL list navigation "vlist"
+ * (de) Vertikale RTL-Navigationsliste "vlist"
+ *
+ * @note:           Many thanks to Alexander Hass (http://www.yaml-fuer-drupal.de/) for contribution
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision: 501 $
+ * @lastmodified    $Date: 2011-06-18 17:27:44 +0200 (Sa, 18 Jun 2011) $
+ */
+
+
+@media all
+{
+  /* Menu Title */
+  h6.vlist {
+    padding-left: 0px;
+    padding-right: 10%;
+  }
+
+  .vlist { text-align: right; }
+  .vlist li { float:right; }
+
+  /* Level 1 */
+  .vlist a,
+  .vlist strong,
+  .vlist span {
+    padding-left: 0px;
+    padding-right: 10%;
+ }
+
+  /* Level 2 */
+  .vlist li ul li a,
+  .vlist li ul li strong,
+  .vlist li ul li span {
+    padding-left: 0px;
+    padding-right: 20%;
+  }
+
+  /* Level 3 */
+  .vlist li ul li ul li a,
+  .vlist li ul li ul li strong,
+  .vlist li ul li ul li span {
+    padding-left: 0px;
+    padding-right: 30%;
+  }
+
+  /* Level 4 */
+  .vlist li ul li ul li ul li a,
+  .vlist li ul li ul li ul li strong,
+  .vlist li ul li ul li ul li span {
+    padding-left: 0px;
+    padding-right: 40%;
+  }
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) draft for a central stylesheet
+ * (de) Vorlage für ein zentrales Stylesheets
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision: 501 $
+ * @lastmodified    $Date: 2011-06-18 17:27:44 +0200 (Sa, 18 Jun 2011) $
+ */
+
+/* import core styles | Basis-Stylesheets einbinden */
+
+@import url(/yaml/core/base.css);
+
+/* import screen layout | Screen-Layout einbinden */
+/* @import url(/yaml/navigation/nav_shinybuttons.css);
+  @import url(/css/screen/basemod.css);
+  @import url(/css/screen/content.css); */
+
+/* import print layout | Druck-Layout einbinden */
+/* @import url(/css/print/print_003.css); */
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) YAML core stylesheet
+ * (de) YAML Basis-Stylesheet
+ *
+ * Don't make any changes in this file!
+ * Your changes should be placed in any css-file in your own stylesheet folder.
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision: 501 $
+ * @lastmodified    $Date: 2011-06-18 17:27:44 +0200 (Sa, 18 Jun 2011) $
+ */
+
+
+@media all
+{
+ /**
+  * @section browser reset
+  * @see     http://www.yaml.de/en/documentation/css-components/base-stylesheet.html
+  */
+
+  /* (en) Global reset of paddings and margins for all HTML elements */
+  /* (de) Globales Zurücksetzen der Innen- und Außenabstände für alle HTML-Elemente */
+  * { margin:0; padding:0; }
+
+  /* (en) Correction:margin/padding reset caused too small select boxes. */
+  /* (de) Korrektur:Das Zurücksetzen der Abstände verursacht zu kleine Selectboxen. */
+  option { padding-left:0.4em; } /* LTR */
+  select { padding:1px; }
+
+ /**
+  * (en) Global fix of the Italics bugs in IE 5.x and IE 6
+  * (de) Globale Korrektur des Italics Bugs des IE 5.x und IE 6
+  *
+  * @bugfix
+  * @affected   IE 5.x/Win, IE6
+  * @css-for    IE 5.x/Win, IE6
+  * @valid      yes
+  */
+  * html body * { overflow:visible; }
+
+  body {
+    /* (en) Fix for rounding errors when scaling font sizes in older versions of Opera browser */
+    /* (de) Beseitigung von Rundungsfehler beim Skalieren von Schriftgrößen in älteren Opera Versionen */
+    font-size:100.01%;
+
+    /* (en) Standard values for colors and text alignment */
+    /* (de) Vorgabe der Standardfarben und Textausrichtung */
+    background:#fff;
+    color:#000;
+    text-align:left; /* LTR */
+  }
+
+  /* (en) avoid visible outlines on DIV containers in Webkit browsers */
+  /* (de) Vermeidung sichtbarer Outline-Rahmen in Webkit-Browsern */
+  div { outline:0 none; }
+
+  /* (en) HTML 5 - adjusting visual formatting model to block level */
+  /* (en) HTML 5 - Anpassung des visuellen Formatmodells auf Blockelemente */
+  article,aside,canvas,details,figcaption,figure,
+  footer,header,hgroup,menu,nav,section,summary { 
+  	display:block;
+  }
+  
+  /* (en) Clear borders for <fieldset> and <img> elements */
+  /* (de) Rahmen für <fieldset> und <img> Elemente löschen */
+  fieldset, img { border:0 solid; }
+
+  /* (en) new standard values for lists, blockquote and cite */
+  /* (de) Neue Standardwerte für Listen & Zitate */
+  ul, ol, dl { margin:0 0 1em 1em; } /* LTR */
+  li {
+    line-height:1.5em;
+    margin-left:0.8em; /* LTR */
+  }
+
+  dt { font-weight:bold; }
+  dd { margin:0 0 1em 0.8em; } /* LTR */
+
+  blockquote { margin:0 0 1em 0.8em; } /* LTR */
+
+  blockquote:before, blockquote:after,
+  q:before, q:after { content:""; }
+
+ /*------------------------------------------------------------------------------------------------------*/
+
+ /**
+  * @section clearing methods
+  * @see     http://yaml.de/en/documentation/basics/general.html
+  */
+
+  /* (en) clearfix method for clearing floats */
+  /* (de) Clearfix-Methode zum Clearen der Float-Umgebungen */
+  .clearfix:after {
+    clear:both;
+    content:".";
+    display:block;
+    font-size:0;
+    height:0;
+    visibility:hidden;
+  }
+
+  /* (en) essential for Safari browser !! */
+  /* (de) Diese Angabe benötigt der Safari-Browser zwingend !! */
+  .clearfix { display:block; }
+
+  /* (en) alternative solution to contain floats */
+  /* (de) Alternative Methode zum Einschließen von Float-Umgebungen */
+  .floatbox { display:table; width:100%; }
+
+  /* (en) IE-Clearing:Only used in Internet Explorer, switched on in iehacks.css */
+  /* (de) IE-Clearing:Benötigt nur der Internet Explorer und über iehacks.css zugeschaltet */
+  #ie_clearing { display:none; }
+
+ /*------------------------------------------------------------------------------------------------------*/
+
+ /**
+  * @section hidden elements | Versteckte Elemente
+  * @see     http://www.yaml.de/en/documentation/basics/skip-links.html
+  *
+  * (en) skip links and hidden content
+  * (de) Skip-Links und versteckte Inhalte
+  */
+
+  /* (en) classes for invisible elements in the base layout */
+  /* (de) Klassen für unsichtbare Elemente im Basislayout */
+  .skip, .hideme, .print {
+    position:absolute;
+    top:-32768px;
+    left:-32768px; /* LTR */
+  }
+
+  /* (en) make skip links visible when using tab navigation */
+  /* (de) Skip-Links für Tab-Navigation sichtbar schalten */
+  .skip:focus, .skip:active {
+    position:static;
+    top:0;
+    left:0;
+  }
+
+  /* skiplinks:technical setup */
+  #skiplinks { 
+    position:absolute;
+    top:0px; 
+    left:-32768px; 
+    z-index:1000; 
+    width:100%;
+    margin:0; 
+    padding:0; 
+    list-style-type:none;   
+  }
+  
+  #skiplinks .skip:focus,
+  #skiplinks .skip:active {
+    left:32768px; 
+    outline:0 none;
+    position:absolute; 
+    width:100%;
+  }  
+}
+
+@media screen, projection
+{
+
+ /**
+  * @section base layout | Basis Layout
+  * @see     http://www.yaml.de/en/documentation/css-components/base-stylesheet.html
+  *
+  * |-------------------------------|
+  * | #col1   | #col3     | #col2   |
+  * | 20%     | flexible  | 20%     |
+  * |-------------------------------|
+  */
+
+  #col1 { float:left; width:20%; }
+  #col2 { float:right; width:20%; }
+  #col3 { width:auto; margin:0 20%; }
+
+  /* (en) Preparation for absolute positioning within content columns */
+  /* (de) Vorbereitung für absolute Positionierungen innerhalb der Inhaltsspalten */
+  #col1_content, #col2_content, #col3_content { position:relative; }
+
+ /*------------------------------------------------------------------------------------------------------*/
+
+ /**
+  * @section subtemplates
+  * @see     http://www.yaml.de/en/documentation/practice/subtemplates.html
+  */
+  .subcolumns { display:table; width:100%; table-layout:fixed; }
+  .subcolumns_oldgecko { width: 100%; float:left; }
+
+  .c20l, .c25l, .c33l, .c40l, .c38l, .c50l, .c60l, .c62l, .c66l, .c75l, .c80l { float:left; }
+  .c20r, .c25r, .c33r, .c40r, .c38r, .c50r, .c60r, .c66r, .c62r, .c75r, .c80r { float:right; margin-left:-5px; }
+
+  .c20l, .c20r { width:20%; }
+  .c40l, .c40r { width:40%; }
+  .c60l, .c60r { width:60%; }
+  .c80l, .c80r { width:80%; }
+  .c25l, .c25r { width:25%; }
+  .c33l, .c33r { width:33.333%; }
+  .c50l, .c50r { width:50%; }
+  .c66l, .c66r { width:66.666%; }
+  .c75l, .c75r { width:75%; }
+  .c38l, .c38r { width:38.2%; }
+  .c62l, .c62r { width:61.8%; }
+
+  .subc  { padding:0 0.5em; }
+  .subcl { padding:0 1em 0 0; }
+  .subcr { padding:0 0 0 1em; }
+
+  .equalize, .equalize .subcolumns { table-layout:fixed; }
+
+  .equalize > div {
+    display:table-cell;
+    float:none; 
+    margin:0; 
+    overflow:hidden;
+    vertical-align:top;
+  }
+}
+
+@media print
+{
+ /**
+  * (en) float clearing for subtemplates. Uses display:table to avoid bugs in FF & IE
+  * (de) Float Clearing für Subtemplates. Verwendet display:table, um Darstellungsprobleme im FF & IE zu vermeiden
+  */
+
+  .subcolumns,
+  .subcolumns > div {
+    overflow:visible; 
+    display:table;
+  } 
+
+  /* (en) make .print class visible */
+  /* (de) .print-Klasse sichtbar schalten */
+  .print { 
+    position:static; 
+    left:0;
+  }
+
+  /* (en) generic class to hide elements for print */
+  /* (de) Allgemeine CSS Klasse, um beliebige Elemente in der Druckausgabe auszublenden */
+  .noprint { display:none !important; }
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) YAML core stylesheet - structure-independent bugfixes of IE/Win CSS-bugs
+ * (de) YAML Basis-Stylesheet - Strukturunabhängige Bugfixes von CSS-Bugs des IE/Win
+ *
+ * Don't make any changes in this file!
+ * Your changes should be added to a separate patch-file.
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision: 501 $
+ * @lastmodified    $Date: 2011-06-18 17:27:44 +0200 (Sa, 18 Jun 2011) $
+ * @appdef yaml
+ */
+
+
+@media all
+{
+  /**
+   * (en) Debugging:When you see a green background, IE is getting this stylesheet
+   * (de) Fehlersuche:Hintergrund leuchtet grün, wenn das Stylesheet korrekt geladen wurde
+   *
+   * @debug
+   * @app-yaml-default disabled
+   */
+
+  /* body { background:#0f0; background-image:none; }  */
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /**
+   * (en) No need to force scrollbars in older IE's - it even makes problems in IE6 when set
+   * (de) Scrollbar-Fix wird in alten IE's nicht benötigt, zudem verursacht der Fix Probleme im IE6
+   *
+   * @workaround
+   * @affected   IE6, IE7
+   * @css-for    IE6, IE7
+   * @valid      no
+   */
+
+  body { o\verflow:visible; }
+  
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /**
+   * (en) Fixes IE5.x and IE6 overflow behavior of textarea and input elements elements
+   * (de) Korrigiert das fehlerhafte overflow-Verhalten von textarea und input-Elementen
+   *
+   * @workaround
+   * @affected   IE 5.x/Win, IE6
+   * @css-for    IE 5.x/Win, IE6
+   * @valid      no
+   */
+
+  * html iframe,
+  * html frame { overflow:auto; }
+  * html input,
+  * html frameset { overflow:hidden; }
+  * html textarea { overflow:scroll; overflow-x:hidden; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /**
+   * (en) Stability fixes with 'position:relative'
+   * (de) Stabilitätsverbesserungen durch 'position:relative'
+   *
+   * Essential for correct scaling in IE7 (body). IE5 must get static positioned body instead.
+   * Helpful to fix several possible problems in older IE versions (#main).
+   *
+   * @bugfix
+   * @affected   IE 5.x/Win, IE6, IE7
+   * @css-for    IE 5.x/Win, IE6, IE7
+   * @valid      yes
+   */
+
+  body, #main { position:relative; }
+  * html body { position:static; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /**
+   * (en) Clearfix adjustents for containing floats in IE
+   * (de) Clearfix-Anpassung für diverse IE-Versionen
+   *
+   * @workaround
+   * @see        http://perishablepress.com/press/2009/12/06/new-clearfix-hack/
+   * @affected   IE 5.x/Win, IE6, IE7
+   * @css-for    IE 5.x/Win, IE6, IE7
+   * @valid      yes
+   */
+
+  .clearfix { height:1%; }  /* hasLayout aktivieren */
+ 
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /**
+   * (en) Special class for oversized content element
+   * (de) Spezielle Klasse für übergroße Inhaltselemente
+   *
+   * @workaround
+   * @affected   IE 5.x/Win, IE6
+   * @css-for    IE 5.x/Win, IE6
+   * @valid      yes
+   */
+
+  .slidebox {
+    position:relative;
+    margin-right:-1000px;
+    height:1%;
+  }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /**
+   * (en):Bugfix for partially displayed column separators
+   * (de):Bugfix für unvollständige Darstellung der Spalteninhalte / Spaltentrenner
+   *
+   * @bugfix
+   * @affected   IE 5.x/Win, IE6
+   * @css-for    IE 5.x/Win, IE6
+   * @valid      yes
+   */
+
+  * html #col1,
+  * html #col2,
+  * html #col3 { position:relative; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /**
+   * (en) Preventing several css bugs by forcing "hasLayout"
+   * (de) Vermeidung verschiedenster Bugs durch Erzwingen von "hasLayout"
+   *
+   * @workaround
+   * @affected   IE 5.x/Win, IE6, IE7
+   * @css-for    IE 5.x/Win, IE6, IE7
+   * @valid      no
+   */
+
+  body { height:1%; }
+  .page_margins, .page, #header, #nav, #main, #footer { zoom:1; }  /* IE6 & IE7    */
+  * html .page_margins, * html .page { height:1%; hei\ght:auto; }  /* IE 5.x & IE6 | IE6 only */
+  * html #header, * html #nav, * html #main, * html #footer { width:100%; wid\th:auto; }  /* IE 5.x & IE6 | IE6 only */
+
+  /* trigger hasLayout to force containing content */
+  .subc, .subcl, .subcr { height:1%; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /**
+   * Disappearing List-Background Bug
+   * @see        http://www.positioniseverything.net/explorer/ie-listbug.html
+   *
+   * @bugfix
+   * @affected   IE 5.x/Win, IE6
+   * @css-for    IE 5.x/Win, IE6
+   * @valid      yes
+   */
+
+  * html ul, * html ol, * html dl { position:relative; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /**
+   * List-Numbering Bug
+   *
+   * @bugfix
+   * @affected   IE 5.x/Win, IE6, IE7
+   * @css-for    IE 5.x/Win, IE6, IE7
+   * @valid      yes
+   */
+
+  body ol li { display:list-item; }
+
+  /**
+   * Form related bugfixes
+   *
+   * @bugfix
+   * @affected   IE 5.x/Win, IE6, IE7
+   * @css-for    IE 5.x/Win, IE6, IE7
+   * @valid      no
+   */
+  fieldset, legend { position:relative; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /**
+   * (en) Workaround for 'collapsing margin at #col3' when using CSS-property clear
+   *      Left margin of #col3 collapses when using clear:both in 1-3-2 (or 2-3-1) layout and right column is the
+   *      longest and left column is the shortest one. For IE6 and IE7 a special workaround was developed
+   *      in YAML.
+   *
+   * (de) Workaround für 'kollabierenden Margin an #col3' bei Verwendung der CSS-Eigenschaft clear
+   *      Der linke Margin von #col3 kollabiert bei der Verwendung von clear:both im 1-3-2 (oder 2-3-1) Layout
+   *      wenn gleichzeitig die linke Spalte die kürzeste und die rechte die längste ist. Im IE6 und IE7 lässt
+   *      sich der Bug durch eine speziell für YAML entwickelten Workaround umgehen.
+   *
+   * @workaround
+   * @affected   IE 5.x/Win, IE6, IE7
+   * @css-for    IE 5.x/Win, IE6, IE7
+   * @valid      no
+   */
+
+  html #ie_clearing {
+    /* (en) Only a small help for debugging */
+    /* (de) Nur eine kleine Hilfe zur Fehlersuche */
+    position:static;
+
+    /* (en) Make container visible in IE */
+    /* (de) Container sichtbar machen im IE */
+    display:block;
+
+    /* (en) No fix possible in IE5.x, normal clearing used instead */
+    /* (de) Kein Fix im IE5.x möglich, daher normales Clearing */
+    \clear:both;
+
+    /* (en) forcing clearing-like behavior with a simple oversized container in IE6 & IE7*/
+    /* (de) IE-Clearing mit 100%-DIV für IE6 bzw. übergroßem Container im IE7 */
+    width:100%;
+    font-size:0px;
+    margin:-2px 0 -1em 1px;
+  }
+
+  * html #ie_clearing { margin:-2px 0 -1em 0; }
+  #col3_content { margin-bottom:-2px; }
+
+  /* (en) avoid horizontal scrollbars in IE7 in borderless layouts because of negative margins */
+  /* (de) Vermeidung horizontaler Scrollbalken bei randabfallenden Layouts im IE7 */
+  html { margin-right:1px; }
+  * html { margin-right:0; }
+
+  /* (en) Bugfix:Essential for IE7 */
+  /* (de) Bugfix:Notwendig im IE7 */
+  #col3 { position:relative; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /**
+   * IE/Win Guillotine Bug
+   * @see        http://www.positioniseverything.net/explorer/guillotine.html
+   *
+   * @workaround
+   * @affected   IE 5.x/Win, IE6
+   * @css-for    IE 5.x/Win, IE6
+   * @valid      yes
+   */
+
+  * html body a, * html body a:hover { background-color:transparent; }
+
+}
+
+@media screen, projection
+{
+  /**
+   * (en) IE-Adjustments for content columns and subtemplates
+   * (de) IE-Anpassung für Spaltencontainer und Subtemplates
+   *
+   * Doubled Float-Margin Bug
+   * @see        http://positioniseverything.net/explorer/doubled-margin.html
+   *
+   * @bugfix
+   * @affected   IE 5.x/Win, IE6
+   * @css-for    IE 5.x/Win, IE6, IE7
+   * @valid      yes
+   */
+  #col1,  #col2 { display:inline; }
+
+  .c20l, .c25l, .c33l, .c38l, .c40l, .c50l, .c60l, .c62l, .c66l, .c75l, .c80l,
+  .c20r, .c25r, .c33r, .c38r, .c40r, .c50r, .c60r, .c66r, .c62r, .c75r, .c80r { display:inline; }
+
+  /* Fix for:"Linking to anchors in elements within the containing block" Problem in IE5.x & IE 6.0 */
+  * html .equalize, * html .equalize .subcolumns { overflow:visible; display:block; }
+  .equalize, .equalize .subcolumns { overflow:hidden; display:block; }
+
+  /* transform CSS tables back into floats */
+  .equalize .c20l,.equalize .c40l,.equalize .c60l,.equalize .c80l,
+  .equalize .c25l,.equalize .c33l,.equalize .c38l,.equalize .c50l,
+  .equalize .c62l,.equalize .c66l,.equalize .c75l {
+    float:left; display:inline;
+    padding-bottom:32767px;
+    margin-bottom:-32767px;
+  }
+  .equalize .c20r,.equalize .c40r,.equalize .c60r,.equalize .c80r,
+  .equalize .c25r,.equalize .c33r,.equalize .c38r,.equalize .c50r,
+  .equalize .c62r,.equalize .c66r,.equalize .c75r {
+    float:right; margin-left:-5px; display:inline;
+    padding-bottom:32767px;
+    margin-bottom:-32767px;
+  }
+
+  .no-ie-padding .c20l,.no-ie-padding .c40l,.no-ie-padding .c60l,.no-ie-padding .c80l,
+  .no-ie-padding .c20r,.no-ie-padding .c40r,.no-ie-padding .c60r,.no-ie-padding .c80r,
+  .no-ie-padding .c25l,.no-ie-padding .c33l,.no-ie-padding .c38l,.no-ie-padding .c50l,
+  .no-ie-padding .c62l,.no-ie-padding .c66l,.no-ie-padding .c75l,
+  .no-ie-padding .c25r,.no-ie-padding .c33r,.no-ie-padding .c38r,.no-ie-padding .c50r,
+  .no-ie-padding .c62r,.no-ie-padding .c66r,.no-ie-padding .c75r {
+    padding-bottom:0;
+    margin-bottom:0;
+  }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /**
+   * Internet Explorer and the Expanding Box Problem
+   * @see http://www.positioniseverything.net/explorer/expandingboxbug.html
+   *
+   * @workaround
+   * @affected   IE 5.x/Win, IE6
+   * @css-for    IE 5.x/Win, IE6
+   * @valid      yes
+   */
+
+  * html #col1_content,
+  * html #col2_content,
+  * html #col3_content { word-wrap:break-word; }
+
+  /* avoid growing widths */
+  * html .subc,
+  * html .subcl,
+  * html .subcr { word-wrap:break-word; o\verflow:hidden; }
+}
+
+@media print
+{
+  /**
+   * (en) Avoid unneeded page breaks of #col3 content in print layout.
+   * (de) Vermeiden von unnötigen Seitenumbrüchen beim Ausdruck der Spalte #col3.
+   *
+   * @bugfix
+   * @affected   IE7
+   * @css-for    IE 5.x/Win, IE6, IE7
+   * @valid      yes
+   */
+
+  .subc,
+  .subcl,
+  .subcr,
+  .col3 { height:1%; }
+}
+/* "Yet Another Multicolumn Layout" v3.3.1 (c) by Dirk Jesse (http://www.yaml.de)
+* $Revision: 495 $ $Date: 2011-06-18 12:24:44 +0200 (Sa, 18 Jun 2011) $ */
+
+@media all{*{margin:0;padding:0}option{padding-left:.4em}select{padding:1px}* html body *{overflow:visible}body{font-size:100.01%;background:#fff;color:#000;text-align:left}div{outline:0 none}article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{display:block}fieldset,img{border:0 solid}ul,ol,dl{margin:0 0 1em 1em}li{line-height:1.5em;margin-left:.8em}dt{font-weight:bold}dd{margin:0 0 1em .8em}blockquote{margin:0 0 1em .8em}blockquote:before,blockquote:after,q:before,q:after{content:""}.clearfix:after{clear:both;content:".";display:block;font-size:0;height:0;visibility:hidden}.clearfix{display:block}.floatbox{display:table;width:100%}#ie_clearing{display:none}.skip,.hideme,.print{position:absolute;top:-32768px;left:-32768px}.skip:focus,.skip:active{position:static;top:0;left:0}#skiplinks{position:absolute;top:0;left:-32768px;z-index:1000;width:100%;margin:0;padding:0;list-style-type:none}#skiplinks .skip:focus,#skiplinks .skip:active{left:32768px;outline:0 none;position:absolute;width:100%}}
+@media screen,projection{#col1{float:left;width:20%}#col2{float:right;width:20%}#col3{width:auto;margin:0 20%}#col1_content,#col2_content,#col3_content{position:relative}.subcolumns{display:table;width:100%;table-layout:fixed}.subcolumns_oldgecko{width:100%;float:left}.c20l,.c25l,.c33l,.c40l,.c38l,.c50l,.c60l,.c62l,.c66l,.c75l,.c80l{float:left}.c20r,.c25r,.c33r,.c40r,.c38r,.c50r,.c60r,.c66r,.c62r,.c75r,.c80r{float:right;margin-left:-5px}.c20l,.c20r{width:20%}.c40l,.c40r{width:40%}.c60l,.c60r{width:60%}.c80l,.c80r{width:80%}.c25l,.c25r{width:25%}.c33l,.c33r{width:33.333%}.c50l,.c50r{width:50%}.c66l,.c66r{width:66.666%}.c75l,.c75r{width:75%}.c38l,.c38r{width:38.2%}.c62l,.c62r{width:61.8%}.subc{padding:0 .5em}.subcl{padding:0 1em 0 0}.subcr{padding:0 0 0 1em}.equalize,.equalize .subcolumns{table-layout:fixed}.equalize>div{display:table-cell;float:none;margin:0;overflow:hidden;vertical-align:top}}
+@media print{.subcolumns,.subcolumns>div{overflow:visible;display:table}.print{position:static;left:0}.noprint{display:none!important}}
+/* "Yet Another Multicolumn Layout" v3.3.1 (c) by Dirk Jesse (http://www.yaml.de)
+* $Revision: 495 $ $Date: 2011-06-18 12:24:44 +0200 (Sa, 18 Jun 2011) $ */
+
+@media all{body{o\verflow:visible}* html iframe,* html frame{overflow:auto}* html input,* html frameset{overflow:hidden}* html textarea{overflow:scroll;overflow-x:hidden}body,#main{position:relative}* html body{position:static}.clearfix{height:1%}.slidebox{position:relative;margin-right:-1000px;height:1%}* html #col1,* html #col2,* html #col3{position:relative}body{height:1%}.page_margins,.page,#header,#nav,#main,#footer{zoom:1}* html .page_margins,* html .page{height:1%;hei\ght:auto}* html #header,* html #nav,* html #main,* html #footer{width:100%;wid\th:auto}.subc,.subcl,.subcr{height:1%}* html ul,* html ol,* html dl{position:relative}body ol li{display:list-item}fieldset,legend{position:relative}html #ie_clearing{position:static;display:block;\clear:both;width:100%;font-size:0;margin:-2px 0 -1em 1px}* html #ie_clearing{margin:-2px 0 -1em 0}#col3_content{margin-bottom:-2px}html{margin-right:1px}* html{margin-right:0}#col3{position:relative}* html body a,* html body a:hover{background-color:transparent}}
+@media screen,projection{#col1,#col2{display:inline}.c20l,.c25l,.c33l,.c38l,.c40l,.c50l,.c60l,.c62l,.c66l,.c75l,.c80l,.c20r,.c25r,.c33r,.c38r,.c40r,.c50r,.c60r,.c66r,.c62r,.c75r,.c80r{display:inline}* html .equalize,* html .equalize .subcolumns{overflow:visible;display:block}.equalize,.equalize .subcolumns{overflow:hidden;display:block}.equalize .c20l,.equalize .c40l,.equalize .c60l,.equalize .c80l,.equalize .c25l,.equalize .c33l,.equalize .c38l,.equalize .c50l,.equalize .c62l,.equalize .c66l,.equalize .c75l{float:left;display:inline;padding-bottom:32767px;margin-bottom:-32767px}.equalize .c20r,.equalize .c40r,.equalize .c60r,.equalize .c80r,.equalize .c25r,.equalize .c33r,.equalize .c38r,.equalize .c50r,.equalize .c62r,.equalize .c66r,.equalize .c75r{float:right;margin-left:-5px;display:inline;padding-bottom:32767px;margin-bottom:-32767px}.no-ie-padding .c20l,.no-ie-padding .c40l,.no-ie-padding .c60l,.no-ie-padding .c80l,.no-ie-padding .c20r,.no-ie-padding .c40r,.no-ie-padding .c60r,.no-ie-padding .c80r,.no-ie-padding .c25l,.no-ie-padding .c33l,.no-ie-padding .c38l,.no-ie-padding .c50l,.no-ie-padding .c62l,.no-ie-padding .c66l,.no-ie-padding .c75l,.no-ie-padding .c25r,.no-ie-padding .c33r,.no-ie-padding .c38r,.no-ie-padding .c50r,.no-ie-padding .c62r,.no-ie-padding .c66r,.no-ie-padding .c75r{padding-bottom:0;margin-bottom:0}* html #col1_content,* html #col2_content,* html #col3_content{word-wrap:break-word}* html .subc,* html .subcl,* html .subcr{word-wrap:break-word;o\verflow:hidden}}
+@media print{.subc,.subcl,.subcr,.col3{height:1%}}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) Horizontal list navigation "Shiny Buttons"
+ * (de) Horizontale Navigationsliste "Shiny Buttons"
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision:392 $
+ * @lastmodified    $Date:2009-07-05 12:18:40 +0200 (So, 05. Jul 2009) $
+ */
+
+
+@media all
+{
+  .hlist {
+    /* (en) containing floats in IE */
+    /* (de) Einfassen der Floats im IE */
+    width:100%;
+    overflow:hidden;
+    /* (en) containing floats in all other browsers */
+    /* (de) Einfassen der Floats in allen anderen Browsern */
+    float:left;
+    display:inline;
+    /* (en|de) Bugfix:IE - collapsing horizontal margins */
+    position:relative;
+    /* (en) Repeat the main color from the image */
+    /* (de) Wiederholung der Hauptfarbe aus der Bilddatei */
+    background:#c0c0c0 url("images/shiny_buttons/background.png") repeat-x center right;
+    border-top:1px #333 solid;
+    border-bottom:1px #333 solid;
+    line-height:0;
+  }
+
+  .hlist ul {
+    margin:0;
+    padding:0;
+    /* (en|de) Bugfix:IE - Doubled Float Margin Bug */
+    display:inline;
+    float:left; /* LTR */
+    /* (en) Left margin of the first button  */
+    /* (de) Abstand des ersten Buttons vom linken Rand  */
+    border-left:1px #aaa solid;
+    border-right:1px #fff solid;
+  }
+
+  .hlist ul li {
+    border-left:1px #fff solid;
+    border-right:1px #aaa solid;
+    /* (en|de) Bugfix:IE - Doubled Float Margin Bug */
+    display:inline;
+    float:left; /* LTR */
+    font-size:1.0em;
+    line-height:1em;
+    list-style-type:none;
+    margin:0;
+    padding:0;
+  }
+
+  .hlist ul li a,
+  .hlist ul li strong {
+    background:transparent;
+    color:#000;
+    display:block;
+    font-size:1em;
+    font-weight:bold;
+    margin:0;
+    padding:0.5em 0.8em 0.5em 0.8em;
+    text-decoration:none;
+    width:auto;
+  }
+
+  .hlist ul li a:focus,
+  .hlist ul li a:hover,
+  .hlist ul li a:active  { background:#eee; color:#333; text-decoration:none; outline: 0 none; }
+
+  .hlist ul li.active {
+    /* (en) Repeat the main color from the image */
+    /* (de) Wiederholung der Hauptfarbe aus der Bilddatei */
+    background:#272727 url("images/shiny_buttons/background_active.png") repeat-x center right;
+    border-left:1px #444 solid;
+    border-right:1px #888 solid;
+  }
+
+  .hlist ul li.active strong,
+  .hlist ul li.active a:focus,
+  .hlist ul li.active a:hover,
+  .hlist ul li.active a:active { background:transparent; color:#fff; text-decoration:none; }
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) Horizontal list navigation based on "Sliding Door II" from von "A List Apart"
+ * (de) Horizontale Navigationsliste basierend auf "Sliding Door II" von "A List Apart"
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision:392 $
+ * @lastmodified    $Date:2009-07-05 12:18:40 +0200 (So, 05. Jul 2009) $
+ */
+
+
+@media all
+{
+  .hlist {
+    /* (en) This image is mainly transparent */
+    /* (de) Dieses Bild ist größtenteils transparent */
+    background:transparent url("images/sliding_door/round/bg.gif") repeat-x bottom;
+    float:left;
+    width:100%;
+  }
+
+  .hlist ul {
+    margin:0;
+    padding:0;
+    line-height:1em;
+    list-style:none;
+    white-space:nowrap;
+  }
+
+  .hlist li {
+    /* (en) Repeat the main color from the image */
+    /* (de) Wiederholung der Hauptfarbe aus der Bilddatei */
+    list-style-type:none !important;
+    background:#e0ecf8 url("images/sliding_door/round/left.png") no-repeat top left;
+    border-bottom:1px solid #000;
+    float:left; /* LTR */
+    margin:0;
+    padding:0 0 0 3px;
+  }
+
+  .hlist a,
+  .hlist strong {
+    /* (en) This image is mainly transparent */
+    /* (de) Dieses Bild ist größtenteils transparent */
+    background:transparent url("images/sliding_door/round/right.png") no-repeat top right;
+    color:#667;
+    display:block;
+    font-weight:normal;
+    padding:5px 11px 3px 8px;
+    text-decoration:none;
+    text-transform:none;
+
+    /**
+     * @bugfix
+     * @affected   IE5.x, IE6
+     * @css-for    all browsers
+     * @valid      yes
+     */
+    width:auto; /* only IE 5.x */
+    width/**/:/**/ .1em; /* only IE 6.0 */
+  }
+
+  .hlist a:link,
+  .hlist a:visited { background-color:transparent; color:#667; }
+
+  /**
+   * @bugfix
+   * @affected   IE5.x, IE6
+   * @css-for    all browsers
+   * @valid      yes
+   */
+  .hlist > ul a,
+  .hlist > ul strong { width:auto; }  /* for other browsers */
+
+  .hlist ul li:focus,
+  .hlist ul li:hover,
+  .hlist ul li:active {
+    /* (en) Repeat the main color from the image */
+    /* (de) Wiederholung der Hauptfarbe aus der Bilddatei */
+    background-color:#c4d0dc;
+    background-position:0 -150px;
+  }
+
+  .hlist ul li:focus a,
+  .hlist ul li:hover a,
+  .hlist ul li:active a { background-position:100% -150px; }
+
+  .hlist a:focus,
+  .hlist a:hover,
+  .hlist a:active {
+    background:transparent url("images/sliding_door/round/right.png") no-repeat top right;
+    color:#223;
+    outline: 0 none;
+    text-decoration:none;
+  }
+
+  .hlist ul li.active,
+  .hlist ul li.active:focus,
+  .hlist ul li.active:hover,
+  .hlist ul li.active:active {
+    /* (en) Repeat the main color from the image */
+    /* (de) Wiederholung der Hauptfarbe aus der Bilddatei */
+    background:white url("images/sliding_door/round/left_on.png") no-repeat top left;
+    border:0 none;
+  }
+
+  .hlist li.active strong {
+    /* (en) This image is mainly transparent */
+    /* (de) Dieses Bild ist größtenteils transparent */
+    background:transparent url("images/sliding_door/round/right_on.png") no-repeat top right;
+    color:#334;
+    font-weight:bold;
+    padding-bottom:4px;
+    padding-top:5px;
+  }
+
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) Vertical list navigation "vlist"
+ * (de) Vertikale Navigationsliste "vlist"
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision:392 $
+ * @lastmodified    $Date:2009-07-05 12:18:40 +0200 (So, 05. Jul 2009) $
+ */
+
+
+@media all
+{
+  /* title */
+  h6.vlist {
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size:100%;
+    width:90%;
+    padding:3px 0px 3px 10%; /* LTR */
+    margin:0;
+    color:#444;
+    background-color:#fff;
+    border-top:2px #ddd solid;
+    border-bottom:4px #888 solid;
+  }
+
+  .vlist {
+    width:100%;
+    overflow:hidden;
+    margin:0 0 1.5em 0;
+    list-style-type:none;
+    border-bottom:2px #ddd solid;
+  }
+
+  .vlist ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+  }
+
+  .vlist li {
+    float:left; /* LTR */
+    width:100%;
+    margin:0;
+    padding:0;
+  }
+
+  .vlist a,
+  .vlist strong,
+  .vlist span {
+    display:block;
+    padding:3px 0px 3px 10%;
+    text-decoration:none;
+    border-bottom:1px #ddd solid;
+  }
+
+  .vlist a,
+  .vlist a:visited {
+    color:#444;
+  }
+
+  .vlist li span {
+    display:block;
+    font-weight:bold;
+    border-bottom:1px #ddd solid;
+  }
+
+  /* active list element */
+  .vlist li.active {
+    color:#fff;
+    background-color:#800;
+    font-weight:bold;
+  }
+
+  /* Level 1 */
+  .vlist li a,
+  .vlist li strong,
+  .vlist li span { width:90%; padding-left:10%; } /* LTR */
+
+  .vlist li a:focus,
+  .vlist li a:hover,
+  .vlist li a:active { background-color:#a88; color:#fff; outline: 0 none; }
+
+  /* Level 2 */
+  .vlist li ul li a,
+  .vlist li ul li strong,
+  .vlist li ul li span { width:80%; padding-left:20%; } /* LTR */
+
+  .vlist li ul li a, 
+  .vlist li ul li a:visited { background-color:#f8f8f8; color:#333; }
+  .vlist li ul li a:focus,
+  .vlist li ul li a:hover,
+  .vlist li ul li a:active { background-color:#a88; color:#fff; }
+
+  /* Level 3 */
+  .vlist li ul li ul li a,
+  .vlist li ul li ul li strong,
+  .vlist li ul li ul li span { width:70%; padding-left:30%; } /* LTR */
+
+  .vlist li ul li ul li a,
+  .vlist li ul li ul li a:visited{ background-color:#f0f0f0; color:#222; }
+  .vlist li ul li ul li a:focus,
+  .vlist li ul li ul li a:hover,
+  .vlist li ul li ul li a:active { background-color:#a88; color:#fff; }
+
+  /* Level 4 */
+  .vlist li ul li ul li ul li a,
+  .vlist li ul li ul li ul li strong,
+  .vlist li ul li ul li ul li span { width:60%; padding-left:40%; } /* LTR */
+
+  .vlist li ul li ul li ul li a,
+  .vlist li ul li ul li ul li a:visited { background-color:#e8e8e8; color:#111; }
+  .vlist li ul li ul li ul li a:focus,
+  .vlist li ul li ul li ul li a:hover,
+  .vlist li ul li ul li ul li a:active { background-color:#a88; color:#fff; }
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) Example of a patch stylesheet for the Internet Explorer
+ * (de) Beispiel für ein Anpassungs-Stylesheet für den Internet Explorer
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision: 501 $
+ * @lastmodified    $Date: 2011-06-18 17:27:44 +0200 (Sa, 18 Jun 2011) $
+ */
+
+/* Layout independent adjustments | Layout-unabhängige Anpassungen ----------------------------------- */
+
+@import url(/yaml/core/iehacks.css);
+
+/* Box model adjustments for vlist navigation | Box-Modell-Anpassungen für vlist-Navigation */
+/* @import url(/yaml/patches/patch_nav_vlist.css); */
+
+/* Layout-dependent adjustments | Layout-abhängige Anpassungen --------------------------------------- */
+@media screen, projection
+{
+  /* add your adjustments here | Fügen Sie Ihre Anpassungen hier ein */
+
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) IE adjustment stylesheet for YAML vlist navigation
+ *      Import this file within the IE-patch-file if needed in your layout
+ *
+ * (de) IE Anpassungs-Stylesheet für YAML vlist-Navigation
+ *      Einbindung ins Layout erfolgt über den Import innerhalb des IE-Anspassungs-Stylesheet
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision:392 $
+ * @lastmodified    $Date:2009-07-05 12:18:40 +0200 (So, 05. Jul 2009) $
+ */
+
+
+@media screen, projection
+{
+  /**
+   * Box Model Bug
+   * (en) Adjustment of width values for list elements of the menu in IE 5.x/Win.
+   *      Note:If IE6 is running in quirks mode, it also needs 100% values!
+   *
+   * (de) Korrektur der Breitenangaben der Listenelemente des Submenüs im IE 5.x/Win.
+   *      Hinweis:Befindet sich der IE6 im Quirks Mode, so benötigt er ebenfalls 100%-Werte !
+   *
+   * @bugfix
+   * @affected   IE 5.x/Win (IE6 in Quirks-Mode)
+   * @css-for    IE 5.x/Win, IE6
+   * @valid      no
+   */
+
+
+  /* title */
+  * html h6.vlist { width:100%; w\idth:90%; }
+
+  /* level 1 */
+  * html .vlist li a,
+  * html .vlist li strong,
+  * html .vlist li span { width:100%; w\idth:90%; }
+
+  /* level 2 */
+  * html .vlist li ul li a,
+  * html .vlist li ul li strong,
+  * html .vlist li ul li span { width:100%; w\idth:80%; }
+
+  /* level 3 */
+  * html .vlist li ul li ul li a,
+  * html .vlist li ul li ul li strong,
+  * html .vlist li ul li ul li span { width:100%; w\idth:70%; }
+
+  /* level 4 */
+  * html .vlist li ul li ul li ul li a,
+  * html .vlist li ul li ul li ul li strong,
+  * html .vlist li ul li ul li ul li span { width:100%; w\idth:60%; }
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) print stylesheet
+ * (de) Druck-Stylesheet
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision:392 $
+ * @lastmodified    $Date:2009-07-05 12:18:40 +0200 (So, 05. Jul 2009) $
+ */
+
+
+
+@media print
+{
+ /**
+  * @section basic layout preparation
+  * @see     http://www.yaml.de/en/documentation/css-components/layout-for-print-media.html
+  */
+
+  /* (en) change font size unit to [pt] - avoiding problems with [px] unit in Gecko based browsers  */
+  /* (de) Wechsel der der Schriftgrößen-Maßheinheit zu [pt] - Probleme mit Maßeinheit [px] in Gecko-basierten Browsern vermeiden */
+  body { font-size:10pt; }
+
+  /* (en) Hide unneeded container of the screenlayout in print layout */
+  /* (de) Für den Druck nicht benötigte Container des Layouts abschalten */
+  #topnav, #nav, #search, nav { display:none; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) Avoid page breaks right after headings */
+  /* (de) Vermeidung von Seitenumbrüchen direkt nach einer Überschrift */
+  h1,h2,h3,h4,h5,h6 { page-break-after:avoid; }
+  
+  /*------------------------------------------------------------------------------------------------------*/
+
+ /**
+  * @section column selection
+  * (en) individually switch on/off any content column for printing
+  * (de) (De)aktivierung der Contentspalten für den Ausdruck
+  *
+  * @see     http://www.yaml.de/en/documentation/css-components/layout-for-print-media.html
+  */
+
+  #col1 { display:none; }
+  #col2 { display:none; }
+  #col3, #col3_content { width:100%; margin:0; padding:0; border:0; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) optional output of acronyms and abbreviations*/
+  /* (de) optionale Ausgabe von Auszeichnung von Abkürzungen */
+
+  /*
+    abbr[title]:after, 
+    acronym[title]:after { content:'(' attr(title) ')'; }
+  */
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) optional URL output of hyperlinks in print layout */
+  /* (de) optionale Ausgabe der URLs von Hyperlinks */
+  /*
+  a[href]:after {
+    content:" <URL:"attr(href)">";
+    color:#444;
+    background:inherit;
+    font-style:italic;
+  }
+  */
+  
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) print stylesheet
+ * (de) Druck-Stylesheet
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision:392 $
+ * @lastmodified    $Date:2009-07-05 12:18:40 +0200 (So, 05. Jul 2009) $
+ */
+
+
+@media print
+{
+ /**
+  * @section basic layout preparation
+  * @see     http://www.yaml.de/en/documentation/css-components/layout-for-print-media.html
+  */
+
+  /* (en) change font size unit to [pt] - avoiding problems with [px] unit in Gecko based browsers  */
+  /* (de) Wechsel der der Schriftgrößen-Maßheinheit zu [pt] - Probleme mit Maßeinheit [px] in Gecko-basierten Browsern vermeiden */
+  body { font-size:10pt; }
+
+  /* (en) Hide unneeded container of the screenlayout in print layout */
+  /* (de) Für den Druck nicht benötigte Container des Layouts abschalten */
+  #topnav, #nav, #search, nav { display:none; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) Avoid page breaks right after headings */
+  /* (de) Vermeidung von Seitenumbrüchen direkt nach einer Überschrift */
+  h1,h2,h3,h4,h5,h6 { page-break-after:avoid; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+ /**
+  * @section column selection
+  * (en) individually switch on/off any content column for printing
+  * (de) (De)aktivierung der Contentspalten für den Ausdruck
+  *
+  * @see     http://www.yaml.de/en/documentation/css-components/layout-for-print-media.html
+  */
+
+  #col1 { display:none; }
+  #col2, #col2_content { float:none; width:100%; margin:0; padding:0; border:0; }
+  #col3 { display:none; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) optional output of acronyms and abbreviations*/
+  /* (de) optionale Ausgabe von Auszeichnung von Abkürzungen */
+
+  /*
+    abbr[title]:after, 
+    acronym[title]:after { content:'(' attr(title) ')'; }
+  */
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) optional URL output of hyperlinks in print layout */
+  /* (de) optionale Ausgabe der URLs von Hyperlinks */
+  /*
+  a[href]:after {
+    content:" <URL:"attr(href)">";
+    color:#444;
+    background:inherit;
+    font-style:italic;
+  }
+  */
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) print stylesheet
+ * (de) Druck-Stylesheet
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision:392 $
+ * @lastmodified    $Date:2009-07-05 12:18:40 +0200 (So, 05. Jul 2009) $
+ */
+
+
+@media print
+{
+ /**
+  * @section basic layout preparation
+  * @see     http://www.yaml.de/en/documentation/css-components/layout-for-print-media.html
+  */
+
+  /* (en) change font size unit to [pt] - avoiding problems with [px] unit in Gecko based browsers  */
+  /* (de) Wechsel der der Schriftgrößen-Maßheinheit zu [pt] - Probleme mit Maßeinheit [px] in Gecko-basierten Browsern vermeiden */
+  body { font-size:10pt; }
+
+  /* (en) Hide unneeded container of the screenlayout in print layout */
+  /* (de) Für den Druck nicht benötigte Container des Layouts abschalten */
+  #topnav, #nav, #search, nav { display:none; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) Avoid page breaks right after headings */
+  /* (de) Vermeidung von Seitenumbrüchen direkt nach einer Überschrift */
+  h1,h2,h3,h4,h5,h6 { page-break-after:avoid; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+ /**
+  * @section column selection
+  * (en) individually switch on/off any content column for printing
+  * (de) (De)aktivierung der Contentspalten für den Ausdruck
+  *
+  * @see     http://www.yaml.de/en/documentation/css-components/layout-for-print-media.html
+  */
+
+  #col1 { display:none; }
+  #col2, #col2_content { float:none; width:100%; margin:0; padding:0; border:0; }
+  #col3, #col3_content {width:100%; margin:0; padding:0; border:0; }
+
+ /*------------------------------------------------------------------------------------------------------*/
+
+  /* Optional Column Labels | Optionale Spaltenauszeichnung
+  #col2_content:before { content:" [ left | middle | right column ]"; }
+  #col3_content:before { content:" [ left | middle | right column ]"; }
+
+  #col2_content:before, #col3_content:before {
+    content:"";
+    color:#888;
+    background:inherit;
+    display:block;
+    font-weight:bold;
+    font-size:1.5em;
+  }
+  */
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) optional output of acronyms and abbreviations*/
+  /* (de) optionale Ausgabe von Auszeichnung von Abkürzungen */
+
+  /*
+    abbr[title]:after, 
+    acronym[title]:after { content:'(' attr(title) ')'; }
+  */
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) optional URL output of hyperlinks in print layout */
+  /* (de) optionale Ausgabe der URLs von Hyperlinks */
+  /*
+  a[href]:after {
+    content:" <URL:"attr(href)">";
+    color:#444;
+    background:inherit;
+    font-style:italic;
+  }
+  */
+}
+
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) print stylesheet
+ * (de) Druck-Stylesheet
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision:392 $
+ * @lastmodified    $Date:2009-07-05 12:18:40 +0200 (So, 05. Jul 2009) $
+ */
+
+
+@media print
+{
+ /**
+  * @section basic layout preparation
+  * @see     http://www.yaml.de/en/documentation/css-components/layout-for-print-media.html
+  */
+
+  /* (en) change font size unit to [pt] - avoiding problems with [px] unit in Gecko based browsers  */
+  /* (de) Wechsel der der Schriftgrößen-Maßheinheit zu [pt] - Probleme mit Maßeinheit [px] in Gecko-basierten Browsern vermeiden */
+  body { font-size:10pt; }
+
+  /* (en) Hide unneeded container of the screenlayout in print layout */
+  /* (de) Für den Druck nicht benötigte Container des Layouts abschalten */
+  #topnav, #nav, #search, nav { display:none; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) Avoid page breaks right after headings */
+  /* (de) Vermeidung von Seitenumbrüchen direkt nach einer Überschrift */
+  h1,h2,h3,h4,h5,h6 { page-break-after:avoid; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+ /**
+  * @section column selection
+  * (en) individually switch on/off any content column for printing
+  * (de) (De)aktivierung der Contentspalten für den Ausdruck
+  *
+  * @see     http://www.yaml.de/en/documentation/css-components/layout-for-print-media.html
+  */
+
+  #col1, #col1_content { float:none; width:100%; margin:0; padding:0; border:0; }
+  #col2 { display:none; }
+  #col3 { display:none; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) optional output of acronyms and abbreviations*/
+  /* (de) optionale Ausgabe von Auszeichnung von Abkürzungen */
+
+  /*
+    abbr[title]:after, 
+    acronym[title]:after { content:'(' attr(title) ')'; }
+  */
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) optional URL output of hyperlinks in print layout */
+  /* (de) optionale Ausgabe der URLs von Hyperlinks */
+  /*
+  a[href]:after {
+    content:" <URL:"attr(href)">";
+    color:#444;
+    background:inherit;
+    font-style:italic;
+  }
+  */
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) print stylesheet
+ * (de) Druck-Stylesheet
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision:392 $
+ * @lastmodified    $Date:2009-07-05 12:18:40 +0200 (So, 05. Jul 2009) $
+ */
+
+
+@media print
+{
+ /**
+  * @section basic layout preparation
+  * @see     http://www.yaml.de/en/documentation/css-components/layout-for-print-media.html
+  */
+
+  /* (en) change font size unit to [pt] - avoiding problems with [px] unit in Gecko based browsers  */
+  /* (de) Wechsel der der Schriftgrößen-Maßheinheit zu [pt] - Probleme mit Maßeinheit [px] in Gecko-basierten Browsern vermeiden */
+  body { font-size:10pt; }
+
+  /* (en) Hide unneeded container of the screenlayout in print layout */
+  /* (de) Für den Druck nicht benötigte Container des Layouts abschalten */
+  #topnav, #nav, #search, nav { display:none; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) Avoid page breaks right after headings */
+  /* (de) Vermeidung von Seitenumbrüchen direkt nach einer Überschrift */
+  h1,h2,h3,h4,h5,h6 { page-break-after:avoid; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+ /**
+  * @section column selection
+  * (en) individually switch on/off any content column for printing
+  * (de) (De)aktivierung der Contentspalten für den Ausdruck
+  *
+  * @see     http://www.yaml.de/en/documentation/css-components/layout-for-print-media.html
+  */
+
+  #col1, #col1_content {float:none; width:100%; margin:0; padding:0; border:0; }
+  #col2 { display:none; }
+  #col3, #col3_content { width:100%; margin:0; padding:0; border:0; }
+
+ /*------------------------------------------------------------------------------------------------------*/
+
+  /* Optional Column Labels | Optionale Spaltenauszeichnung
+  #col1_content:before { content:" [ left | middle | right column ]"; }
+  #col3_content:before { content:" [ left | middle | right column ]"; }
+
+  #col1_content:before, #col3_content:before {
+    content:"";
+    color:#888;
+    background:inherit;
+    display:block;
+    font-weight:bold;
+    font-size:1.5em;
+  }
+  */
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) optional output of acronyms and abbreviations*/
+  /* (de) optionale Ausgabe von Auszeichnung von Abkürzungen */
+
+  /*
+    abbr[title]:after, 
+    acronym[title]:after { content:'(' attr(title) ')'; }
+  */
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) optional URL output of hyperlinks in print layout */
+  /* (de) optionale Ausgabe der URLs von Hyperlinks */
+  /*
+  a[href]:after {
+    content:" <URL:"attr(href)">";
+    color:#444;
+    background:inherit;
+    font-style:italic;
+  }
+  */
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) print stylesheet
+ * (de) Druck-Stylesheet
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision:392 $
+ * @lastmodified    $Date:2009-07-05 12:18:40 +0200 (So, 05. Jul 2009) $
+ */
+
+
+
+@media print
+{
+ /**
+  * @section basic layout preparation
+  * @see     http://www.yaml.de/en/documentation/css-components/layout-for-print-media.html
+  */
+
+  /* (en) change font size unit to [pt] - avoiding problems with [px] unit in Gecko based browsers  */
+  /* (de) Wechsel der der Schriftgrößen-Maßheinheit zu [pt] - Probleme mit Maßeinheit [px] in Gecko-basierten Browsern vermeiden */
+  body { font-size:10pt; }
+
+  /* (en) Hide unneeded container of the screenlayout in print layout */
+  /* (de) Für den Druck nicht benötigte Container des Layouts abschalten */
+  #topnav, #nav, #search, nav { display:none; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) Avoid page breaks right after headings */
+  /* (de) Vermeidung von Seitenumbrüchen direkt nach einer Überschrift */
+  h1,h2,h3,h4,h5,h6 { page-break-after:avoid; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+ /**
+  * @section column selection
+  * (en) individually switch on/off any content column for printing
+  * (de) (De)aktivierung der Contentspalten für den Ausdruck
+  *
+  * @see     http://www.yaml.de/en/documentation/css-components/layout-for-print-media.html
+  */
+
+  #col1, #col1_content { float:none; width:100%; margin:0; padding:0; border:0; }
+  #col2, #col2_content { float:none; width:100%; margin:0; padding:0; border:0; }
+  #col3 { display:none; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* Optional Column Labels | Optionale Spaltenauszeichnung
+  #col1_content:before { content:" [ left | middle | right column ]"; }
+  #col2_content:before { content:" [ left | middle | right column ]"; }
+
+  #col1_content:before, #col2_content:before {
+    content:"";
+    color:#888;
+    background:inherit;
+    display:block;
+    font-weight:bold;
+    font-size:1.5em;
+  }
+  */
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) optional output of acronyms and abbreviations*/
+  /* (de) optionale Ausgabe von Auszeichnung von Abkürzungen */
+
+  /*
+    abbr[title]:after, 
+    acronym[title]:after { content:'(' attr(title) ')'; }
+  */
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) optional URL output of hyperlinks in print layout */
+  /* (de) optionale Ausgabe der URLs von Hyperlinks */
+  /*
+  a[href]:after {
+    content:" <URL:"attr(href)">";
+    color:#444;
+    background:inherit;
+    font-style:italic;
+  }
+  */
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) print stylesheet
+ * (de) Druck-Stylesheet
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision:392 $
+ * @lastmodified    $Date:2009-07-05 12:18:40 +0200 (So, 05. Jul 2009) $
+ */
+
+
+@media print
+{
+ /**
+  * @section basic layout preparation
+  * @see     http://www.yaml.de/en/documentation/css-components/layout-for-print-media.html
+  */
+
+  /* (en) change font size unit to [pt] - avoiding problems with [px] unit in Gecko based browsers  */
+  /* (de) Wechsel der der Schriftgrößen-Maßheinheit zu [pt] - Probleme mit Maßeinheit [px] in Gecko-basierten Browsern vermeiden */
+  body { font-size:10pt; }
+
+  /* (en) Hide unneeded container of the screenlayout in print layout */
+  /* (de) Für den Druck nicht benötigte Container des Layouts abschalten */
+  #topnav, #nav, #search, nav { display:none; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) Avoid page breaks right after headings */
+  /* (de) Vermeidung von Seitenumbrüchen direkt nach einer Überschrift */
+  h1,h2,h3,h4,h5,h6 { page-break-after:avoid; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+ /**
+  * @section column selection
+  * (en) individually switch on/off any content column for printing
+  * (de) (De)aktivierung der Contentspalten für den Ausdruck
+  *
+  * @see     http://www.yaml.de/en/documentation/css-components/layout-for-print-media.html
+  */
+
+  #col1, #col1_content { float:none; width:100%; margin:0; padding:0; border:0; }
+  #col2, #col2_content { float:none; width:100%; margin:0; padding:0; border:0; }
+  #col3, #col3_content { width:100%; margin:0; padding:0; border:0; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* Optional Column Labels | Optionale Spaltenauszeichnung
+  #col1_content:before { content:" [ left | middle | right column ]"; }
+  #col2_content:before { content:" [ left | middle | right column ]"; }
+  #col3_content:before { content:" [ left | middle | right column ]"; }
+
+  #col1_content:before, #col2_content:before, #col3_content:before {
+    content:"";
+    color:#888;
+    background:inherit;
+    display:block;
+    font-weight:bold;
+    font-size:1.5em;
+  }
+  */
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) optional output of acronyms and abbreviations*/
+  /* (de) optionale Ausgabe von Auszeichnung von Abkürzungen */
+
+  /*
+    abbr[title]:after, 
+    acronym[title]:after { content:'(' attr(title) ')'; }
+  */
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) optional URL output of hyperlinks in print layout */
+  /* (de) optionale Ausgabe der URLs von Hyperlinks */
+  /*
+  a[href]:after {
+    content:" <URL:"attr(href)">";
+    color:#444;
+    background:inherit;
+    font-style:italic;
+  }
+  */
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) print stylesheet
+ * (de) Druck-Stylesheet
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision:302 $
+ * @lastmodified    $Date:2008-12-14 11:23:55 +0100 (So, 14. Dez 2008) $
+ */
+
+
+
+@media print
+{
+ /**
+  * @section basic layout preparation
+  * @see     http://www.yaml.de/en/documentation/css-components/layout-for-print-media.html
+  */
+
+  /* (en) change font size unit to [pt] - avoiding problems with [px] unit in Gecko based browsers  */
+  /* (de) Wechsel der der Schriftgrößen-Maßheinheit zu [pt] - Probleme mit Maßeinheit [px] in Gecko-basierten Browsern vermeiden */
+  body { font-size:10pt; }
+
+  /* (en) Hide unneeded container of the screenlayout in print layout */
+  /* (de) Für den Druck nicht benötigte Container des Layouts abschalten */
+  #topnav, #nav, #search, nav { display:none; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) Avoid page breaks right after headings */
+  /* (de) Vermeidung von Seitenumbrüchen direkt nach einer Überschrift */
+  h1,h2,h3,h4,h5,h6 { page-break-after:avoid; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) optional output of acronyms and abbreviations*/
+  /* (de) optionale Ausgabe von Auszeichnung von Abkürzungen */
+
+  /*
+    abbr[title]:after, 
+    acronym[title]:after { content:'(' attr(title) ')'; }
+  */
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /* (en) optional URL output of hyperlinks in print layout */
+  /* (de) optionale Ausgabe der URLs von Hyperlinks */
+  /*
+  a[href]:after {
+    content:" <URL:"attr(href)">";
+    color:#444;
+    background:inherit;
+    font-style:italic;
+  }
+  */
+
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) Template for designing a screen layout
+ * (de) Gestaltungsvorlage für die Erstellung eines Screenlayouts
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision:392 $
+ * @lastmodified    $Date:2009-07-05 12:18:40 +0200 (So, 05. Jul 2009) $
+ */
+
+
+@media screen, projection
+{
+  /** 
+   * (en) Forcing vertical scrollbars in IE8, Firefox, Webkit & Opera 
+   * (de) Erzwingen vertikaler Scrollbalken in IE8, Firefox, Webkit & Opera 
+   *
+   * @workaround
+   * @affected IE8, FF, Webkit, Opera
+   * @css-for all
+   * @valid CSS3
+   */
+
+  body { overflow-y:scroll; }
+
+ /*------------------------------------------------------------------------------------------------------*/
+
+ /**
+  * Design of the Basic Layout | Gestaltung des YAML Basis-Layouts
+  *
+  * @section layout-basics
+  */
+
+  /* Page margins and background | Randbereiche & Seitenhintergrund */
+  body {  }
+
+  /* Layout:Width, Background, Border | Layout:Breite, Hintergrund, Rahmen */
+  .page_margins {  }
+  .page{  }
+
+  /* Design of the Main Layout Elements | Gestaltung der Hauptelemente des Layouts */
+  #header {  }
+  #topnav {  }
+
+  #main {  }
+
+  #footer {  }
+
+ /*------------------------------------------------------------------------------------------------------*/
+
+ /**
+  * Formatting of the Content Area | Formatierung der Inhaltsbereichs
+  *
+  * @section layout-main
+  */
+
+  #col1 {  }
+  #col1_content {  }
+
+  #col2 {  }
+  #col2_content {  }
+
+  #col3 {  }
+  #col3_content {  }
+
+
+ /*------------------------------------------------------------------------------------------------------*/
+
+ /**
+  * Design of Additional Layout Elements | Gestaltung weiterer Layoutelemente
+  *
+  * @section layout-misc
+  */
+  
+  
+  
+ /**
+  * ------------------------------------------------------------------------------------------------- #
+  *
+  * Skiplinks 
+  *
+  * (en) Visual styling for skiplink navigation
+  * (de) Visuelle Gestaltung der Skiplink-Navigation
+  *
+  * @section content-skiplinks
+  */
+  
+  #skiplinks a.skip:focus,
+  #skiplinks a.skip:active { 
+	color:#fff; 
+	background:#333; 
+	border-bottom:1px #000 solid;
+	padding:10px 0;
+	text-decoration:none;
+  }  
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) Uniform design of standard content elements
+ * (de) Einheitliche Standardformatierungen für die wichtigten Inhalts-Elemente
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision:392 $
+ * @lastmodified    $Date:2009-07-05 12:18:40 +0200 (So, 05. Jul 2009) $
+ * @appdef yaml
+ */
+
+
+@media all
+{
+ /**
+  * Fonts
+  *
+  * (en) global settings of font-families and font-sizes
+  * (de) Globale Einstellungen für Zeichensatz und Schriftgrößen
+  *
+  * @section content-global-settings
+  */
+
+  /* (en) reset font size for all elements to standard (16 Pixel) */
+  /* (de) Alle Schriftgrößen auf Standardgröße (16 Pixel) zurücksetzen */
+  html * { font-size:100.01%; }
+
+ /**
+  * (en) reset monospaced elements to font size 16px in all browsers
+  * (de) Schriftgröße von monospaced Elemente in allen Browsern auf 16 Pixel setzen
+  *
+  * @see: http://webkit.org/blog/67/strange-medium/
+  */
+
+  textarea, pre, code, kbd, samp, var, tt {
+    font-family:Consolas, "Lucida Console", "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier;
+  }
+
+  /* (en) base layout gets standard font size 12px */
+  /* (de) Basis-Layout erhält Standardschriftgröße von 12 Pixeln */
+  body {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:75.00%;
+    color:#444;
+  }
+
+  /*--- Headings | Überschriften ------------------------------------------------------------------------*/
+
+  h1,h2,h3,h4,h5,h6 {
+    font-family:"Times New Roman", Times, serif;
+    font-weight:normal;
+    color:#222;
+    margin:0 0 0.25em 0;
+  }
+
+  h1 { font-size:250%; }                       /* 30px */
+  h2 { font-size:200%; }                       /* 24px */
+  h3 { font-size:150%; }                       /* 18px */
+  h4 { font-size:133.33%; }                    /* 16px */
+  h5 { font-size:116.67%; }                    /* 14px */
+  h6 { font-size:116.67%; }                    /* 14px */
+
+  /* --- Lists | Listen  -------------------------------------------------------------------------------- */
+
+  ul, ol, dl { line-height:1.5em; margin:0 0 1em 1em; }
+  ul { list-style-type:disc; }
+  ul ul { list-style-type:circle; margin-bottom:0; }
+
+  ol { list-style-type:decimal; }
+  ol ol { list-style-type:lower-latin; margin-bottom:0; }
+
+  li { margin-left:0.8em; line-height:1.5em; }
+
+  dt { font-weight:bold; }
+  dd { margin:0 0 1em 0.8em; }
+
+  /* --- general text formatting | Allgemeine Textauszeichnung ------------------------------------------ */
+
+  p { line-height:1.5em; margin:0 0 1em 0; }
+
+  blockquote, cite, q {
+    font-family:Georgia, "Times New Roman", Times, serif;
+    font-style:italic;
+  }
+  blockquote { margin:0 0 1em 1.6em; color:#666; }
+
+  strong,b { font-weight:bold; }
+  em,i { font-style:italic; }
+
+  big { font-size:116.667%; }
+  small { font-size:91.667%; }
+ 
+  pre { line-height:1.5em; margin:0 0 1em 0; }
+  pre, code, kbd, tt, samp, var { font-size:100%; }
+  pre, code { color:#800; }
+  kbd, samp, var, tt { color:#666; font-weight:bold; }
+  var, dfn { font-style:italic; }
+
+  acronym, abbr {
+    border-bottom:1px #aaa dotted;
+    font-variant:small-caps;
+    letter-spacing:.07em;
+    cursor:help;
+  }
+  
+  sub { vertical-align: sub; font-size: smaller; }
+  sup { vertical-align: super; font-size: smaller; }
+
+  hr {
+    color:#fff;
+    background:transparent;
+    margin:0 0 0.5em 0;
+    padding:0 0 0.5em 0;
+    border:0;
+    border-bottom:1px #eee solid;
+  }
+
+  /*--- Links ----------------------------------------------------------------------------------------- */
+
+  a { color:#4D87C7; background:transparent; text-decoration:none; }
+  a:visited  { color:#036; }
+
+  /* (en) maximum constrast for tab focus - change with great care */
+  /* (en) Maximaler Kontrast für Tab Focus - Ändern Sie diese Regel mit Bedacht */
+  a:focus { text-decoration:underline; color:#000; background: #fff; outline: 3px #f93 solid; }
+  a:hover,
+  a:active { color:#182E7A; text-decoration:underline; outline: 0 none; }
+
+  /* --- images (with optional captions) | Bilder (mit optionaler Bildunterschrift) ------------------ */
+
+  p.icaption_left { float:left; display:inline; margin:0 1em 0.15em 0; }
+  p.icaption_right { float:right; display:inline; margin:0 0 0.15em 1em; }
+
+  p.icaption_left img,
+  p.icaption_right img { padding:0; border:1px #888 solid; }
+
+  p.icaption_left strong,
+  p.icaption_right strong { display:block; overflow:hidden; margin-top:2px; padding:0.3em 0.5em; background:#eee; font-weight:normal; font-size:91.667%; }
+
+ /**
+  * ------------------------------------------------------------------------------------------------- #
+  *
+  * Generic Content Classes
+  *
+  * (en) standard classes for positioning and highlighting
+  * (de) Standardklassen zur Positionierung und Hervorhebung
+  *
+  * @section content-generic-classes
+  */
+
+  .highlight { color:#c30; }
+  .dimmed { color:#888; }
+
+  .info { background:#f8f8f8; color:#666; padding:10px; margin-bottom:0.5em; font-size:91.7%; }
+
+  .note { background:#efe; color:#040; border:2px #484 solid; padding:10px; margin-bottom:1em; }
+  .important { background:#ffe; color:#440; border:2px #884 solid; padding:10px; margin-bottom:1em; }
+  .warning { background:#fee; color:#400; border:2px #844 solid; padding:10px; margin-bottom:1em; }
+
+  .float_left { float:left; display:inline; margin-right:1em; margin-bottom:0.15em; }
+  .float_right { float:right; display:inline; margin-left:1em; margin-bottom:0.15em; }
+  .center { display:block; text-align:center; margin:0.5em auto; }
+
+ /**
+  * ------------------------------------------------------------------------------------------------- #
+  *
+  * Tables | Tabellen
+  *
+  * (en) Generic classes for table-width and design definition
+  * (de) Generische Klassen für die Tabellenbreite und Gestaltungsvorschriften für Tabellen
+  *
+  * @section content-tables
+  */
+
+  table { width:auto; border-collapse:collapse; margin-bottom:0.5em; border-top:2px #888 solid; border-bottom:2px #888 solid; }
+  table caption { font-variant:small-caps; }
+  table.full { width:100%; }
+  table.fixed { table-layout:fixed; }
+
+  th,td { padding:0.5em; }
+  thead th { color:#000; border-bottom:2px #800 solid; }
+  tbody th { background:#e0e0e0; color:#333; }
+  tbody th[scope="row"], tbody th.sub { background:#f0f0f0; }
+
+  tbody th { border-bottom:1px solid #fff; text-align:left; }
+  tbody td { border-bottom:1px solid #eee; }
+
+  tbody tr:hover th[scope="row"],
+  tbody tr:hover tbody th.sub { background:#f0e8e8; }
+  tbody tr:hover td { background:#fff8f8; }
+
+ /**
+  * ------------------------------------------------------------------------------------------------- #
+  *
+  * Miscellaneous | Sonstiges
+  *
+  * @section content-misc
+  */
+
+ /**
+  * (en) Emphasizing external Hyperlinks via CSS
+  * (de) Hervorhebung externer Hyperlinks mit CSS
+  *
+  * @section             content-external-links
+  * @app-yaml-default    disabled
+  */
+
+  /*
+  #main a[href^="http://www.my-domain.com"],
+  #main a[href^="https://www.my-domain.com"]
+  {
+    padding-left:12px;
+    background-image:url('your_image.gif');
+    background-repeat:no-repeat;
+    background-position:0 0.45em;
+  }
+  */
+}
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) CSS-component for creating vertical forms
+ * (de) CSS-Baustein zur Erstellung von Formularen mit untereinander angeordneten Elementen
+ *
+ * @note            Many thanks to Ansgar Hein (http://www.anatom5.de) for contribution
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision: 501 $
+ * @lastmodified    $Date: 2011-06-18 17:27:44 +0200 (Sa, 18 Jun 2011) $
+ */
+
+
+@media screen, projection
+{
+  /**
+   *  YAML Forms - visual styling
+   *
+   *  (en) visual form styling area
+   *  (de) Festlegung des optischen Erscheinungsbildes
+   */
+
+  .yform {
+    background:#f4f4f4;
+    border:1px #ddd solid;
+    margin:0 0 1em 0;
+    padding:10px;
+  }
+
+  .yform fieldset {
+    border:1px #ddd solid;
+    background:#fafafa;
+    margin:0 0 1em 0;
+    padding:0.5em;
+  }
+  
+  .yform legend {
+    font-size:125%; 
+    font-weight:normal; 
+    color:#000;
+  }
+
+  .yform label {
+    color:#666;
+  }
+
+  .yform input,
+  .yform textarea,
+  .yform select, 
+  .yform optgroup {
+    font-family:Arial, Helvetica, sans-serif; /* proportional fonts for all form elements */
+  }
+
+  .yform .type-text input,
+  .yform .type-text textarea,
+  .yform .type-select select {
+    border:1px solid #ddd;
+  }
+
+  /* :hover and :focus status on form fields | Effekt zur Hervorhebung von Formularfeldern bei :hover oder :focus */
+  .yform div.type-text input:focus,
+  .yform div select:focus,
+  .yform div textarea:focus,
+  .yform div.type-text input:hover,
+  .yform div select:hover,
+  .yform div textarea:hover,
+  .yform div.type-text input:active,
+  .yform div select:active,
+  .yform div textarea:active {
+    border:1px #a66 solid;
+    background:#fff;
+  }
+
+  /* Styling of custom styled buttons | Gestaltung von individuell gestalteten Buttons */
+  .yform .type-button input {
+    border-top:1px #ddd solid;
+    border-left:1px #ddd solid;
+    border-right:1px #444 solid;
+    border-bottom:1px #444 solid;
+    color:#000;
+    background:#454545 url(images/button_gray.png) top left repeat-x;
+    padding:5px 1em;
+  }
+
+  .yform .type-button input[type=reset] { color:#300; background:#661717 url(images/button_red.png) top left repeat-x; }
+  .yform .type-button input[type=submit] { color:#330; background:#5e5607 url(images/button_yellow.png) top left repeat-x; }
+
+  /* optional button styling for IE6 using classes */
+  .yform .type-button input.reset { color:#300; background:#661717 url(images/button_red.png) top left repeat-x; }
+  .yform .type-button input.submit { color:#330; background:#5e5607 url(images/button_yellow.png) top left repeat-x; }
+
+  /* :hover and :focus status on buttons | Effekt zur Hervorhebung von Schaltern bei :hover oder :focus */
+  .yform div.type-button input:focus,
+  .yform div.type-button input:hover,
+  .yform div.type-button input:active {
+    border-top:1px #444 solid;
+    border-left:1px #444 solid;
+    border-right:1px #ddd solid;
+    border-bottom:1px #ddd solid;
+    color:#fff;
+    background:#555; 
+  }
+
+  .yform div.type-button input.reset:focus,
+  .yform div.type-button input.reset:hover,
+  .yform div.type-button input.reset:active {
+    background:#800; color:#fff;
+  }
+
+  .yform div.type-button input.submit:focus,
+  .yform div.type-button input.submit:hover,
+  .yform div.type-button input.submit:active {
+    background:#880; color:#fff;
+  }
+
+ /*------------------------------------------------------------------------------------------------------*/
+
+ /**
+  * Vertical-Forms - technical base (standard)
+  *
+  * |-------------------------------|
+  * | fieldset                      |
+  * |-------------------------------|
+  * |   label                       |
+  * |   input / select / textarea   |
+  * |-------------------------------|
+  * | /fieldset                     |
+  * |-------------------------------|
+  *
+  * (en) Styling of forms where both label and input/select/textarea are styled with display:block;
+  * (de) Formulargestaltung, bei der sowohl label als auch input/select/textarea mit display:block; gestaltet werden
+  *
+  * WARNING:This part contains several IE-stability-fixes. Don't edit this part if you are not sure, what you're doing!
+  */
+
+  /* General form styling  | Allgemeine Formatierung des Formulars */
+  .yform { overflow:hidden; }
+  .yform fieldset { display:block; zoom:1; }
+  .yform label { display:block; cursor:pointer; }
+  .yform legend { background:transparent; border:0; padding:0 0.5em; }
+  .yform .message { display:block; margin-bottom:0.5em; color:#666; }
+
+  /* Hiding of hidden fields (otherwise ugly spaces in Firefox) | Versteckte Felder wirklich verstecken (sonst ggf. häßliche Lücken im Firefox) */
+  .yform input[type=hidden] { display:none !important; }
+
+  /* Highlight mandatory fields | Pflichtfeldkennzeichnung hervorheben */
+  .yform sup { color:#800; font-weight:bold; }
+
+  /* per row float clearing | zeilenweises Float-Clearing */
+  fieldset:after,
+  .yform div.type-text:after,
+  .yform div.type-select:after,
+  .yform div.type-check:after,
+  .yform div.type-button:after {
+    clear:both;
+    content:".";
+    display:block;
+    font-size:0;
+    height:0;
+    visibility:hidden;
+  }
+
+  /* styling containing DIV elements | Gestaltung der kapselnden DIV-Elemente */
+  .yform div.type-text,
+  .yform div.type-select,
+  .yform div.type-check,
+  .yform div.type-button {
+	display:block;
+    margin:0.5em 0;
+    padding:3px 0.5em;  
+    position:relative;
+	zoom:1; 
+  }
+  
+  .yform div.type-button {
+    padding:3px 0em;  
+  }
+  
+  /* styling standard form elements with 'almost' equal flexible width | Gestaltung der einzelnen Formularelemente mit annähend gleicher Breite */
+  .yform .type-text input,
+  .yform .type-text textarea {
+    display:block;
+    position:relative;
+    padding:0.3em 0.3em;
+    width:58.5%;
+  }
+
+  .yform .type-select select {
+    display:block;
+    position:relative;
+    padding:0.3em 2px 0.3em 1px;
+    width:60%;
+    cursor:pointer;
+  }
+  .yform .type-select select optgroup {
+    font-style:normal;
+    font-weight:bold;
+  }
+
+  .yform .type-check input { cursor:pointer; }
+  .yform .type-check label { display:inline; }
+
+  /* Styling of buttons | Gestaltung von Buttons */
+  .yform .type-button input {
+    cursor:pointer;
+    overflow:visible;  /* Fixes IE7 auto-padding bug */
+    width:auto;
+  }
+
+  /* Styling of error-messages | Fehlermeldungen */
+  .yform div.error {
+    border:1px #a00 dashed;
+    background:#faf4f4;
+    padding:0.5em;
+  }
+
+  .yform div.error label { color:#000; font-weight:bold; }
+  .yform div.error .message { color:#800; }
+
+  /* avoid jumping checkboxes & radiobuttons in IE8 */
+  .yform div.type-check input:focus,
+  .yform div.type-check input:hover,
+  .yform div.type-check input:active { border:0 none; }
+
+ /*------------------------------------------------------------------------------------------------------*/
+
+  /* Indent Checkbox fields to match label-width | Checkboxen um den gleichen Wert einrücken, wie die Breite der labels */
+
+  .full div.type-text input,
+  .full div.type-text textarea { width:95.5%; margin-right: -3px; }
+  .full div.type-select select { width:97.0%; margin-right: -3px; }
+  
+  /* width adjustments for IE 5.x & IE6 | Breitenanpassung für Internet Explorer 5.x und 6.0 */
+  * html .full div.type-text input,
+  * html .full div.type-text textarea { width:95.5%; }
+  * html .full div.type-select select { width:97.0%; }
+
+ /*------------------------------------------------------------------------------------------------------*/
+
+ /**
+  * Columnar forms display - technical base (optional)
+  *
+  * |-------------------------------------------|
+  * | fieldset                                  |
+  * |-------------------------------------------|
+  * |                                           |
+  * |   label   |   input / select / textarea   |
+  * |                                           |
+  * |-------------------------------------------|
+  * | /fieldset                                 |
+  * |-------------------------------------------|
+  *
+  * (en) Styling of forms where label floats left of form-elements
+  * (de) Formulargestaltung, bei der die label-Elemente nach links fließen
+  *
+  * WARNING:This part contains several IE-stability-fixes. Don't edit this part if you are not sure, what you're doing!
+  */
+
+  /* Columnar display | Spalten-Darstellung */
+  .columnar .type-text label,
+  .columnar .type-select label {
+    float:left;
+    width:30%; /* Can be fixed width too | Kann auch eine fixe Angabe sein */
+  }
+
+  /* Indent Checkbox fields to match label-width | Checkboxen um den gleichen Wert einrücken, wie die Breite der labels */
+  .columnar div.type-check input { margin-left:30%; }
+  .columnar div.error .message { margin-left:30%; }
+
+  .columnar fieldset div.type-button,
+  fieldset.columnar div.type-button { padding-left:30%; }
+
+  .columnar div.type-text input,
+  .columnar div.type-text textarea { float:left; width:67.8%; margin-right: -3px; }
+  .columnar div.type-select select { float:left; width:69.4%; margin-right: -3px; }
+  
+  /* width adjustments for IE 5.x & IE6 | Breitenanpassung für Internet Explorer 5.x und 6.0 */
+  * html .columnar div.type-text input,
+  * html .columnar div.type-text textarea { width:67.2%; }
+  * html .columnar div.type-select select { width:68.8%; }
+  
+ /*------------------------------------------------------------------------------------------------------*/
+
+ /**
+  * Global fixes for YAML's form construction set
+  *
+  * @workaround
+  * @affected IE 5.x/Win, IE6, IE7
+  * @css-for IE 5.x/Win, IE6, IE7
+  * @valid no
+  */
+
+  .yform, 
+  .yform div,
+  .yform div * { zoom:1; }
+
+ /**
+  * Forms Fieldset/Legend-Bug in IE
+  * @see http://www.mattheerema.com/web-design/2006/04/getting-fieldset-backgrounds-and-legends-to-behave-in-ie/
+  *
+  * @workaround
+  * @affected IE 5.x/Win, IE6, IE7, IE8
+  * @css-for IE 5.x/Win, IE6, IE7, IE8
+  * @valid no
+  */
+  
+  /* all IE */ 
+  .yform { padding-top:0\9; }
+  .yform fieldset { padding:0 5px\9; padding-top:1em\9; }
+  .yform legend { position:absolute\9; top:-.5em\9; *left:0\9; }
+  .yform fieldset { position:relative\9; overflow:visible\9;  margin-top:1.5em\9; zoom:1; }
+
+  /* IE5.x, IE6 & IE7 */
+  .yform legend { *padding:0 5px; }
+  .yform fieldset { *padding-top:1.5em; }
+  
+  /* IE5.x & IE6 */
+  * html .yform { padding-top:10px; }
+}
