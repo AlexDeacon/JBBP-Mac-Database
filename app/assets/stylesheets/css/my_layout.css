@@ -7,8 +7,8 @@
  * @file          my_layout.css
  * @-yaml-minver  3.3
  * 
-*= require_self
-*=require_tree .
+ *= require_self
+ *= require_tree .
  */
 
 /* import core styles | Basis-Stylesheets einbinden */
@@ -22,3 +22,19 @@
 
 /* import print layout | Druck-Layout einbinden */
 @import url(../yaml/print/print_draft.css);
+
+
+.pretty th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.pretty th .asc {
+  background-image: url(/assets/small_up_arrow_icon.gif);
+}
+
+.pretty th .desc {
+  background-image: url(/assets/small_down_arrow_icon.gif);
+}
+
