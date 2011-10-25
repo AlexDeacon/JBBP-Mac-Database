@@ -45,6 +45,6 @@ module V1
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.1'
 
-    config.assets.precompile += ['css/my_layout.css']
+    config.assets.precompile += ['css/my_layout.css', 'css/patches/patch_my_layout.css']
   end
 end

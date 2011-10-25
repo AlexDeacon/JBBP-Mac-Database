@@ -49,6 +49,7 @@ yaml/add-ons/microformats/images/icon-geo.png: yaml/add-ons/microformats/images/
 images/gfxborder/corner_br.gif: images/gfxborder/corner_br-d1f82e9bb8ef49106d04c8f2cc2eb215.gif
 yaml/add-ons/accessible-tabs/jquery.tabs.min.js: yaml/add-ons/accessible-tabs/jquery-63868f5d06f159dced696ba3a286efd3.tabs.min.js
 yaml/add-ons/microformats/images/icon-xfn.png: yaml/add-ons/microformats/images/icon-xfn-273e50780c71df086f9b5bead0ec4c1d.png
+css/patches/patch_my_layout.css: css/patches/patch_my_layout-b5b638862b69015c40f9cd0842396f06.css
 application.css: application-827f94d17734f78d30290a4c9879b79a.css
 yaml/add-ons/microformats/images/icon-rel-tag.png: yaml/add-ons/microformats/images/icon-rel-tag-51afb905864d9d88866af14d0eeafc13.png
 images/gfxborder/corner_tl.gif: images/gfxborder/corner_tl-70c7ad83492c3ce3ab8c3decc6d895f6.gif
