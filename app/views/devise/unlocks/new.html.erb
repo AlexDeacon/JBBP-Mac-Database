@@ -1,12 +1,12 @@
 
 <%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post,:class=>"yform" }) do |f| %>
 
-<fieldset>
+<fieldset class="columnar">
   <legend>Resend unlock instructions</legend>
 
   <%= devise_error_messages! %>
 
-  <div class="type-text"><%= f.label :email %><br />
+  <div class="type-text"><%= f.label :email %>
   <%= f.email_field :email %></div>
 
   <div class="type-button"><%= f.submit "Resend unlock instructions" %></div>
